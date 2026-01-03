@@ -3,7 +3,7 @@ title: "Community-Based Governance: Empowering Local Leadership in Marine Resour
 description: "Exploring how community organizations and local governance structures enable sustainable marine resource management in Mkuranga and Mkoani"
 author: "Masumbuko Semba"
 date: 2026-01-30
-categories: [governance, community-management, local-institutions]
+categories: [Article]
 keywords: [community-based management, governance, Beach Village Committees, local leadership, marine resources, Mkuranga, Mkoani, Tanzania]
 image: "../../images/components/nne.jpg"
 reading-time: true

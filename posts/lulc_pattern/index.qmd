@@ -10,7 +10,7 @@ contributors:
   - name: "Emmanuel Mpina"  
     affiliation: "The Nature Conservancy (TNC), Tanzania"
 date: "2025-12-29"
-categories: [spatial-analysis, land-cover]
+categories: [Fact sheet]
 keywords: [Mkoani, Pemba, land cover change, ESA WorldCover, spatial analysis, ecosystem]
 image: "lulc_mkoani_relative_area.png"
 reading-time: true

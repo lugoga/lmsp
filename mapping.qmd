@@ -1,0 +1,151 @@
+---
+title: "Untitled"
+format: html
+---
+
+```{r}
+# Install required packages if needed
+library(tidyverse)
+library(sf)
+library(rnaturalearth)
+library(ggplot2)
+
+# Get Tanzania map data
+tanzania <- ne_countries(country = "tanzania", returnclass = "sf")
+africa <- ne_countries(continent = "africa", returnclass = "sf")
+tanzania = africa |> select(country = name_en)|> filter(country == "Tanzania") 
+```
+
+```{r}
+
+
+
+# Create coastal Tanzania data with major cities/regions
+# Including Mkuranga, Mkoani (Pemba), and major coastal cities
+coastal_cities <- tibble(
+  rank = 1:12,
+  city = c("Dar es Salaam", "Zanzibar City", "Mbeya", "Mwanza", 
+           "Arusha", "Dodoma", "Moshi", "Iringa",
+           "Tanga", "Mkuranga", "Mkoani", "Pemba"),
+  population = c(5.5, 1.8, 0.9, 1.2, 
+                 0.8, 0.7, 0.5, 0.4,
+                 0.6, 0.3, 0.2, 0.25),
+  lat = c(-6.8, -6.15, -8.75, -2.50,
+          -3.37, -6.18, -3.35, -7.77,
+          -5.07, -7.0, -5.5, -5.2),
+  lon = c(39.28, 39.20, 35.29, 32.90,
+          36.68, 35.75, 37.66, 35.68,
+          39.90, 39.5, 39.8, 39.9),
+  region_type = c("Major City", "Island City", "Regional", "Regional",
+                  "Regional", "Capital", "Regional", "Regional",
+                  "Coastal", "District", "District", "Island")
+)
+
+# Create map
+tz_map <- ggplot() +
+  geom_sf(data = africa, fill = "#E8D7C3", color = "#999999", size = 0.3) +
+  geom_sf(data = tanzania, fill = "#F5E6D3", color = "#666666", size = 0.5) +
+  
+  # Add circles for cities sized by population
+  geom_point(data = coastal_cities, 
+             aes(x = lon, y = lat, size = population, fill = region_type),
+             shape = 21, stroke = 2, color = "white", alpha = 0.8) +
+  
+  # Add city labels
+  geom_text(data = coastal_cities,
+            aes(x = lon, y = lat, label = paste0(rank, "\n", city)),
+            size = 3, fontface = "bold", vjust = -1.5) +
+  
+  # Add population labels inside circles
+  geom_text(data = coastal_cities,
+            aes(x = lon, y = lat, label = paste0(population, "M")),
+            size = 2.5, fontface = "bold", vjust = 0.5) +
+  
+  # Styling
+  scale_size_continuous(range = c(3, 25), guide = "none") +
+  scale_fill_manual(values = c("Major City" = "#0066CC",
+                               "Island City" = "#0099FF", 
+                               "Coastal" = "#33CCFF",
+                               "District" = "#FF6B6B",
+                               "Regional" = "#FF9966",
+                               "Capital" = "#FFCC33"),
+                    name = "Type") +
+  
+  # Set map limits to focus on coastal Tanzania
+  coord_sf(xlim = c(38, 41), ylim = c(-9, -3), expand = FALSE) +
+  
+  # Labels and title
+  labs(title = "COASTAL TANZANIA'S MAJOR REGIONS & CITIES",
+       subtitle = "BY POPULATION (MILLIONS)",
+       caption = "Data visualization showing coastal regions of Tanzania including Zanzibar, Pemba, and major districts") +  
+  # Theme
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 20, face = "bold", color = "#666666", hjust = 0.5),
+    plot.subtitle = element_text(size = 14, color = "#999999", hjust = 0.5),
+    plot.caption = element_text(size = 9, color = "#999999"),
+    panel.background = element_rect(fill = "#F0E6D2", color = NA),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    legend.position = "right",
+    plot.margin = margin(20, 20, 20, 20)
+  )
+
+print(tz_map)
+
+```
+
+
+
+```{r}
+afr_pop = spData::world  |> 
+    filter(continent == 'Africa') |> 
+    select(subregion , country = name_long, pop, area_km2, gdp = gdpPercap)
+
+eaf = afr_pop |> filter(subregion == 'Eastern Africa')
+eaf_tb = eaf |> st_point_on_surface()
+
+eaf_tb = eaf |> 
+    st_centroid()|> st_coordinates() |> 
+    as_tibble() |> rename(lon = X, lat = Y) |> 
+    bind_cols(eaf_tb) |> 
+    mutate(
+        rank = min_rank(desc(pop)),
+        labels
+        )
+```
+
+
+```{r}
+ggplot() +
+  geom_sf(data = afr_pop, fill = "#E8D7C3", color = "#999999", size = 0.3) +
+  geom_sf(data = eaf, fill = "#F5E6D3", color = "#666666", size = 0.5)   +
+  # Add circles for cities sized by population
+  geom_point(data = eaf_tb, 
+             aes(x = lon, y = lat, size = pop),
+             shape = 21, stroke = 2, color = "white", alpha = 0.8) +  
+  # Add city labels
+  geom_text(data = eaf_tb,
+            aes(x = lon, y = lat, label = paste0(rank, "\n", country)),
+            size = 3, fontface = "bold", vjust = -1.5) +
+  
+  # Add population labels inside circles
+  geom_text(data = eaf_tb,
+            aes(x = lon, y = lat, label = paste0(pop, "M")),
+            size = 2.5, fontface = "bold", vjust = 0.5)  +
+  
+  # Styling
+  scale_size_continuous(range = c(3, 25), guide = "none") +
+  scale_fill_manual(values = c("Major City" = "#0066CC",
+                               "Island City" = "#0099FF", 
+                               "Coastal" = "#33CCFF",
+                               "District" = "#FF6B6B",
+                               "Regional" = "#FF9966",
+                               "Capital" = "#FFCC33"),
+                    name = "Type") +
+  
+  # Set map limits to focus on coastal Tanzania
+  coord_sf(xlim = c(38, 41), ylim = c(-9, -3), expand = FALSE)
+  
+```

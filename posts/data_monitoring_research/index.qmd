@@ -3,7 +3,7 @@ title: "Data, Monitoring, and Research: The Information Foundation for Effective
 description: "Understanding data needs, monitoring systems, and research priorities for evidence-based marine management in Mkuranga and Mkoani"
 author: "Masumbuko Semba"
 date: 2026-02-03
-categories: [data-monitoring, research, evidence-based-management]
+categories: [Article]
 keywords: [data collection, monitoring, research, fisheries science, marine ecosystems, Mkuranga, Mkoani, Tanzania]
 image: "../../images/components/validation.jpg"
 reading-time: true

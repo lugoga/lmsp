@@ -1670,6 +1670,143 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script>
   const scrollBtn = document.getElementById('scrollToTopBtn');
   
+  // Translation dictionary
+  const translations = {
+    en: {
+      'nav.home': 'Home',
+      'nav.about': 'About',
+      'nav.why_lmsp': 'Why LMSP',
+      'nav.initiatives': 'LMSP Initiatives',
+      'nav.ongoing': 'Ongoing',
+      'nav.planned': 'Planned',
+      'nav.completed': 'Completed',
+      'nav.blog': 'Blog',
+      'nav.resources': 'Resource',
+      'nav.implementation_guide': 'Implementation Guide',
+      'nav.books_articles': 'Book and Articles',
+      'nav.case_studies': 'Case Studies',
+      'nav.team': 'Team',
+      'nav.contacts': 'Contacts',
+      'nav.admin': 'Admin',
+      'nav.archive': 'Archive',
+      'ui.comments_title': 'Comments & Discussion',
+      'ui.comments_info': 'Join the conversation! Share your thoughts and feedback below.',
+      'ui.name': 'Name',
+      'ui.email': 'Email',
+      'ui.comment': 'Comment',
+      'ui.post_comment': 'Post Comment',
+      'ui.no_comments': 'No comments yet. Be the first to share your thoughts!',
+      'footer.quick_links': 'QUICK LINKS',
+      'footer.contact_us': 'Contact Us',
+      'footer.tools': 'Tools',
+      'lang.name': 'English'
+    },
+    sw: {
+      'nav.home': 'Nyumbani',
+      'nav.about': 'Kuhusu',
+      'nav.why_lmsp': 'Kwa Nini LMSP',
+      'nav.initiatives': 'Mpango wa LMSP',
+      'nav.ongoing': 'Inaendelea',
+      'nav.planned': 'Iliyopangwa',
+      'nav.completed': 'Imekamilika',
+      'nav.blog': 'Blogi',
+      'nav.resources': 'Rasilimali',
+      'nav.implementation_guide': 'Mwongozo wa Utekelezaji',
+      'nav.books_articles': 'Vitabu na Makala',
+      'nav.case_studies': 'Masomo ya Kesi',
+      'nav.team': 'Timu',
+      'nav.contacts': 'Wasiliani',
+      'nav.admin': 'Msimamizi',
+      'nav.archive': 'Hifadhi',
+      'ui.comments_title': 'Maoni & Mijadala',
+      'ui.comments_info': 'Jiunge na mazungumzo! Shiriki mawazo yako na maoni hapa chini.',
+      'ui.name': 'Jina',
+      'ui.email': 'Barua pepe',
+      'ui.comment': 'Maoni',
+      'ui.post_comment': 'Chapisha Maoni',
+      'ui.no_comments': 'Hakuna maoni bado. Kuwa wa kwanza kugawana mawazo yako!',
+      'footer.quick_links': 'VIUNGO VYA HARAKA',
+      'footer.contact_us': 'Wasiliana Nasi',
+      'footer.tools': 'Zana',
+      'lang.name': 'Kiswahili'
+    }
+  };
+  
+  // Simple language switcher
+  function initLanguageSwitcher() {
+    const currentLang = localStorage.getItem('lmsp_language') || 'en';
+    
+    // Create switcher HTML
+    const switcherHTML = `
+      <div id="lang-switcher" style="display: inline-block; margin-left: 10px;">
+        <button id="lang-btn" style="background: none; border: none; color: white; cursor: pointer; font-size: 16px; padding: 5px 10px;">
+          🌐 <span id="lang-text">${translations[currentLang]['lang.name']}</span>
+        </button>
+        <div id="lang-menu" style="position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ddd; border-radius: 4px; min-width: 150px; display: none; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <button class="lang-opt" data-lang="en" style="width: 100%; padding: 10px; border: none; background: none; text-align: left; cursor: pointer; font-size: 14px;">🇬🇧 English</button>
+          <button class="lang-opt" data-lang="sw" style="width: 100%; padding: 10px; border: none; background: none; text-align: left; cursor: pointer; font-size: 14px;">🇹🇿 Kiswahili</button>
+        </div>
+      </div>
+    `;
+    
+    // Find navbar and insert switcher
+    setTimeout(() => {
+      const navbar = document.querySelector('.navbar') || document.querySelector('nav');
+      if (navbar) {
+        const navRight = navbar.querySelector('.navbar-nav') || navbar;
+        if (navRight) {
+          navRight.insertAdjacentHTML('beforeend', switcherHTML);
+          setupLanguageSwitcherEvents();
+        }
+      }
+    }, 500);
+  }
+  
+  function setupLanguageSwitcherEvents() {
+    const btn = document.getElementById('lang-btn');
+    const menu = document.getElementById('lang-menu');
+    const options = document.querySelectorAll('.lang-opt');
+    
+    if (!btn || !menu) return;
+    
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    });
+    
+    options.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const lang = opt.getAttribute('data-lang');
+        changeLanguage(lang);
+        menu.style.display = 'none';
+      });
+    });
+    
+    document.addEventListener('click', () => {
+      menu.style.display = 'none';
+    });
+  }
+  
+  function changeLanguage(lang) {
+    localStorage.setItem('lmsp_language', lang);
+    document.documentElement.lang = lang;
+    
+    // Update all elements with data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+    
+    // Update language indicator
+    const langText = document.getElementById('lang-text');
+    if (langText) {
+      langText.textContent = translations[lang]['lang.name'];
+    }
+  }
+  
   // Show/hide scroll button based on scroll position
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {

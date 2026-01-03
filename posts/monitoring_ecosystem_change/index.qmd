@@ -6,7 +6,7 @@ author:
     - name: "Siajali Pamba"
       affiliation: "University of Dar es Salaam, School of Aquatic Sciences and Fisheries Technology"
 date: "2025-12-27"
-categories: [monitoring, change detection, ecosystem assessment, temporal analysis]
+categories: [Fact sheet]
 description: "Methods for tracking marine ecosystem changes over time in Mkoani-Pemba and Mkuranga-Pwani, using spatial raster analysis and categorical data comparison to inform adaptive management."
 ---
 

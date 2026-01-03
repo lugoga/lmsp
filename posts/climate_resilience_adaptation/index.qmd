@@ -3,7 +3,7 @@ title: "Building Climate Resilience in Coastal Tanzania: Adaptation Strategies f
 description: "Understanding climate change impacts on marine ecosystems and coastal communities, and implementing adaptation strategies for resilience"
 author: "Masumbuko Semba"
 date: 2026-01-24
-categories: [climate-change, resilience, coastal-adaptation]
+categories: [Article]
 keywords: [climate change, resilience, adaptation, sea level rise, marine ecosystems, Mkuranga, Mkoani, Tanzania]
 image: "../../images/components/saba.jpg"
 reading-time: true

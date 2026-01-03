@@ -3,7 +3,7 @@ title: "Land Cover Patterns in Mkoani and Mkuranga Districts"
 description: "Analyzing and comparing spatial patterns of land cover in Mkoani and Mkuranga Districts"
 author: "Masumbuko Semba"
 date: 2025-12-28
-categories: [spatial-analysis, land-cover]
+categories: [Fact sheet]
 keywords: [Mkoani, Mkuranga, land cover comparison, spatial patterns, coastal Tanzania, ecosystem]
 image: "lc_mkuranga.png"
 reading-time: true

@@ -6,7 +6,7 @@ author:
     - name: "Siajali Pamba"
       affiliation: "University of Dar es Salaam, School of Aquatic Sciences and Fisheries Technology"
 date: "2025-12-27"
-categories: [marine spatial planning, ecosystem analysis, geospatial mapping, biodiversity]
+categories: [Fact sheet]
 description: "Using spatial pattern metrics to compare marine ecosystem structure and configuration between Mkoani-Pemba and Mkuranga-Pwani districts, revealing critical insights for conservation planning."
 ---
 

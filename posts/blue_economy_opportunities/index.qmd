@@ -3,7 +3,7 @@ title: "Blue Economy Opportunities: Beyond Traditional Fishing in Mkuranga and M
 description: "Exploring economic diversification and sustainable use of marine resources for improved livelihoods in coastal Tanzania"
 author: "Masumbuko Semba"
 date: 2026-01-17
-categories: [blue-economy, economic-development, coastal-communities]
+categories: [Article]
 keywords: [blue economy, marine resources, aquaculture, tourism, Mkuranga, Mkoani, economic diversification, Tanzania]
 image: "../../images/components/tato.jpg"
 reading-time: true

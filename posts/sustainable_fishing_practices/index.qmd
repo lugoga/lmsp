@@ -3,7 +3,7 @@ title: "Sustainable Fishing Practices: Securing Livelihoods in Mkuranga and Mkoa
 description: "Exploring practical strategies for sustainable fishing that balance economic needs with marine ecosystem health in coastal Tanzania"
 author: "Masumbuko Semba"
 date: 2026-01-10
-categories: [sustainable-fisheries, livelihoods, coastal-communities]
+categories: [Article]
 keywords: [fishing, sustainability, Mkuranga, Mkoani, artisanal fisheries, food security, Tanzania]
 image: "../../images/components/deep_thinking_pemba.jpg"
 reading-time: true

@@ -3,7 +3,7 @@ title: "Women's Empowerment and Gender Justice in Marine Resource Management"
 description: "Exploring women's roles, challenges, and opportunities in sustainable fisheries and coastal development in Mkuranga and Mkoani"
 author: "Masumbuko Semba"
 date: 2026-01-24
-categories: [gender-equity, women-empowerment, coastal-livelihoods]
+categories: [Article]
 keywords: [women, gender, empowerment, marine resources, fisheries, coastal Tanzania, Mkuranga, Mkoani]
 image: "../../images/components/sita.jpg"
 reading-time: true

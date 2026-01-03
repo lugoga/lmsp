@@ -3,7 +3,7 @@ title: "Land Cover Change in Mkuranga District"
 description: "Analyzing and comparing temporal land cover patterns in Mkuranga District for marine spatial planning"
 author: "Masumbuko Semba"
 date: 2025-12-30
-categories: [spatial-analysis, land-cover]
+categories: [Fact sheet]
 keywords: [Mkuranga, Pwani, land cover change, ESA WorldCover, coastal analysis, spatial patterns]
 image: "lulc_mkuranga_2020_202_web1.png"
 reading-time: true

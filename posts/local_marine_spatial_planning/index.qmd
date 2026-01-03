@@ -3,7 +3,7 @@ title: "Local Marine Spatial Planning in Mkuranga and Mkoani Districts"
 description: "Introducing a transformative approach to sustainable marine resource management and coastal development in Tanzania's key maritime districts"
 author: "Masumbuko Semba"
 date: 2026-01-03
-categories: [marine-spatial-planning, coastal-management, Tanzania]
+categories: [Article]
 keywords: [MSP, Mkuranga, Mkoani, marine resources, coastal sustainability, Tanzania]
 image: "../../images/components/moja.jpg"
 reading-time: true

@@ -6,7 +6,7 @@ author:
     - name: "Siajali Pamba"
       affiliation: "University of Dar es Salaam, School of Aquatic Sciences and Fisheries Technology"
 date: "2025-12-27"
-categories: [ecosystem health, continuous data, remote sensing, indicator analysis]
+categories: [Fact sheet]
 description: "Methods for analyzing continuous ecosystem health indicators using satellite data and geospatial metrics to compare marine ecosystem quality across Mkoani and Mkuranga districts."
 ---
 
