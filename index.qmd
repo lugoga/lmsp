@@ -1,0 +1,95 @@
+---
+title: ""
+---
+
+## Local Marine Spatial Planning (LMSP) - Tanzania
+
+**Local Marine Spatial Planning (LMSP): Enhancing community stewardship in spatial planning**
+
+This website is the hub for Local Marine Spatial Planning (LMSP) initiatives in Tanzania and the Western Indian Ocean. We are an Ad Hoc Group of Experts dedicated to promoting evidence-based, community-centered marine spatial planning across the country.
+
+:::{.callout-important}
+**Mission:** To be the leading source and advocate for Local Marine Spatial Planning in Tanzania, strengthening community stewardship and sustainable ocean governance across the WIO region.
+:::
+
+---
+
+## Our Objectives
+
+The LMSP-Tanzania website serves four core objectives:
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### 🌍 Raise Awareness & Visibility
+Increase awareness and visibility of local Marine Spatial Planning initiatives in Tanzania and showcase successful approaches to coastal communities and development partners.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 👥 Increase Team Visibility
+Highlight the expertise, research, and fieldwork of our team members working on MSP and related fields across the country.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 🤝 Mobilize Support
+Draw partnerships and assignments from development partners and the private sector interested in supporting local Marine Spatial Planning efforts.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📊 Share Knowledge & Data
+Be the key source for data, information, and best practices on MSP in Tanzania and the broader Western Indian Ocean region.
+:::
+
+:::
+
+---
+
+## Key Resources
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### 📖 [Why LMSP Matters](lmsp-link.qmd)
+Understand the importance of Local Marine Spatial Planning and how it connects to national MSP frameworks and Western Indian Ocean initiatives.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📍 [LMSP Initiatives](lmsp-initiatives.qmd)
+Explore active Local MSP initiatives across Tanzania, their focus areas, and community engagement approaches.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📊 [Data & Information](lmsp-data.qmd)
+Access marine resources data, socioeconomic information, and spatial datasets for planning and analysis.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 👥 [Meet Our Team](team.qmd)
+Learn about the diverse expertise of our team members working across MSP, fisheries, conservation, and data science.
+:::
+
+:::
+
+---
+
+## Our Approach
+
+LMSP-Tanzania operates on core principles:
+
+- **Community-Centered**: Prioritizing the knowledge and participation of coastal communities in planning processes
+- **Evidence-Based**: Grounded in scientific research and local ecological knowledge
+- **Collaborative**: Working across sectors with government, NGOs, private sector, and development partners
+- **Scalable**: Sharing lessons learned across Tanzania and the Western Indian Ocean region
+- **Adaptive**: Responsive to changing environmental and socioeconomic conditions
+
+---
+
+## Connect With Us
+
+Interested in Local MSP or want to collaborate? We're looking for partnerships with development partners, research institutions, and community organizations.
+
+[Meet Our Team](team.qmd){.btn .btn-primary .btn-lg} [Get in Touch](contacts.qmd){.btn .btn-secondary .btn-lg}
+
+---
+
+**LMSP-Tanzania** | Ad Hoc Group of Experts on Marine Spatial Planning | Since 2026

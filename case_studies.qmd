@@ -1,0 +1,985 @@
+---
+title: "Case Studies"
+subtitle: "Learning from MSP Successes and Challenges Globally"
+---
+
+```{=html}
+<style>
+.case-studies-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.case-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 50px 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.case-header h1 {
+  color: white;
+  border: none;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.case-header p {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.95;
+  color: white;
+}
+
+.filter-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: 2px solid #2a5298;
+  background: white;
+  color: #2a5298;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #2a5298;
+  color: white;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.case-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border-top: 5px solid #2a5298;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.case-card.success {
+  border-top-color: #2e7d32;
+}
+
+.case-card.failed {
+  border-top-color: #c62828;
+}
+
+.case-card.mixed {
+  border-top-color: #f57c00;
+}
+
+.case-header-content {
+  padding: 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.case-status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.case-status.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.case-status.failed {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.case-status.mixed {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.case-card h3 {
+  color: #1e3c72;
+  border: none;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.case-location {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.case-location:before {
+  content: "📍";
+  margin-right: 6px;
+}
+
+.case-years {
+  color: #888;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.case-years:before {
+  content: "📅";
+  margin-right: 6px;
+}
+
+.case-body {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.case-section {
+  margin-bottom: 15px;
+}
+
+.case-section-title {
+  color: #2a5298;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.case-section-title:before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 14px;
+  background: #2a5298;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+.case-section-content {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+  padding-left: 0;
+}
+
+.case-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.case-tag {
+  background: #f0f4f8;
+  color: #2a5298;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.region-section {
+  margin-bottom: 50px;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  border-left: 5px solid #2a5298;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.region-section h2 {
+  color: #1e3c72;
+  border: none;
+  margin-top: 0;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.region-section h2:before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 28px;
+  background: linear-gradient(180deg, #2a5298 0%, #1e3c72 100%);
+  margin-right: 12px;
+  border-radius: 2px;
+}
+
+.lessons-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #2e7d32;
+  margin-top: 30px;
+}
+
+.lessons-box h3 {
+  color: #2e7d32;
+  border: none;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.lessons-box h3:before {
+  content: "✓";
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.lessons-box ul {
+  margin: 15px 0;
+  padding-left: 20px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.lessons-box li {
+  margin-bottom: 10px;
+}
+
+.challenges-box {
+  background: #fff5f5;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #c62828;
+  margin-top: 20px;
+}
+
+.challenges-box h3 {
+  color: #c62828;
+  border: none;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.challenges-box h3:before {
+  content: "⚠";
+  margin-right: 10px;
+}
+
+.challenges-box ul {
+  margin: 15px 0;
+  padding-left: 20px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.challenges-box li {
+  margin-bottom: 10px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.comparison-table th {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.comparison-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #555;
+  font-size: 14px;
+}
+
+.comparison-table tr:hover {
+  background: #f8f9fa;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .case-header {
+    padding: 30px 20px;
+  }
+  
+  .region-section {
+    padding: 20px;
+  }
+}
+</style>
+
+<div class="case-studies-container">
+  <div class="case-header">
+    <h1>MSP Case Studies</h1>
+    <p>Learning from Marine Spatial Planning successes, challenges, and lessons from across the Western Indian Ocean region and globally</p>
+  </div>
+
+  <!-- Filter Buttons -->
+  <div class="filter-section">
+    <button class="filter-btn active" onclick="filterCases('all')">All Cases</button>
+    <button class="filter-btn" onclick="filterCases('success')">✓ Successes</button>
+    <button class="filter-btn" onclick="filterCases('failed')">✗ Challenges</button>
+    <button class="filter-btn" onclick="filterCases('mixed')">Mixed Results</button>
+  </div>
+
+  <!-- WIO Region Section -->
+  <div class="region-section">
+    <h2>🌍 Western Indian Ocean Region</h2>
+    
+    <div class="case-grid">
+      <!-- Seychelles Success -->
+      <div class="case-card success" data-type="success">
+        <div class="case-header-content">
+          <span class="case-status success">Success</span>
+          <h3>Seychelles National MSP</h3>
+          <div class="case-location">Seychelles</div>
+          <div class="case-years">2012-2020</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">One of the first comprehensive national MSP frameworks in Africa, covering the entire exclusive economic zone.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Key Achievements</div>
+            <div class="case-section-content">
+              • Established legal framework for ocean governance<br>
+              • Integrated 23 different marine activities<br>
+              • 30% marine protected area designation<br>
+              • Blue economy development strategy aligned with conservation
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Outcomes</div>
+            <div class="case-section-content">
+              • Reduced fishing conflicts through zoning<br>
+              • Enhanced coastal resilience to climate change<br>
+              • Sustainable tuna fishing practices<br>
+              • Tourism-fisheries balance achieved
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">National-scale</span>
+            <span class="case-tag">Legal framework</span>
+            <span class="case-tag">Climate adaptation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mozambique Challenges -->
+      <div class="case-card failed" data-type="failed">
+        <div class="case-header-content">
+          <span class="case-status failed">Challenges</span>
+          <h3>Mozambique Coastal Zone MSP</h3>
+          <div class="case-location">Mozambique</div>
+          <div class="case-years">2015-2023</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">Ambitious MSP initiative for the southern coast faced implementation barriers despite strong initial planning.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Initial Goals</div>
+            <div class="case-section-content">
+              Comprehensive zoning for fishing, oil/gas, and conservation areas
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Challenges Faced</div>
+            <div class="case-section-content">
+              • Conflicts with oil/gas development interests<br>
+              • Limited enforcement capacity<br>
+              • Weak community engagement<br>
+              • Political changes disrupted implementation
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Implementation gaps</span>
+            <span class="case-tag">Political barriers</span>
+            <span class="case-tag">Sector conflicts</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kenya Mixed -->
+      <div class="case-card mixed" data-type="mixed">
+        <div class="case-header-content">
+          <span class="case-status mixed">Mixed Results</span>
+          <h3>Kenya's Integrated Coastal MSP</h3>
+          <div class="case-location">Kenya</div>
+          <div class="case-years">2016-Present</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">Ongoing implementation with successes in marine protected areas but gaps in fishing community inclusion.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Successes</div>
+            <div class="case-section-content">
+              ✓ 5% marine protected area expansion<br>
+              ✓ Reduced illegal fishing in protected zones<br>
+              ✓ Alternative livelihood programs launched
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Gaps</div>
+            <div class="case-section-content">
+              ✗ Limited artisanal fisher participation<br>
+              ✗ Insufficient monitoring resources<br>
+              ✗ Tenure security concerns
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Evolving</span>
+            <span class="case-tag">Community-based</span>
+            <span class="case-tag">Adaptive</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tanzania Emerging -->
+      <div class="case-card success" data-type="success">
+        <div class="case-header-content">
+          <span class="case-status success">Emerging</span>
+          <h3>Tanzania's Local MSP Initiative</h3>
+          <div class="case-location">Tanzania (Coastal Districts)</div>
+          <div class="case-years">2020-Present</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">Community-based MSP focusing on district-level implementation with strong stakeholder engagement in Dar es Salaam and surrounding areas.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Approach</div>
+            <div class="case-section-content">
+              • Community-led spatial planning<br>
+              • Multi-stakeholder engagement<br>
+              • Livelihood-focused conservation<br>
+              • Youth and gender inclusion
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Early Results</div>
+            <div class="case-section-content">
+              • Strong community buy-in<br>
+              • Improved fisheries data<br>
+              • Integrated coastal use plans<br>
+              • Youth employment in blue economy
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Community-driven</span>
+            <span class="case-tag">District-level</span>
+            <span class="case-tag">Livelihood-focused</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mauritius Success -->
+      <div class="case-card success" data-type="success">
+        <div class="case-header-content">
+          <span class="case-status success">Success</span>
+          <h3>Mauritius Integrated Ocean Governance</h3>
+          <div class="case-location">Mauritius & Exclusive Economic Zone</div>
+          <div class="case-years">2013-Present</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">Advanced MSP framework integrating fisheries, tourism, shipping, and renewable energy with strong institutional coordination.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Achievements</div>
+            <div class="case-section-content">
+              • Integrated maritime law<br>
+              • Fisheries-tourism balance<br>
+              • Ocean economy planning<br>
+              • Climate resilience strategy
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Outcomes</div>
+            <div class="case-section-content">
+              • $2.3B ocean economy contribution<br>
+              • Sustainable fisheries growth<br>
+              • Tourism resilience<br>
+              • Shipping coordination
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Blue economy</span>
+            <span class="case-tag">Multi-sector</span>
+            <span class="case-tag">Advanced governance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zanzibar Mixed -->
+      <div class="case-card mixed" data-type="mixed">
+        <div class="case-header-content">
+          <span class="case-status mixed">In Progress</span>
+          <h3>Zanzibar Integrated MSP</h3>
+          <div class="case-location">Zanzibar, Tanzania</div>
+          <div class="case-years">2018-Present</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">Progressive MSP implementation balancing conservation, tourism, and fishing with ongoing capacity building.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Progress</div>
+            <div class="case-section-content">
+              ✓ Marine park expansion<br>
+              ✓ Seaweed farming integration<br>
+              ✓ Tourism sustainability zones<br>
+              ✓ Community MPAs established
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Ongoing Work</div>
+            <div class="case-section-content">
+              • Strengthening enforcement<br>
+              • Fisheries livelihood transition<br>
+              • Climate adaptation funding
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Coastal tourism</span>
+            <span class="case-tag">Conservation</span>
+            <span class="case-tag">Livelihoods</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Examples Section -->
+  <div class="region-section">
+    <h2>🌏 Global Examples & Lessons</h2>
+    
+    <div class="case-grid">
+      <!-- Australia Great Barrier Reef -->
+      <div class="case-card success" data-type="success">
+        <div class="case-header-content">
+          <span class="case-status success">Advanced Model</span>
+          <h3>Australia - Great Barrier Reef Zoning</h3>
+          <div class="case-location">Australia (Queensland)</div>
+          <div class="case-years">1981-Present</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">World's largest marine protected area with sophisticated zoning system balancing conservation and sustainable use.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Key Features</div>
+            <div class="case-section-content">
+              • 60 zones from no-take to tourism areas<br>
+              • 40 years of adaptive management<br>
+              • $5.5B annual economic benefit<br>
+              • Climate change adaptation focus
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Lessons</div>
+            <div class="case-section-content">
+              • Long-term commitment essential<br>
+              • Scientific monitoring critical<br>
+              • Regular zoning adjustments needed<br>
+              • Economic incentives important
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Large-scale MPA</span>
+            <span class="case-tag">Adaptive management</span>
+            <span class="case-tag">Scientific basis</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indonesia Challenges -->
+      <div class="case-card failed" data-type="failed">
+        <div class="case-header-content">
+          <span class="case-status failed">High Challenges</span>
+          <h3>Indonesia - Coral Triangle MSP Struggles</h3>
+          <div class="case-location">Indonesia (Coral Triangle)</div>
+          <div class="case-years">2009-2023</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">Complex MSP efforts in world's most biodiverse marine region hampered by governance and implementation challenges.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Obstacles</div>
+            <div class="case-section-content">
+              • Weak inter-agency coordination<br>
+              • Illegal fishing enforcement gaps<br>
+              • Community livelihood conflicts<br>
+              • Political economy barriers
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Lessons</div>
+            <div class="case-section-content">
+              • Governance capacity critical<br>
+              • Livelihood transitions complex<br>
+              • Decentralization challenges<br>
+              • Need for enforcement resources
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Complex governance</span>
+            <span class="case-tag">Enforcement gaps</span>
+            <span class="case-tag">Livelihood conflicts</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Northern European Success -->
+      <div class="case-card success" data-type="success">
+        <div class="case-header-content">
+          <span class="case-status success">Advanced System</span>
+          <h3>EU Baltic Sea MSP</h3>
+          <div class="case-location">Northern Europe (Baltic Sea)</div>
+          <div class="case-years">2016-Present</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">Coordinated transnational MSP integrating maritime industries with strong environmental governance across 9 countries.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Achievements</div>
+            <div class="case-section-content">
+              • Transnational coordination framework<br>
+              • Shipping lane optimization<br>
+              • Wind farm planning integration<br>
+              • Environmental restoration zoning
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Key Success Factors</div>
+            <div class="case-section-content">
+              • Strong legal framework (EU MSP Directive)<br>
+              • Institutional capacity<br>
+              • Data infrastructure<br>
+              • Stakeholder collaboration platforms
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Transnational</span>
+            <span class="case-tag">Blue economy</span>
+            <span class="case-tag">Environmental protection</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Philippines Community-Based -->
+      <div class="case-card mixed" data-type="mixed">
+        <div class="case-header-content">
+          <span class="case-status mixed">Emerging Success</span>
+          <h3>Philippines - Community-Based MSP</h3>
+          <div class="case-location">Philippines (Multiple Municipalities)</div>
+          <div class="case-years">2010-Present</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">Municipality-level MSP programs focused on community participation, livelihood support, and fish stock recovery.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Successes</div>
+            <div class="case-section-content">
+              ✓ 40-60% fish catch improvements in reserves<br>
+              ✓ Strong community stewardship<br>
+              ✓ Alternative livelihood programs<br>
+              ✓ Youth engagement
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Challenges</div>
+            <div class="case-section-content">
+              ✗ Scalability to national level<br>
+              ✗ Financing gaps<br>
+              ✗ External fishing pressure
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Community-driven</span>
+            <span class="case-tag">Livelihood integration</span>
+            <span class="case-tag">Fish stock recovery</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canada Pacific Success -->
+      <div class="case-card success" data-type="success">
+        <div class="case-header-content">
+          <span class="case-status success">Best Practice</span>
+          <h3>Canada - Pacific Integrated MSP</h3>
+          <div class="case-location">Canada (British Columbia)</div>
+          <div class="case-years">2015-Present</div>
+        </div>
+        <div class="case-body">
+          <p class="case-description">Comprehensive ocean planning integrating Indigenous knowledge, conservation, and marine industries with adaptive governance.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Highlights</div>
+            <div class="case-section-content">
+              • Indigenous co-management<br>
+              • Ecosystem-based approach<br>
+              • Shipping and fishing zones<br>
+              • Climate adaptation integration
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Outcomes</div>
+            <div class="case-section-content">
+              • 25% MPA increase planned<br>
+              • Salmon population recovery<br>
+              • Shipping incident reduction<br>
+              • Stakeholder satisfaction high
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Indigenous partnership</span>
+            <span class="case-tag">Adaptive governance</span>
+            <span class="case-tag">Ecosystem-based</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Madagascar Case -->
+      <div class="case-card mixed" data-type="mixed">
+        <div class="case-header-content">
+          <span class="case-status mixed">Capacity Building</span>
+          <h3>Madagascar - Blue Blue Economy MSP</h3>
+          <div class="case-location">Madagascar</div>
+          <div class="case-years">2019-Present</div>
+        </div>
+        <div class="case-body">
+          <p class="case-body">
+          <p class="case-description">National ocean strategy development with focus on sustainable fisheries, aquaculture, and conservation.</p>
+          
+          <div class="case-section">
+            <div class="case-section-title">Focus Areas</div>
+            <div class="case-section-content">
+              • Artisanal fisheries management<br>
+              • Seaweed and aquaculture zones<br>
+              • Marine protected areas network<br>
+              • Capacity development programs
+            </div>
+          </div>
+          
+          <div class="case-section">
+            <div class="case-section-title">Opportunities</div>
+            <div class="case-section-content">
+              • Growing development financing<br>
+              • Regional partnerships strengthening<br>
+              • Technology transfer initiatives
+            </div>
+          </div>
+          
+          <div class="case-tags">
+            <span class="case-tag">Blue economy</span>
+            <span class="case-tag">Capacity building</span>
+            <span class="case-tag">Sustainable fisheries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparative Analysis -->
+  <div class="region-section">
+    <h2>📊 Comparative Analysis: Success Factors vs. Barriers</h2>
+    
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Factor</th>
+          <th>Successful Cases</th>
+          <th>Challenged Cases</th>
+          <th>Key Lesson for Tanzania</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Governance Framework</strong></td>
+          <td>Clear legal basis, integrated mandates, inter-agency coordination</td>
+          <td>Weak coordination, overlapping jurisdictions, political instability</td>
+          <td>Develop clear LMSP legal framework at local and national levels</td>
+        </tr>
+        <tr>
+          <td><strong>Community Engagement</strong></td>
+          <td>Inclusive, participatory from planning, benefit sharing clear</td>
+          <td>Top-down, limited consultation, livelihood concerns ignored</td>
+          <td>Ensure community stewardship and livelihood transition support</td>
+        </tr>
+        <tr>
+          <td><strong>Enforcement Capacity</strong></td>
+          <td>Adequate monitoring, patrol, penalties, technology use</td>
+          <td>Insufficient resources, weak compliance mechanisms</td>
+          <td>Build sustainable enforcement systems with community support</td>
+        </tr>
+        <tr>
+          <td><strong>Data & Science</strong></td>
+          <td>Science-based planning, regular monitoring, adaptive adjustments</td>
+          <td>Limited data, inadequate baselines, no monitoring systems</td>
+          <td>Invest in marine data collection and analysis capacity</td>
+        </tr>
+        <tr>
+          <td><strong>Financing</strong></td>
+          <td>Sustainable funding mechanisms, diverse sources, long-term commitment</td>
+          <td>Project-based, insufficient, dependent on external donors</td>
+          <td>Develop diversified funding including blue economy revenues</td>
+        </tr>
+        <tr>
+          <td><strong>Livelihood Alternatives</strong></td>
+          <td>Transition programs designed, income support, skills training</td>
+          <td>No alternatives, resistance to conservation zones</td>
+          <td>Integrate alternative livelihoods in LMSP from the start</td>
+        </tr>
+        <tr>
+          <td><strong>Stakeholder Diversity</strong></td>
+          <td>Multi-sector representation, informal sector included, gender balance</td>
+          <td>Limited stakeholders, informal economy sidelined</td>
+          <td>Ensure inclusive representation of all ocean users</td>
+        </tr>
+        <tr>
+          <td><strong>Adaptive Management</strong></td>
+          <td>Regular review cycles, willingness to adjust, learning approach</td>
+          <td>Static plans, no feedback mechanisms, implementation inflexible</td>
+          <td>Build iterative learning and adjustment into LMSP cycle</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Key Lessons Box -->
+  <div class="lessons-box">
+    <h3>Key Takeaways for Tanzania's LMSP</h3>
+    <ul>
+      <li><strong>Start with strong foundations:</strong> Clear governance frameworks, legal backing, and institutional arrangements are non-negotiable (Seychelles, Mauritius models)</li>
+      
+      <li><strong>Community is central:</strong> MSP success depends on local ownership and livelihood security (Philippines, Canada examples)</li>
+      
+      <li><strong>Invest in capacity and data:</strong> Scientific monitoring and technical expertise are prerequisites, not luxuries (Australia, Baltic Sea models)</li>
+      
+      <li><strong>Prepare for livelihood transitions:</strong> Communities dependent on extractive marine uses need real alternatives and transition support (critical lesson from Indonesia, Mozambique)</li>
+      
+      <li><strong>Enforcement requires resources:</strong> Even well-designed plans fail without monitoring and compliance capacity (key challenge in Indonesia, Philippines)</li>
+      
+      <li><strong>Multi-sector engagement reduces conflict:</strong> Early and sustained engagement with fishing, tourism, shipping, and conservation sectors prevents future conflicts</li>
+      
+      <li><strong>Adaptive management is essential:</strong> Plans should evolve based on monitoring, climate change impacts, and stakeholder learning (Australia, Canada approach)</li>
+      
+      <li><strong>Financing determines sustainability:</strong> Long-term success requires diversified, predictable funding, not just external project support</li>
+    </ul>
+  </div>
+
+  <div class="challenges-box">
+    <h3>Common Pitfalls to Avoid</h3>
+    <ul>
+      <li>Creating beautiful plans that aren't implemented (Mozambique syndrome)</li>
+      
+      <li>Excluding informal economy and artisanal fishers from planning (Indonesia, Kenya experience)</li>
+      
+      <li>Insufficient investment in enforcement capacity (widespread failure)</li>
+      
+      <li>Ignoring livelihood impacts without providing alternatives</li>
+      
+      <li>Treating MSP as one-off exercise rather than adaptive, ongoing process</li>
+      
+      <li>Weak data and monitoring systems leading to uninformed decisions</li>
+      
+      <li>Fragmented governance with unclear responsibilities and coordination gaps</li>
+      
+      <li>Insufficient political will or leadership commitment to sustain implementation</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+function filterCases(type) {
+  const cards = document.querySelectorAll('.case-card');
+  const buttons = document.querySelectorAll('.filter-btn');
+  
+  // Update active button
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  // Filter cards
+  cards.forEach(card => {
+    if (type === 'all' || card.dataset.type === type) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+```

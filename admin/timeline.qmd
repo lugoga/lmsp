@@ -1,0 +1,55 @@
+---
+title: ""
+---
+
+## Project Timeline & Milestones
+
+### Phase 1: Initialization (Jan - Mar 2026)
+
+- **Week 1-2:** Team formation and role assignments
+- **Week 3-4:** Stakeholder mapping and initial consultations
+- **Week 5-12:** Baseline data collection
+- **Deliverable:** Inception Report
+
+---
+
+### Phase 2: Planning & Engagement (Apr - Jun 2026)
+
+- **Week 13-16:** Community consultations and workshops
+- **Week 17-20:** Spatial analysis and mapping
+- **Week 21-24:** Draft MSP framework development
+- **Deliverable:** Community Engagement Report, Draft MSP Framework
+
+---
+
+### Phase 3: Implementation (Jul - Sep 2026)
+
+- **Week 25-28:** Stakeholder feedback incorporation
+- **Week 29-32:** MSP refinement and finalization
+- **Week 33-36:** Implementation planning
+- **Deliverable:** Final MSP Plan, Implementation Strategy
+
+---
+
+### Phase 4: Monitoring (Oct - Dec 2026)
+
+- **Week 37-40:** Monitoring system setup
+- **Week 41-44:** Baseline monitoring data collection
+- **Week 45-48:** Performance analysis and reporting
+- **Deliverable:** Monitoring Report, Recommendations
+
+---
+
+### Key Dates
+
+| Event | Date | Status |
+|-------|------|--------|
+| Project Launch | Jan 15, 2026 | Upcoming |
+| Stakeholder Workshop 1 | Feb 28, 2026 | Upcoming |
+| Data Collection Complete | May 31, 2026 | Upcoming |
+| Community Validation | Jul 15, 2026 | Upcoming |
+| Final Plan Submission | Sep 30, 2026 | Upcoming |
+
+---
+
+**[Back to Admin Portal](../admin.qmd)**

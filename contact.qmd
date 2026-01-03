@@ -1,0 +1,42 @@
+---
+title: ""
+---
+
+## Get in Touch with LMSP-Tanzania
+
+We'd love to hear from you! Whether you have questions about Local Marine Spatial Planning, want to contribute to our work, or are interested in collaboration, please reach out.
+
+### Contact Information
+
+**Email:** [lmsp.tanzania@example.com](mailto:lmsp.tanzania@example.com)
+
+**Phone:** +255 [phone number]
+
+**Location:** [City, Tanzania]
+
+### Ways to Connect
+
+- **Ask a Question** - Have a question about MSP? Submit it through our [FAQ form](faq.qmd)
+- **Participate in Polls** - Share your views on MSP priorities through our [community surveys](polls.qmd)
+- **Submit News** - Have a success story or update to share? [Send it to us](mailto:gemsp.tanzania@example.com)
+- **Request Resources** - Need specific data or publications? [Make a request](mailto:gemsp.tanzania@example.com)
+- **Partnership Inquiry** - Interested in collaborating? [Contact us](mailto:gemsp.tanzania@example.com)
+
+### Response Time
+
+We aim to respond to all inquiries within 5 business days.
+
+### Follow Us
+
+- [Social Media - Facebook](https://www.facebook.com)
+- [Social Media - Twitter](https://www.twitter.com)
+- [Subscribe to Newsletter](mailto:gemsp.tanzania@example.com)
+
+### Office Hours
+
+Monday - Friday: 8:00 AM - 5:00 PM EAT
+
+---
+
+**Feedback:** Help us improve this website by [sharing your feedback](mailto:gemsp.tanzania@example.com)
+

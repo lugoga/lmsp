@@ -1,0 +1,66 @@
+---
+title: "Deliverables Tracker"
+---
+
+## Project Deliverables
+
+Track the status of all project outputs and deliverables.
+
+### Deliverables Summary
+
+| # | Deliverable | Due Date | Status | Progress |
+|---|------------|----------|--------|----------|
+| 1 | Inception Report | Feb 28, 2026 | Not Started | 0% |
+| 2 | Baseline Assessment | Apr 30, 2026 | Not Started | 0% |
+| 3 | Community Engagement Report | Jun 30, 2026 | Not Started | 0% |
+| 4 | Spatial Data Atlas | Jul 31, 2026 | Not Started | 0% |
+| 5 | Draft MSP Framework | Aug 31, 2026 | Not Started | 0% |
+| 6 | Final MSP Plan | Sep 30, 2026 | Not Started | 0% |
+| 7 | Implementation Strategy | Oct 31, 2026 | Not Started | 0% |
+| 8 | Monitoring Framework | Nov 30, 2026 | Not Started | 0% |
+| 9 | Case Study Documentation | Dec 31, 2026 | Not Started | 0% |
+| 10 | Final Report & Recommendations | Jan 31, 2027 | Not Started | 0% |
+
+---
+
+### Deliverable Details
+
+#### 1. Inception Report
+- **Description:** Project overview, team roles, work plan
+- **Due:** Feb 28, 2026
+- **Responsible:** Project Director
+- **Status:** Not Started
+
+#### 2. Baseline Assessment
+- **Description:** Current state of local MSP, stakeholder analysis
+- **Due:** Apr 30, 2026
+- **Responsible:** Research Team
+- **Status:** Not Started
+
+#### 3. Community Engagement Report
+- **Description:** Stakeholder consultation outcomes, feedback
+- **Due:** Jun 30, 2026
+- **Responsible:** Community Coordinator
+- **Status:** Not Started
+
+#### 4. Spatial Data Atlas
+- **Description:** Maps, datasets, GIS layers for planning
+- **Due:** Jul 31, 2026
+- **Responsible:** Data Team
+- **Status:** Not Started
+
+#### 5. Draft MSP Framework
+- **Description:** Proposed spatial plan and management measures
+- **Due:** Aug 31, 2026
+- **Responsible:** Planning Team
+- **Status:** Not Started
+
+---
+
+### Document Management
+
+[Upload documents and track versions here - To be configured]
+
+---
+
+**[Back to Admin Portal](../admin.qmd)**

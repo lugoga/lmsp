@@ -1,0 +1,200 @@
+---
+title: "Data & Information for LMSP"
+---
+
+## Data and Information Resources for LMSP
+
+Comprehensive data and information portal to support Local Marine Spatial Planning implementation across Tanzania.
+
+---
+
+## Key Data Categories
+
+### 1. Marine Resources Data
+
+Essential baseline information on marine resources:
+
+- **Fisheries Data**
+  - Production by species and area
+  - Distribution patterns
+  - Seasonal dynamics
+  - Catch composition
+
+- **Biodiversity Information**
+  - Species distributions
+  - Critical habitats
+  - Protected areas
+  - Ecosystem services
+
+- **Oceanographic Data**
+  - Current systems
+  - Temperature and salinity patterns
+  - Seasonal variations
+  - Climate indicators
+
+[Access Marine Resources Data](#)
+
+---
+
+### 2. Socio-Economic Data
+
+Information on coastal communities and livelihoods:
+
+- **Population & Demographics**
+  - Coastal population distribution
+  - Demographic profiles
+  - Growth trends
+  - Vulnerable populations
+
+- **Livelihood Information**
+  - Fishing communities
+  - Tourism operators
+  - Aquaculture practitioners
+  - Other marine resource users
+
+- **Economic Data**
+  - Revenue from marine activities
+  - Employment patterns
+  - Poverty indicators
+  - Economic dependencies
+
+[Access Socio-Economic Data](#)
+
+---
+
+### 3. Infrastructure & Use Data
+
+Mapping of marine uses and infrastructure:
+
+- **Maritime Infrastructure**
+  - Ports and harbors
+  - Landing sites
+  - Shipping routes
+  - Coastal development
+
+- **Marine Activities**
+  - Fishing zones
+  - Tourism areas
+  - Aquaculture sites
+  - Conservation areas
+
+- **Conflict Areas**
+  - Overlapping uses
+  - Access disputes
+  - Management challenges
+
+[Access Infrastructure & Use Data](#)
+
+---
+
+### 4. Environmental & Climate Data
+
+Monitoring climate and environmental conditions:
+
+- **Climate Indicators**
+  - Sea level rise projections
+  - Temperature trends
+  - Storm frequency
+  - Seasonal patterns
+
+- **Environmental Quality**
+  - Water quality parameters
+  - Pollution sources
+  - Coastal erosion
+  - Habitat degradation
+
+- **Vulnerability Assessments**
+  - Climate vulnerability
+  - Community exposure
+  - Adaptive capacity
+
+[Access Environmental Data](#)
+
+---
+
+## Data Access Platforms
+
+### Interactive Maps
+
+Explore spatial data through interactive mapping tools:
+- Marine resource distributions
+- Protected areas
+- Fishing zones
+- Infrastructure locations
+- Vulnerability hotspots
+
+[Open Interactive Maps](#)
+
+---
+
+### Data Download Center
+
+Access raw datasets for analysis:
+
+- GIS shapefiles and layers
+- Statistical databases
+- Reports and publications
+- Monitoring data
+- Research findings
+
+[Browse Available Datasets](#)
+
+---
+
+### Data Standards & Documentation
+
+Ensuring quality and usability:
+
+- Data metadata documentation
+- Quality assurance guidelines
+- Data use protocols
+- Citation standards
+- Confidentiality agreements
+
+[View Data Standards](#)
+
+---
+
+## Data Contribution
+
+Have data to contribute?
+
+We welcome contributions from:
+- Research institutions
+- Government agencies
+- Community organizations
+- Private sector partners
+- Individual researchers
+
+**Submit Data:** [data@lmsp-tanzania.example.com](mailto:data@lmsp-tanzania.example.com)
+
+Include:
+- Dataset description
+- Data collection methodology
+- Coverage area and period
+- Format and specifications
+- Relevant documentation
+
+---
+
+## Data Use Agreement
+
+Users of LMSP data agree to:
+
+✓ Use data only for authorized purposes  
+✓ Maintain confidentiality of sensitive data  
+✓ Provide appropriate attribution  
+✓ Share derived findings with the community  
+✓ Report any data quality issues  
+
+---
+
+## Support & Questions
+
+Need help accessing or interpreting data?
+
+**Contact our Data Team:** [data-support@lmsp-tanzania.example.com](mailto:data-support@lmsp-tanzania.example.com)
+
+---
+
+**Last Updated:** January 1, 2026

@@ -1,0 +1,237 @@
+project:
+  type: website
+  resources:
+    - data_shared/*.csv
+  output-dir: docs
+  render:
+    - "*.qmd"
+    # - "modules/*.qmd"
+    - "!presentations/lbspr.qmd" # Exclude this specific file
+    - "!presentations/*.qmd"  
+    - "!reports/*.qmd"      # Exclude all files in the reports folder
+    - "!modules/*.qmd"      # Exclude all files in the modules folder
+    - "!exercises/*.qmd"      # Exclude all files in the modules folder
+    - "!posts/compare_pattern1/*.qmd"
+    - "!posts/continuous_raster_comparison/*.qmd"
+    - "!posts/ecosystem_health_indicators/*.qmd"
+    - "!posts/monitoring_ecosystem_change/*.qmd"
+    - "!posts/spatial_ecosystem_motifs/*.qmd"
+
+website:
+  title: ""
+  navbar:
+    logo: images/msp_logo.png
+    logo-alt: "LMSP-Tanzania Logo"
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: lmsp-why.qmd
+        text: Why LMSP
+      # - href: lmsp-initiatives.qmd
+      #   text: Initiatives0
+      - text: LMSP Initiatives
+        menu:
+          - text: Ongoing
+            href: lmsp_ongoing.qmd
+            target: "_blank"
+          - text: Planned
+            href: lmsp_planned.qmd
+            target: "_blank"
+          - text: Completed
+            href: lmsp_completed.qmd
+            target: "_blank"
+      - href: blog.qmd
+        text: Blog
+      - text: Resource
+        menu:
+          - text: Implementation Guide
+            href: lmplementation_guide.qmd
+            target: "_blank"
+          - text: Book and Articles
+            href: pubs.qmd
+            target: "_blank"
+          - text: Case Studies
+            href: case_studies.qmd
+            target: "_blank"
+      # - href: resources.qmd
+      #   text: Resources1
+      # - text: Resources2
+      #   menu:
+      #     - text: "WIO Region MSP Resources"
+      #       href: https://www.wiomsa.org/
+      #       target: "_blank"
+      #     - text: "UNEP-CEP Caribbean MSP Guide"
+      #       href: https://www.unep.org/
+      #       target: "_blank"
+      #     - text: "Tanga Coastal Zone Conservation Project"
+      #       href: https://www.tczcp.go.tz/
+      #       target: "_blank"
+      #     - text: "---"
+      #     - text: "Global MSP Resources"
+      #       href: https://www.mspglobal2030.org/
+      #       target: "_blank"
+      #     - text: "UN MSP Learning Portal"
+      #       href: https://www.un.org/regularprocess/
+      #       target: "_blank"
+      #     - text: "IOC-UNESCO MSP Resources"
+      #       href: https://www.iocunesco.org/
+      #       target: "_blank"
+      #     - text: "---"
+      #     - text: "Data & Tools"
+      #       href: https://www.gebco.net/
+      #       target: "_blank"
+      #     - text: "Global Fishing Watch"
+      #       href: https://www.globalfishingwatch.org/
+      #       target: "_blank"
+      #     - text: "Marine Regions Gazetteer"
+      #       href: https://www.marineregions.org/
+      #       target: "_blank"
+      - href: team.qmd
+        text: Team
+      - href: contacts.qmd
+        text: Contacts
+      - href: admin.qmd
+        text: Admin
+    right:
+      - icon: github
+        href: https://github.com/lugoga/nc_msp/
+        target: "_blank"
+      - icon: linkedin
+        href: https://www.linkedin.com/in/masumbuko-semba-20936a4b/
+        target: "_blank"
+      - icon: youtube
+        # text: YouTube
+        href: https://www.youtube.com/channel/UC9uZ1KPyo7zIzI4BnUtHPfA
+        target: "_blank"
+      - icon: eye
+        # text: BES
+        href: https://semba.shinyapps.io/besa/
+        target: "_blank"
+      - icon: binoculars
+        # text: Cages
+        href: https://semba.shinyapps.io/vizingaApp/
+        target: "_blank"
+      - icon: sun
+        # text: KWALA
+        href: https://semba.shinyapps.io/digital/
+        target: "_blank"
+      - icon: email
+        href: mailto:lugosemba@gmail.com
+        target: "_blank"
+  sidebar:
+    - title: "Navigation"
+      contents:
+        - href: index.qmd
+          text: Home
+        # - href: about.qmd
+        #   text: LMSP
+        # - href: news.qmd
+        #   text: Latest Updates
+        - href: faq.qmd
+          text: "FAQs"
+        - href: polls.qmd
+          text: "Polls"
+        # - href: resources.qmd
+        #   text: "Data"
+        # - href: guidelines.qmd
+        #   text: "Guidelines"
+        - href: partners.qmd
+          text: "Network"
+    
+      
+      footer: |
+        <div style="text-align: center; margin: 20px 0;">
+          ![](images/coat_OG_web.png){width=100px style="margin: 10px 5px;"} 
+          <br>
+          ![](images/nc.png){width=50px style="margin: 10px 5px;"} 
+          ![](images/msp_logo.svg){width=50px style="margin: 10px 5px;"} 
+          ![](images/udsm.png){width=50px style="margin: 10px 5px;"}           
+          ![](images/nmaist.jpg){width=40px style="margin: 10px 5px;"} 
+          ![](images/tnc.svg){width=150px style="margin: 10px 5px;"}
+        </div> 
+
+  page-footer:
+    left: |
+      **QUICK LINKS**
+      
+      [Home](index.qmd)
+
+      [About](about.qmd)
+
+      [Blog](blog.qmd)
+
+      [FAQs](faq.qmd)
+
+      [Network](partners.qmd)
+
+    center: |
+      **Contact Us**
+      
+      📧 Email: [lugosemba@gmail.com](mailto:lugosemba@gmail.com)
+      
+      📍 Location: Dar es Salaam, Tanzania
+      
+      🌍 Website: [LMSP-Tanzania](index.qmd)
+      
+      © 2026 LMSP-Tanzania | Ad Hoc Group of Experts on Marine Spatial Planning
+    right: |         
+      **Tools**
+      
+       [BESA Dashboard](https://semba.shinyapps.io/besa/)
+
+       [Digital Tool](https://semba.shinyapps.io/digital/)
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 2
+    toc-location: right
+    code-fold: true
+    code-tools: false
+    highlight-style: atom-one
+    page-layout: full
+    link-external-icon: true
+    link-external-newwindow: true
+    include-after-body:
+      text: |
+        <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+        <script>
+          const scrollBtn = document.getElementById('scrollToTopBtn');
+          
+          // Show/hide scroll button based on scroll position
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+              scrollBtn.classList.add('show');
+            } else {
+              scrollBtn.classList.remove('show');
+            }
+          });
+          
+          // Scroll to top smoothly
+          function scrollToTop() {
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }
+          
+          // Alternative: keyboard shortcut (Press Home key to go to top)
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'Home') {
+              e.preventDefault();
+              scrollToTop();
+            }
+          });
+        </script>
+
+
+
+
+# bibliography: references.bib
+execute: 
+  freeze: auto

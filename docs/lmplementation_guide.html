@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Implementation Guide</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e8fb9d25728d58bfeac61b497e4a6629.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-496b78de41d6fb1363504eca627bd4c6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/msp_logo.png" alt="LMSP-Tanzania Logo" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./lmsp-why.html"> 
+<span class="menu-text">Why LMSP</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lmsp-initiatives" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">LMSP Initiatives</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lmsp-initiatives">    
+        <li>
+    <a class="dropdown-item" href="./lmsp_ongoing.html" target="_blank">
+ <span class="dropdown-text">Ongoing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lmsp_planned.html" target="_blank">
+ <span class="dropdown-text">Planned</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./lmsp_completed.html" target="_blank">
+ <span class="dropdown-text">Completed</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resource" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resource</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resource">    
+        <li>
+    <a class="dropdown-item" href="./lmplementation_guide.html" target="_blank">
+ <span class="dropdown-text">Implementation Guide</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./pubs.html" target="_blank">
+ <span class="dropdown-text">Book and Articles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./case_studies.html" target="_blank">
+ <span class="dropdown-text">Case Studies</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./team.html"> 
+<span class="menu-text">Team</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contacts.html"> 
+<span class="menu-text">Contacts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./admin.html"> 
+<span class="menu-text">Admin</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/lugoga/nc_msp/" target="_blank"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/masumbuko-semba-20936a4b/" target="_blank"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UC9uZ1KPyo7zIzI4BnUtHPfA" target="_blank"> <i class="bi bi-youtube" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://semba.shinyapps.io/besa/" target="_blank"> <i class="bi bi-eye" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://semba.shinyapps.io/vizingaApp/" target="_blank"> <i class="bi bi-binoculars" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://semba.shinyapps.io/digital/" target="_blank"> <i class="bi bi-sun" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:lugosemba@gmail.com" target="_blank"> <i class="bi bi-email" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Implementation Guide</h1>
+<p class="subtitle lead">Local Marine Spatial Planning (LMSP) Step-by-Step Framework for Tanzania</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+.guide-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.guide-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 50px 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.guide-header h1 {
+  color: white;
+  border: none;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.guide-header p {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.95;
+  color: white;
+}
+
+.toc-box {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 5px solid #2a5298;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.toc-box h2 {
+  color: #1e3c72;
+  border: none;
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.toc-list a {
+  color: #2a5298;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.toc-list a:hover {
+  color: #1e3c72;
+  transform: translateX(5px);
+}
+
+.toc-list a:before {
+  content: "→";
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.phase-section {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  border-left: 5px solid #2a5298;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.phase-number {
+  display: inline-block;
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.phase-section h2 {
+  color: #1e3c72;
+  border: none;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+}
+
+.phase-section h2 .phase-number {
+  margin-right: 15px;
+  margin-bottom: 0;
+}
+
+.phase-timeline {
+  background: #f0f4f8;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.phase-timeline:before {
+  content: "⏱";
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.subsection {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.subsection:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.subsection h3 {
+  color: #2a5298;
+  border: none;
+  font-size: 16px;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.subsection h3:before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: #2a5298;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.content-box {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+}
+
+.content-box h4 {
+  color: #1e3c72;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.content-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #555;
+  font-size: 15px;
+}
+
+.content-box li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.key-actors {
+  background: #e3f2fd;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #1565c0;
+  margin-bottom: 15px;
+}
+
+.key-actors strong {
+  color: #1565c0;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.key-actors p {
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.success-criteria {
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #2e7d32;
+  margin-bottom: 15px;
+}
+
+.success-criteria strong {
+  color: #2e7d32;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.success-criteria ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #333;
+  font-size: 15px;
+}
+
+.success-criteria li {
+  margin-bottom: 6px;
+}
+
+.risks-challenges {
+  background: #fff3e0;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #f57c00;
+  margin-bottom: 15px;
+}
+
+.risks-challenges strong {
+  color: #f57c00;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.risks-challenges ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #333;
+  font-size: 15px;
+}
+
+.risks-challenges li {
+  margin-bottom: 6px;
+}
+
+.timeline-diagram {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border: 1px solid #e0e0e0;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.timeline-step:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: #2a5298;
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  flex: 1;
+  border-left: 2px solid #e0e0e0;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+
+.timeline-step:last-child .timeline-content {
+  border-left: none;
+}
+
+.timeline-title {
+  color: #1e3c72;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.timeline-detail {
+  color: #666;
+  font-size: 13px;
+}
+
+.checklist {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.checklist-item:last-child {
+  margin-bottom: 0;
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checklist-item label {
+  flex: 1;
+  cursor: pointer;
+  margin: 0;
+  color: #555;
+  font-size: 13px;
+}
+
+.resource-box {
+  background: #f0f4f8;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #2a5298;
+  margin-bottom: 15px;
+}
+
+.resource-box strong {
+  color: #1e3c72;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.resource-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #555;
+  font-size: 12px;
+}
+
+.resource-box li {
+  margin-bottom: 5px;
+}
+
+.download-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 25px;
+  border-radius: 8px;
+  margin-top: 40px;
+  text-align: center;
+  border: 2px solid #2a5298;
+}
+
+.download-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(42, 82, 152, 0.3);
+}
+
+@media (max-width: 768px) {
+  .guide-header {
+    padding: 30px 20px;
+  }
+  
+  .phase-section {
+    padding: 20px;
+  }
+}
+</style>
+
+<div class="guide-container">
+  <div class="guide-header">
+    <h1>Local MSP Implementation Guide</h1>
+    <p>Step-by-step framework for planning and implementing Marine Spatial Planning at the district/community level in Tanzania</p>
+  </div>
+
+  <!-- Table of Contents -->
+  <div class="toc-box">
+    <h2 class="anchored">📋 Guide Contents</h2>
+    <ul class="toc-list">
+      <li><a href="#phase1">Phase 1: Planning &amp; Setup (0-3 months)</a></li>
+      <li><a href="#phase2">Phase 2: Stakeholder Engagement (3-6 months)</a></li>
+      <li><a href="#phase3">Phase 3: Data Collection &amp; Analysis (6-12 months)</a></li>
+      <li><a href="#phase4">Phase 4: Spatial Planning &amp; Zoning (12-18 months)</a></li>
+      <li><a href="#phase5">Phase 5: Implementation &amp; Enforcement (18+ months)</a></li>
+      <li><a href="#phase6">Phase 6: Monitoring &amp; Adaptation (Ongoing)</a></li>
+    </ul>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase-section" id="phase1">
+    <h2 class="anchored">
+      <span class="phase-number">1</span>
+      Planning &amp; Setup Phase
+    </h2>
+    <div class="phase-timeline">6-12 weeks | Institutional establishment and legal groundwork</div>
+
+    <div class="subsection">
+      <h3 class="anchored">1.1 Establish LMSP Steering Committee</h3>
+      <div class="content-box">
+        <h4 class="anchored">Purpose:</h4>
+        <p>Create multi-level governance structure for decision-making and coordination</p>
+      </div>
+      <div class="key-actors">
+        <strong>🏛️ Key Actors:</strong>
+        <p>District Commissioner's office, Local Government leaders, Ministry representatives, community leaders, private sector</p>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Key Activities:</h4>
+        <ul>
+          <li>Establish District MSP Steering Committee with 12-15 members</li>
+          <li>Define roles, responsibilities, and decision-making protocols</li>
+          <li>Schedule regular monthly meetings</li>
+          <li>Establish subcommittees (Data, Stakeholder Engagement, Implementation)</li>
+        </ul>
+      </div>
+      <div class="success-criteria">
+        <strong>✓ Success Criteria:</strong>
+        <ul>
+          <li>Committee formally established and recognized by local government</li>
+          <li>Terms of reference documented and signed</li>
+          <li>First meeting completed with attendance &gt;75%</li>
+          <li>Meeting schedule established for next 12 months</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">1.2 Develop LMSP Legal &amp; Policy Framework</h3>
+      <div class="content-box">
+        <h4 class="anchored">Purpose:</h4>
+        <p>Establish legal authority and alignment with national and local policies</p>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Key Activities:</h4>
+        <ul>
+          <li>Review existing marine and coastal policies (national and district level)</li>
+          <li>Develop LMSP Policy Brief aligned with:</li>
+          <ul style="margin-top: 8px;">
+            <li>Tanzania Fisheries Act</li>
+            <li>Land Act (1999) and Land Use Act (2004)</li>
+            <li>Environmental Management Act</li>
+            <li>District Development Plans</li>
+          </ul>
+          <li>Draft LMSP implementation decree or resolution</li>
+          <li>Get formal adoption by District Council</li>
+        </ul>
+      </div>
+      <div class="success-criteria">
+        <strong>✓ Success Criteria:</strong>
+        <ul>
+          <li>Policy document finalized and peer-reviewed</li>
+          <li>District Council resolution passed</li>
+          <li>Policy gazette published in local media</li>
+          <li>All stakeholders aware of legal authority</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">1.3 Secure Funding &amp; Resources</h3>
+      <div class="content-box">
+        <h4 class="anchored">Potential Funding Sources:</h4>
+        <ul>
+          <li><strong>Government:</strong> District budget allocations (fisheries, environment departments)</li>
+          <li><strong>Development Partners:</strong> USAID, GEF, World Bank, EU, UNEP</li>
+          <li><strong>NGOs:</strong> Conservation organizations (TNC, WWF, IUCN)</li>
+          <li><strong>Private Sector:</strong> Fishing associations, tourism businesses</li>
+          <li><strong>Blue Economy Revenue:</strong> Fishing license fees, tourism permits</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Estimated Budget Requirements:</h4>
+        <ul>
+          <li>Planning &amp; Setup: $15,000-25,000</li>
+          <li>Stakeholder Engagement: $20,000-35,000</li>
+          <li>Data Collection &amp; Analysis: $30,000-50,000</li>
+          <li>Spatial Planning: $25,000-40,000</li>
+          <li>Implementation &amp; Enforcement: $40,000-75,000/year</li>
+          <li>Monitoring &amp; Evaluation: $15,000-25,000/year</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">1.4 Establish LMSP Secretariat</h3>
+      <div class="content-box">
+        <h4 class="anchored">Staffing:</h4>
+        <ul>
+          <li><strong>MSP Coordinator:</strong> Overall coordination, government liaison</li>
+          <li><strong>Data Manager:</strong> GIS, database systems, monitoring</li>
+          <li><strong>Community Engagement Officer:</strong> Stakeholder coordination, consultation</li>
+          <li><strong>Administrative Support:</strong> Records, scheduling, reporting</li>
+        </ul>
+      </div>
+      <div class="resource-box">
+        <strong>📦 Infrastructure Needs:</strong>
+        <ul>
+          <li>Office space with meeting facilities</li>
+          <li>Computers and GIS software (QGIS - free/open source)</li>
+          <li>Internet connectivity</li>
+          <li>GPS equipment for field surveys</li>
+          <li>Database systems for data management</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risks-challenges">
+      <strong>⚠️ Common Challenges &amp; Mitigation:</strong>
+      <ul>
+        <li><strong>Political instability:</strong> Build support across political lines, document in formal resolutions</li>
+        <li><strong>Budget constraints:</strong> Phased approach, leverage existing resources, seek partnerships</li>
+        <li><strong>Competing priorities:</strong> Link LMSP to development goals, show economic benefits</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-section" id="phase2">
+    <h2 class="anchored">
+      <span class="phase-number">2</span>
+      Stakeholder Engagement Phase
+    </h2>
+    <div class="phase-timeline">8-12 weeks | Community consultation and participation planning</div>
+
+    <div class="subsection">
+      <h3 class="anchored">2.1 Identify &amp; Map Stakeholders</h3>
+      <div class="content-box">
+        <h4 class="anchored">Stakeholder Categories:</h4>
+        <ul>
+          <li><strong>Government:</strong> District officials, fisheries, environment, lands departments</li>
+          <li><strong>Resource Users:</strong> Fishers (artisanal, commercial), aquaculturists, tourism operators</li>
+          <li><strong>Communities:</strong> Coastal villages, women groups, youth associations</li>
+          <li><strong>Civil Society:</strong> NGOs, environmental organizations, research institutions</li>
+          <li><strong>Private Sector:</strong> Fishing companies, hotels, transport operators</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Analysis Framework:</h4>
+        <ul>
+          <li>Create stakeholder matrix (interest vs. influence)</li>
+          <li>Identify potential conflicts and areas of agreement</li>
+          <li>Assess capacity and engagement needs</li>
+          <li>Develop tailored engagement strategies</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">2.2 Design Consultation &amp; Engagement Strategy</h3>
+      <div class="content-box">
+        <h4 class="anchored">Engagement Methods:</h4>
+        <ul>
+          <li><strong>Community Forums:</strong> Monthly gatherings in different villages</li>
+          <li><strong>Focus Group Discussions:</strong> Separate sessions for fishers, women, youth</li>
+          <li><strong>Key Informant Interviews:</strong> With leaders, elders, knowledge holders</li>
+          <li><strong>Participatory Mapping:</strong> Communities mark important areas, use zones</li>
+          <li><strong>Digital Platforms:</strong> Email updates, WhatsApp groups for broader reach</li>
+        </ul>
+      </div>
+      <div class="key-actors">
+        <strong>👥 Inclusion Priority:</strong>
+        <p><strong>Women &amp; Youth:</strong> At least 40% female participation in all forums. Dedicated youth sessions for employment opportunity discussions. Persons with disabilities accommodated in all meetings.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">2.3 Conduct Community Consultation Rounds</h3>
+      <div class="content-box">
+        <h4 class="anchored">Round 1 - Awareness &amp; Information:</h4>
+        <ul>
+          <li>Present LMSP concept and benefits</li>
+          <li>Share timeline and process overview</li>
+          <li>Listen to community concerns and aspirations</li>
+          <li>Collect initial feedback on marine resource issues</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Round 2 - Data &amp; Issues:</h4>
+        <ul>
+          <li>Share preliminary data findings</li>
+          <li>Discuss marine resource distribution and use conflicts</li>
+          <li>Identify priority conservation and livelihood areas</li>
+          <li>Collect local ecological knowledge</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Round 3 - Draft Plans &amp; Validation:</h4>
+        <ul>
+          <li>Present draft zoning options</li>
+          <li>Discuss potential impacts on different groups</li>
+          <li>Gather feedback on proposed zones</li>
+          <li>Identify support and resistance drivers</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-criteria">
+      <strong>✓ Success Criteria:</strong>
+      <ul>
+        <li>All identified stakeholder groups have participated (minimum 2 sessions each)</li>
+        <li>At least 200+ community members engaged in consultations</li>
+        <li>Consultation documentation compiled and verified</li>
+        <li>Community priorities documented in consultation report</li>
+      </ul>
+    </div>
+
+    <div class="risks-challenges">
+      <strong>⚠️ Common Challenges:</strong>
+      <ul>
+        <li><strong>Limited participation:</strong> Schedule meetings during off-fishing times, provide meals, transport</li>
+        <li><strong>Gender gaps:</strong> Conduct separate women's sessions, provide childcare support</li>
+        <li><strong>Conflicting interests:</strong> Use neutral facilitators, acknowledge all perspectives, seek win-win solutions</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-section" id="phase3">
+    <h2 class="anchored">
+      <span class="phase-number">3</span>
+      Data Collection &amp; Analysis Phase
+    </h2>
+    <div class="phase-timeline">6-12 months | Comprehensive data gathering and spatial analysis</div>
+
+    <div class="subsection">
+      <h3 class="anchored">3.1 Establish Data Framework</h3>
+      <div class="content-box">
+        <h4 class="anchored">Key Data Themes:</h4>
+        <ul>
+          <li><strong>Marine Biodiversity:</strong> Fish species, coral reefs, seagrass, mangroves</li>
+          <li><strong>Fisheries:</strong> Catch data, fishing grounds, effort, seasonality</li>
+          <li><strong>Coastal Infrastructure:</strong> Landing sites, markets, processing facilities</li>
+          <li><strong>Communities &amp; Livelihoods:</strong> Population, income sources, employment</li>
+          <li><strong>Climate &amp; Oceanography:</strong> Temperature, currents, sea level, upwelling</li>
+        </ul>
+      </div>
+      <div class="resource-box">
+        <strong>📦 Data Sources:</strong>
+        <ul>
+          <li>Ministry of Fisheries (catch landings, vessel registries)</li>
+          <li>Satellite imagery (free from USGS, ESA)</li>
+          <li>Oceanographic databases (GEBCO, Copernicus)</li>
+          <li>Community knowledge (participatory mapping)</li>
+          <li>Research institutions (TAFIRI, UDSM, NM-AIST)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">3.2 Conduct Field Surveys</h3>
+      <div class="content-box">
+        <h4 class="anchored">Survey Methods:</h4>
+        <ul>
+          <li><strong>Fisheries Surveys:</strong> Interview 100+ fishers on catches, areas, seasonality</li>
+          <li><strong>Biological Surveys:</strong> Snorkel/diving surveys of reefs, seagrass, mangroves</li>
+          <li><strong>Community Surveys:</strong> Household questionnaires (100-150 households)</li>
+          <li><strong>Coastal Mapping:</strong> GPS survey of landing sites, villages, infrastructure</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Data Quality Assurance:</h4>
+        <ul>
+          <li>Enumerator training (1-2 weeks)</li>
+          <li>Field supervisor oversight</li>
+          <li>Data validation and cleaning</li>
+          <li>Database integrity checks</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">3.3 GIS Analysis &amp; Mapping</h3>
+      <div class="content-box">
+        <h4 class="anchored">Spatial Analysis Products:</h4>
+        <ul>
+          <li>Base maps (bathymetry, coastline, settlements, infrastructure)</li>
+          <li>Fishing ground maps (by species, season, effort)</li>
+          <li>Biodiversity hotspot maps (coral reefs, seagrass, mangroves)</li>
+          <li>Resource conflict maps (overlapping uses)</li>
+          <li>Vulnerability maps (climate exposure, livelihood dependence)</li>
+        </ul>
+      </div>
+      <div class="resource-box">
+        <strong>🗺️ Tools &amp; Software:</strong>
+        <ul>
+          <li>QGIS (free, open-source GIS software)</li>
+          <li>Google Earth Pro (free satellite imagery)</li>
+          <li>R/Python (spatial analysis scripting)</li>
+          <li>ArcGIS Online (web-based mapping - requires license)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-criteria">
+      <strong>✓ Success Criteria:</strong>
+      <ul>
+        <li>Baseline report completed with all data themes covered</li>
+        <li>Minimum 10 thematic maps produced</li>
+        <li>Database with 500+ data records established</li>
+        <li>Data quality assurance completed</li>
+        <li>Community validation of findings conducted</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase-section" id="phase4">
+    <h2 class="anchored">
+      <span class="phase-number">4</span>
+      Spatial Planning &amp; Zoning Phase
+    </h2>
+    <div class="phase-timeline">6-9 months | Development of marine zoning scheme</div>
+
+    <div class="subsection">
+      <h3 class="anchored">4.1 Identify Planning Units &amp; Objectives</h3>
+      <div class="content-box">
+        <h4 class="anchored">Spatial Planning Objectives:</h4>
+        <ul>
+          <li>Ecological sustainability - protect biodiversity and ecosystem functions</li>
+          <li>Livelihood security - maintain fishing and tourism opportunities</li>
+          <li>Economic efficiency - optimize use of marine space</li>
+          <li>Social equity - fair benefit distribution, inclusive decision-making</li>
+          <li>Climate resilience - enhance ecosystem and community adaptation</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Zoning Framework:</h4>
+        <ul>
+          <li><strong>Fisheries Zone:</strong> Sustainable fishing areas with seasonal management</li>
+          <li><strong>Conservation Zone:</strong> No-take or strictly managed areas</li>
+          <li><strong>Tourism Zone:</strong> Recreation and sustainable tourism areas</li>
+          <li><strong>Infrastructure Zone:</strong> Landing sites, ports, shipping lanes</li>
+          <li><strong>Multi-use Zone:</strong> Mixed uses with conflict management</li>
+          <li><strong>Development Zone:</strong> Area for blue economy expansion</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">4.2 Develop Multiple Zoning Scenarios</h3>
+      <div class="content-box">
+        <h4 class="anchored">Scenario Development:</h4>
+        <ul>
+          <li><strong>Scenario A - Conservation-focused:</strong> 25-30% strictly protected areas</li>
+          <li><strong>Scenario B - Livelihood-focused:</strong> Maximum fishing access with seasonal closures</li>
+          <li><strong>Scenario C - Balanced:</strong> 15-20% protected, sustainable fishing, tourism development</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Impact Assessment for Each Scenario:</h4>
+        <ul>
+          <li>Fishing impact (access limitations, catch changes)</li>
+          <li>Conservation impact (species protection, ecosystem resilience)</li>
+          <li>Livelihood impact (income, employment, food security)</li>
+          <li>Gender impact (women fisher access, participation)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">4.3 Stakeholder Validation &amp; Consensus Building</h3>
+      <div class="content-box">
+        <h4 class="anchored">Validation Workshops:</h4>
+        <ul>
+          <li>Present 3 scenarios to all stakeholder groups</li>
+          <li>Discuss pros/cons of each scenario</li>
+          <li>Get feedback on preferred option</li>
+          <li>Negotiate compromises and modifications</li>
+          <li>Seek sign-off from major stakeholder groups</li>
+        </ul>
+      </div>
+      <div class="key-actors">
+        <strong>🤝 Consensus Building:</strong>
+        <p>Work toward "consensus" not "unanimity". Aim for agreement from 80%+ of stakeholders. Document remaining disagreements and rationale for final decision.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">4.4 Finalize MSP Document</h3>
+      <div class="content-box">
+        <h4 class="anchored">MSP Document Contents:</h4>
+        <ul>
+          <li>Executive summary</li>
+          <li>Planning context and objectives</li>
+          <li>Stakeholder consultation results</li>
+          <li>Baseline conditions and issues</li>
+          <li>Zoning map and zone descriptions</li>
+          <li>Implementation strategy</li>
+          <li>Monitoring framework</li>
+          <li>Appendices (data, community feedback, technical reports)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-criteria">
+      <strong>✓ Success Criteria:</strong>
+      <ul>
+        <li>Final MSP document approved by Steering Committee</li>
+        <li>Zoning map accepted by 80%+ of stakeholder groups</li>
+        <li>District Council formal adoption resolution passed</li>
+        <li>MSP launched publicly with community ceremony/celebration</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase-section" id="phase5">
+    <h2 class="anchored">
+      <span class="phase-number">5</span>
+      Implementation &amp; Enforcement Phase
+    </h2>
+    <div class="phase-timeline">Ongoing | Putting plan into action</div>
+
+    <div class="subsection">
+      <h3 class="anchored">5.1 Establish Enforcement Systems</h3>
+      <div class="content-box">
+        <h4 class="anchored">Enforcement Components:</h4>
+        <ul>
+          <li><strong>Patrol System:</strong> Boat patrols of marine zones (2-3x weekly)</li>
+          <li><strong>Community Rangers:</strong> Train 10-15 community members for monitoring</li>
+          <li><strong>Reporting System:</strong> Mobile app/radio for incident reporting</li>
+          <li><strong>Sanctions:</strong> Progressive penalties for violations (warnings, fines, gear confiscation)</li>
+        </ul>
+      </div>
+      <div class="resource-box">
+        <strong>📦 Enforcement Equipment Needs:</strong>
+        <ul>
+          <li>Patrol boat and fuel</li>
+          <li>GPS/communication equipment</li>
+          <li>Ranger uniforms and identification</li>
+          <li>Storage for confiscated gear</li>
+          <li>Case documentation system</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">5.2 Implement Livelihood Transition Programs</h3>
+      <div class="content-box">
+        <h4 class="anchored">Support Programs:</h4>
+        <ul>
+          <li><strong>Alternative Livelihoods:</strong> Seaweed farming, aquaculture, tourism</li>
+          <li><strong>Skills Training:</strong> Vocational courses (mechanics, hospitality, fish processing)</li>
+          <li><strong>Microfinance:</strong> Access to credit for business startup</li>
+          <li><strong>Market Access:</strong> Help linking producers to buyers</li>
+          <li><strong>Women's Programs:</strong> Targeted support for female-headed households</li>
+        </ul>
+      </div>
+      <div class="key-actors">
+        <strong>🎓 Training Priority:</strong>
+        <p>Partner with vocational training centers, NGOs, and private sector to deliver skills training. Prioritize youth (18-35) and women (40% minimum participation).</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">5.3 Community Education &amp; Communication</h3>
+      <div class="content-box">
+        <h4 class="anchored">Communication Channels:</h4>
+        <ul>
+          <li>Monthly community update meetings</li>
+          <li>Radio spots on local stations</li>
+          <li>Posters in landing sites and villages</li>
+          <li>School programs (student ambassadors)</li>
+          <li>WhatsApp groups for rapid updates</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risks-challenges">
+      <strong>⚠️ Implementation Barriers:</strong>
+      <ul>
+        <li><strong>Resistance from affected fishers:</strong> Sustained engagement, livelihood support critical</li>
+        <li><strong>Insufficient resources:</strong> Start with community-based enforcement, scale up gradually</li>
+        <li><strong>External fishing pressure:</strong> Coordinate with national fisheries, seek government support</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 6 -->
+  <div class="phase-section" id="phase6">
+    <h2 class="anchored">
+      <span class="phase-number">6</span>
+      Monitoring &amp; Adaptive Management Phase
+    </h2>
+    <div class="phase-timeline">Ongoing | Tracking progress and adjusting implementation</div>
+
+    <div class="subsection">
+      <h3 class="anchored">6.1 Establish Monitoring Program</h3>
+      <div class="content-box">
+        <h4 class="anchored">Monitoring Indicators:</h4>
+        <ul>
+          <li><strong>Ecological:</strong> Fish catch/CPUE, biodiversity surveys, habitat condition</li>
+          <li><strong>Livelihood:</strong> Income levels, employment, food security</li>
+          <li><strong>Governance:</strong> Stakeholder participation, compliance rates, conflict incidents</li>
+          <li><strong>Social:</strong> Gender participation, youth engagement, equity perception</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">Data Collection Methods:</h4>
+        <ul>
+          <li>Monthly catch monitoring at landing sites</li>
+          <li>Quarterly biological surveys (reefs, fish populations)</li>
+          <li>Semi-annual community surveys (livelihood status)</li>
+          <li>Annual enforcement data compilation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3 class="anchored">6.2 Conduct Annual Review &amp; Adjustment</h3>
+      <div class="content-box">
+        <h4 class="anchored">Annual Review Process:</h4>
+        <ul>
+          <li>Compile all monitoring data</li>
+          <li>Analyze trends and changes</li>
+          <li>Hold community feedback session</li>
+          <li>Identify necessary adjustments to zones or management</li>
+          <li>Document and implement changes</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4 class="anchored">5-Year Comprehensive Evaluation:</h4>
+        <ul>
+          <li>Assess ecological, livelihood, and governance outcomes</li>
+          <li>Compare to baseline conditions and targets</li>
+          <li>Identify lessons learned</li>
+          <li>Revise MSP if needed</li>
+          <li>Plan for next 5-year cycle</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-criteria">
+      <strong>✓ Success Indicators:</strong>
+      <ul>
+        <li>Fish catch stabilization or increase after initial decline</li>
+        <li>Coral reef recovery in protected areas</li>
+        <li>Stable or improving livelihood indicators</li>
+        <li>High (80%+) community support for MSP</li>
+        <li>Growing youth participation and employment</li>
+        <li>Gender-equitable outcomes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Key Success Factors -->
+  <div class="phase-section">
+    <h2 class="anchored">🎯 Critical Success Factors for LMSP</h2>
+    
+    <div class="content-box">
+      <h4 class="anchored">1. Strong Political Leadership</h4>
+      <ul>
+        <li>District Commissioner and Council champions the initiative</li>
+        <li>Budget allocated from local government resources</li>
+        <li>Formal adoption through official resolutions</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4 class="anchored">2. Meaningful Community Participation</h4>
+      <ul>
+        <li>Communities drive the planning process</li>
+        <li>Decisions reflect community priorities</li>
+        <li>Benefit-sharing arrangements clear and fair</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4 class="anchored">3. Livelihood Security &amp; Alternatives</h4>
+      <ul>
+        <li>Transition programs reduce livelihood impacts</li>
+        <li>Income support during adjustment period</li>
+        <li>New opportunities created</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4 class="anchored">4. Sufficient Resources &amp; Capacity</h4>
+      <ul>
+        <li>Dedicated staff and budget</li>
+        <li>Training for enforcement personnel</li>
+        <li>Equipment and infrastructure</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4 class="anchored">5. Science-Based Planning</h4>
+      <ul>
+        <li>Comprehensive baseline data collection</li>
+        <li>Evidence-based zoning decisions</li>
+        <li>Regular monitoring and evaluation</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4 class="anchored">6. Gender &amp; Social Equity</h4>
+      <ul>
+        <li>Women and marginalized groups included</li>
+        <li>Culturally appropriate engagement methods</li>
+        <li>Equitable benefit distribution</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4 class="anchored">7. Adaptive Management Culture</h4>
+      <ul>
+        <li>Willingness to adjust plans based on learning</li>
+        <li>Regular feedback and review cycles</li>
+        <li>Transparent documentation of changes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Download Section -->
+  <div class="download-section">
+    <h2 style="color: #1e3c72; margin-top: 0; border: none;" class="anchored">📥 Download Resources</h2>
+    <p style="color: #666;">Tools, templates, and checklists to support LMSP implementation</p>
+    <a href="#" class="download-btn">📋 LMSP Planning Checklist</a>
+    <a href="#" class="download-btn">📋 Stakeholder Engagement Guide</a>
+    <a href="#" class="download-btn">📋 Zoning Decision Tool</a>
+    <a href="#" class="download-btn">📊 Monitoring Template</a>
+  </div>
+
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+          // default icon
+          link.classList.add("external");
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>QUICK LINKS</strong></p>
+<p><a href="./index.html">Home</a></p>
+<p><a href="./about.html">About</a></p>
+<p><a href="./blog.html">Blog</a></p>
+<p><a href="./faq.html">FAQs</a></p>
+<p><a href="./partners.html">Network</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><strong>Contact Us</strong></p>
+<p>📧 Email: <a href="mailto:lugosemba@gmail.com">lugosemba@gmail.com</a></p>
+<p>📍 Location: Dar es Salaam, Tanzania</p>
+<p>🌍 Website: <a href="./index.html">LMSP-Tanzania</a></p>
+<p>© 2026 LMSP-Tanzania | Ad Hoc Group of Experts on Marine Spatial Planning</p>
+</div>
+    <div class="nav-footer-right">
+<p><strong>Tools</strong></p>
+<p><a href="https://semba.shinyapps.io/besa/">BESA Dashboard</a></p>
+<p><a href="https://semba.shinyapps.io/digital/">Digital Tool</a></p>
+</div>
+  </div>
+</footer>
+<button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
+<script>
+  const scrollBtn = document.getElementById('scrollToTopBtn');
+  
+  // Show/hide scroll button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+  
+  // Scroll to top smoothly
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+  
+  // Alternative: keyboard shortcut (Press Home key to go to top)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Home') {
+      e.preventDefault();
+      scrollToTop();
+    }
+  });
+</script>
+
+
+
+
+</body></html>

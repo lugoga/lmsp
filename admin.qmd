@@ -1,0 +1,200 @@
+---
+title: ""
+---
+
+```{=html}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const loggedInUser = sessionStorage.getItem('lmsp_user');
+const loginButton = document.getElementById('loginButton');
+const logoutButton = document.getElementById('logoutButton');
+const userInfo = document.getElementById('userInfo');
+const adminContent = document.getElementById('adminContent');
+const restrictedMessage = document.getElementById('restrictedMessage');
+
+if (loggedInUser) {
+loginButton.style.display = 'none';
+logoutButton.style.display = 'inline-block';
+userInfo.style.display = 'block';
+userInfo.textContent = 'Logged in as: ' + loggedInUser;
+adminContent.style.display = 'block';
+restrictedMessage.style.display = 'none';
+showTab('tab-timeline');
+} else {
+loginButton.style.display = 'inline-block';
+logoutButton.style.display = 'none';
+userInfo.style.display = 'none';
+adminContent.style.display = 'none';
+restrictedMessage.style.display = 'block';
+}
+});
+
+function logout() {
+sessionStorage.removeItem('lmsp_user');
+sessionStorage.removeItem('lmsp_loginTime');
+localStorage.removeItem('lmsp_user');
+localStorage.removeItem('lmsp_rememberTime');
+location.reload();
+}
+
+function showTab(tabId) {
+const tabContents = document.querySelectorAll('.tab-content');
+tabContents.forEach(content => content.style.display = 'none');
+
+const tabButtons = document.querySelectorAll('.tab-btn');
+tabButtons.forEach(btn => btn.classList.remove('active'));
+
+const selectedTab = document.getElementById(tabId);
+if (selectedTab) selectedTab.style.display = 'block';
+
+if (event && event.target) event.target.classList.add('active');
+}
+</script>
+
+<style>
+.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 15px; background: #f5f5f5; border-radius: 5px; border-left: 4px solid #2a5298; }
+#userInfo { color: #2e7d32; font-weight: 600; font-size: 14px; }
+.auth-buttons { display: flex; gap: 10px; }
+button.auth-btn, a.auth-btn { padding: 8px 16px; border-radius: 5px; border: none; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; font-size: 13px; transition: all 0.3s ease; }
+button.auth-btn.login, a.auth-btn.login { background: #2a5298; color: white; }
+button.auth-btn.logout { background: #d32f2f; color: white; }
+button.auth-btn:hover, a.auth-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.tab-buttons { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 20px; border-bottom: 2px solid #ddd; }
+.tab-btn { padding: 12px 20px; background: #f0f0f0; border: none; cursor: pointer; font-weight: 600; color: #333; border-radius: 5px 5px 0 0; transition: all 0.3s ease; font-size: 14px; }
+.tab-btn:hover { background: #e0e0e0; }
+.tab-btn.active { background: #2a5298; color: white; }
+.tab-content { display: none; padding: 20px; background: #fafafa; border-radius: 5px; border: 1px solid #ddd; }
+.tab-content h3 { color: #1e3c72; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #2a5298; padding-bottom: 10px; }
+.tab-content a { color: #2a5298; text-decoration: none; font-weight: 600; }
+.tab-content a:hover { text-decoration: underline; }
+.info-box { background: white; padding: 15px; border-left: 4px solid #2a5298; margin-bottom: 15px; border-radius: 5px; }
+.info-box strong { color: #1e3c72; }
+</style>
+
+<div class="admin-header">
+<h2>Admin Portal - Dashboard</h2>
+<div>
+<span id="userInfo" style="display: none;"></span>
+<div class="auth-buttons">
+<a href="login.qmd" id="loginButton" class="auth-btn login" style="display: none;">Login</a>
+<button onclick="logout()" id="logoutButton" class="auth-btn logout" style="display: none;">Logout</button>
+</div>
+</div>
+</div>
+
+<div id="restrictedMessage" style="display: none; background: #fff3cd; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 2px solid #ffc107;">
+<strong>⚠️ Authorization Required</strong><br>
+This section is for authorized team members only. Access is restricted to LMSP-Tanzania leadership and designated administrators.
+<br><br>
+<a href="login.qmd" class="auth-btn login">Please Login</a> or <a href="contacts.qmd">Contact Us</a> for access request.
+</div>
+
+<div id="adminContent" style="display: none;">
+<div class="tab-buttons">
+<button class="tab-btn active" onclick="showTab('tab-timeline')">📅 Timeline</button>
+<button class="tab-btn" onclick="showTab('tab-scope')">📋 Scope</button>
+<button class="tab-btn" onclick="showTab('tab-deliverables')">📋 Deliverables</button>
+<button class="tab-btn" onclick="showTab('tab-data')">📊 Data</button>
+<button class="tab-btn" onclick="showTab('tab-team')">👥 Team</button>
+<button class="tab-btn" onclick="showTab('tab-reports')">📈 Reports</button>
+</div>
+
+<div id="tab-timeline" class="tab-content" style="display: block;">
+<h3>📅 Timeline & Project Milestones</h3>
+<p>Track project progress, key dates, and deliverable schedules.</p>
+<div class="info-box">
+<strong>Project Start Date:</strong> [Date]<br><br>
+<strong>Key Milestones:</strong> [To be added by authorized users]<br><br>
+<strong>Upcoming Deadlines:</strong> [To be added by authorized users]
+</div>
+<h4>View Detailed Timeline</h4>
+<p><a href="admin/timeline.qmd">View Full Timeline Details →</a></p>
+</div>
+
+<div id="tab-scope" class="tab-content">
+<h3>📋 Scope of Work</h3>
+<p>Overview of project scope, objectives, and work packages.</p>
+<div class="info-box">
+<strong>Project Objectives:</strong>
+<ul>
+<li>Raise awareness and visibility of local MSPs in Tanzania</li>
+<li>Increase visibility of team members' work on MSP and related fields</li>
+<li>Mobilize support from development partners and private sector</li>
+<li>Be a key source on data and information for MSP</li>
+</ul>
+</div>
+<h4>View Complete Scope Details</h4>
+<p><a href="admin/scope.qmd">View Full Scope of Work →</a></p>
+</div>
+
+<div id="tab-deliverables" class="tab-content">
+<h3>📋 Deliverables Tracker</h3>
+<p>Monitor project outputs and deliverable status.</p>
+<div class="info-box">
+<strong>Tracked Deliverables:</strong>
+<ul>
+<li>MSP Implementation Reports</li>
+<li>Community Engagement Reports</li>
+<li>Data & Publications</li>
+<li>Training Materials</li>
+<li>Policy Briefs</li>
+</ul>
+</div>
+<h4>View Deliverables Status</h4>
+<p><a href="admin/deliverables.qmd">View Full Deliverables Tracker →</a></p>
+</div>
+
+<div id="tab-data" class="tab-content">
+<h3>📊 Data Management</h3>
+<p>Access and manage project data, datasets, and resources.</p>
+<div class="info-box">
+<strong>Available Resources:</strong>
+<ul>
+<li>Raw data files</li>
+<li>Processed datasets</li>
+<li>Spatial data (GIS)</li>
+<li>Statistics & analytics</li>
+<li>Metadata documentation</li>
+</ul>
+</div>
+<h4>Access Data Portal</h4>
+<p><a href="admin/data.qmd">View Data Management Portal →</a></p>
+</div>
+
+<div id="tab-team" class="tab-content">
+<h3>👥 Team Management</h3>
+<p>Manage team members, roles, and assignments.</p>
+<div class="info-box">
+<strong>Team Functions:</strong>
+<ul>
+<li>Team member profiles</li>
+<li>Role assignments</li>
+<li>Contact directory</li>
+<li>Task assignments</li>
+</ul>
+</div>
+<h4>View Team Details</h4>
+<p><a href="admin/team.qmd">Manage Team →</a></p>
+</div>
+
+<div id="tab-reports" class="tab-content">
+<h3>📈 Reports & Analytics</h3>
+<p>View project performance metrics and analytics.</p>
+<div class="info-box">
+<strong>Available Reports:</strong>
+<ul>
+<li>Project performance metrics</li>
+<li>Community engagement statistics</li>
+<li>Resource utilization reports</li>
+<li>Impact indicators</li>
+</ul>
+</div>
+<h4>View Reports</h4>
+<p><a href="admin/reports.qmd">View Reports & Analytics →</a></p>
+</div>
+</div>
+
+<hr style="margin-top: 30px;">
+
+<p style="text-align: center; color: #666; margin-top: 30px;"><strong>Last Updated:</strong> January 1, 2026</p>
+```

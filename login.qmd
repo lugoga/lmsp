@@ -1,0 +1,251 @@
+---
+title: "Admin Login"
+---
+
+```{=html}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LMSP-Tanzania Admin Login</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7aa8d8 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+.login-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); max-width: 900px; width: 100%; }
+.login-info { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); padding: 60px 40px; color: white; display: flex; flex-direction: column; justify-content: center; }
+.login-info h2 { font-size: 32px; margin-bottom: 20px; font-weight: 700; }
+.login-info p { font-size: 16px; line-height: 1.8; margin-bottom: 15px; opacity: 0.95; }
+.login-info ul { margin-top: 20px; padding-left: 0; list-style: none; }
+.login-info li { margin-bottom: 12px; font-size: 14px; display: flex; align-items: center; }
+.login-info li:before { content: "✓"; margin-right: 12px; font-weight: bold; font-size: 16px; }
+.login-container { background: white; padding: 50px 40px; display: flex; flex-direction: column; justify-content: center; }
+.login-header { margin-bottom: 35px; }
+.login-header h1 { color: #1e3c72; margin-bottom: 8px; font-size: 28px; font-weight: 700; }
+.login-header p { color: #666; font-size: 14px; font-weight: 500; }
+.form-group { margin-bottom: 20px; }
+label { display: block; margin-bottom: 10px; color: #1e3c72; font-weight: 600; font-size: 14px; }
+input[type="text"], input[type="password"] { width: 100%; padding: 14px 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; transition: all 0.3s ease; background: #f8f9fa; }
+input[type="text"]:focus, input[type="password"]:focus { outline: none; border-color: #2a5298; background: white; box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.1); }
+.remember-me { display: flex; align-items: center; margin-bottom: 25px; margin-top: 5px; }
+.remember-me input[type="checkbox"] { margin-right: 8px; cursor: pointer; width: 16px; height: 16px; accent-color: #2a5298; }
+.remember-me label { margin: 0; font-weight: normal; color: #555; font-size: 14px; cursor: pointer; }
+button { width: 100%; padding: 14px; background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(42, 82, 152, 0.3); }
+button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42, 82, 152, 0.4); }
+.error-message { color: #c62828; background: #ffebee; padding: 14px; border-radius: 8px; margin-bottom: 20px; display: none; text-align: center; border-left: 4px solid #c62828; font-weight: 500; }
+.success-message { color: #2e7d32; background: #e8f5e9; padding: 14px; border-radius: 8px; margin-bottom: 20px; display: none; text-align: center; border-left: 4px solid #2e7d32; font-weight: 500; }
+.back-link { text-align: center; margin-top: 25px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+.back-link a { color: #2a5298; text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.3s; }
+.back-link a:hover { color: #1e3c72; }
+.demo-credentials { background: #f0f4f8; padding: 15px; border-radius: 8px; margin-top: 20px; font-size: 13px; color: #555; border: 1px solid #d0dce6; }
+.demo-credentials strong { display: block; margin-bottom: 10px; color: #1e3c72; font-weight: 600; }
+.demo-credentials div { margin-bottom: 6px; font-family: 'Courier New', monospace; background: white; padding: 6px 10px; border-radius: 4px; border: 1px solid #e0e0e0; }
+@media (max-width: 768px) { .login-wrapper { grid-template-columns: 1fr; } .login-info { padding: 40px 30px; } .login-container { padding: 40px 30px; } .login-info h2 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="login-wrapper">
+<div class="login-info">
+<h2>Welcome to LMSP-Tanzania</h2>
+<p>Access the Admin Portal for the Ad Hoc Group of Experts on Local Marine Spatial Planning</p>
+<ul>
+<li>Manage project timeline and milestones</li>
+<li>Track deliverables and progress</li>
+<li>Organize and access project data</li>
+<li>Coordinate team activities</li>
+<li>Generate reports and analytics</li>
+</ul>
+</div>
+
+<div class="login-container">
+<div class="login-header">
+<h1>Sign In</h1>
+<p>Enter your credentials to access the admin portal</p>
+</div>
+
+<div class="error-message" id="errorMessage"></div>
+<div class="success-message" id="successMessage"></div>
+
+<form id="loginForm">
+<div class="form-group">
+<label for="username">Username</label>
+<input type="text" id="username" name="username" placeholder="Enter your username" required autofocus>
+</div>
+
+<div class="form-group">
+<label for="password">Password</label>
+<input type="password" id="password" name="password" placeholder="Enter your password" required>
+</div>
+
+<div class="remember-me">
+<input type="checkbox" id="remember" name="remember">
+<label for="remember">Remember me for 30 days</label>
+</div>
+
+<button type="submit">Sign In</button>
+</form>
+
+<div class="demo-credentials">
+<strong>Demo Credentials:</strong>
+<div><strong>Super Admin (Full Access):</strong> admin / lmsp2026</div>
+<div><strong>Limited Access:</strong> director / lmsp2026</div>
+<div><strong>Limited Access:</strong> coordinator / team2026</div>
+<div><strong>Limited Access:</strong> user / password123</div>
+</div>
+
+<div class="back-link">
+<a href="index.qmd">← Back to Home</a>
+</div>
+</div>
+</div>
+
+<script>
+// User credentials with role-based privileges and permissions
+const authorizedUsers = {
+  'admin': { password: 'lmsp2026', role: 'super_admin', privilege: 'full_access', canDelete: true },
+  'director': { password: 'lmsp2026', role: 'director', privilege: 'limited', canDelete: false },
+  'coordinator': { password: 'team2026', role: 'coordinator', privilege: 'limited', canDelete: false },
+  'user': { password: 'user2026', role: 'user', privilege: 'limited', canDelete: false }
+};
+
+// Permission checker utility
+window.canUserDelete = function() {
+  const userRole = sessionStorage.getItem('lmsp_role') || localStorage.getItem('lmsp_role');
+  const username = sessionStorage.getItem('lmsp_user') || localStorage.getItem('lmsp_user');
+  
+  if (username && authorizedUsers[username]) {
+    return authorizedUsers[username].canDelete === true;
+  }
+  return false;
+};
+
+// Get current user permissions
+window.getUserPermissions = function() {
+  const userRole = sessionStorage.getItem('lmsp_role') || localStorage.getItem('lmsp_role');
+  const username = sessionStorage.getItem('lmsp_user') || localStorage.getItem('lmsp_user');
+  
+  if (username && authorizedUsers[username]) {
+    return {
+      username: username,
+      role: userRole,
+      privilege: sessionStorage.getItem('lmsp_privilege') || localStorage.getItem('lmsp_privilege'),
+      canDelete: authorizedUsers[username].canDelete
+    };
+  }
+  return null;
+};
+
+// Audit logging for delete operations
+window.logDeleteAction = function(itemType, itemName, itemId) {
+  const username = sessionStorage.getItem('lmsp_user') || localStorage.getItem('lmsp_user');
+  const timestamp = new Date().toISOString();
+  
+  const deleteLog = {
+    username: username,
+    action: 'DELETE',
+    itemType: itemType,
+    itemName: itemName,
+    itemId: itemId,
+    timestamp: timestamp,
+    ipAddress: 'local-session',
+    details: `User ${username} deleted ${itemType}: ${itemName}`
+  };
+  
+  // Store in browser's audit trail
+  let auditTrail = JSON.parse(localStorage.getItem('lmsp_auditTrail') || '[]');
+  auditTrail.push(deleteLog);
+  localStorage.setItem('lmsp_auditTrail', JSON.stringify(auditTrail));
+  
+  console.log('Audit Log:', deleteLog);
+  return deleteLog;
+};
+
+// Get audit trail
+window.getAuditTrail = function(limit = null) {
+  let auditTrail = JSON.parse(localStorage.getItem('lmsp_auditTrail') || '[]');
+  if (limit) {
+    return auditTrail.slice(-limit);
+  }
+  return auditTrail;
+};
+
+// Clear audit trail (admin only)
+window.clearAuditTrail = function() {
+  if (canUserDelete()) {
+    localStorage.setItem('lmsp_auditTrail', '[]');
+    return true;
+  }
+  console.warn('Only admins can clear audit trail');
+  return false;
+};
+
+const loginForm = document.getElementById('loginForm');
+const errorMessage = document.getElementById('errorMessage');
+const successMessage = document.getElementById('successMessage');
+
+loginForm.addEventListener('submit', function(e) {
+e.preventDefault();
+
+const username = document.getElementById('username').value.trim();
+const password = document.getElementById('password').value;
+const remember = document.getElementById('remember').checked;
+
+errorMessage.style.display = 'none';
+successMessage.style.display = 'none';
+
+if (authorizedUsers[username] && authorizedUsers[username].password === password) {
+const userRole = authorizedUsers[username].role;
+const userPrivilege = authorizedUsers[username].privilege;
+const canDelete = authorizedUsers[username].canDelete;
+
+sessionStorage.setItem('lmsp_user', username);
+sessionStorage.setItem('lmsp_role', userRole);
+sessionStorage.setItem('lmsp_privilege', userPrivilege);
+sessionStorage.setItem('lmsp_canDelete', canDelete);
+sessionStorage.setItem('lmsp_loginTime', new Date().getTime());
+
+if (remember) {
+localStorage.setItem('lmsp_user', username);
+localStorage.setItem('lmsp_role', userRole);
+localStorage.setItem('lmsp_privilege', userPrivilege);
+localStorage.setItem('lmsp_canDelete', canDelete);
+localStorage.setItem('lmsp_rememberTime', new Date().getTime());
+}
+
+const privilegeMsg = userPrivilege === 'full_access' ? '(Super Admin - Full Access - Can Delete)' : '(Limited Access - No Delete Permission)';
+successMessage.textContent = `✓ Login successful! ${privilegeMsg} Redirecting to admin portal...`;
+successMessage.style.display = 'block';
+
+setTimeout(() => {
+window.location.href = 'admin.html';
+}, 1200);
+} else {
+errorMessage.textContent = '✗ Invalid username or password. Please try again.';
+errorMessage.style.display = 'block';
+document.getElementById('password').value = '';
+document.getElementById('password').focus();
+}
+});
+
+window.addEventListener('load', function() {
+const rememberedUser = localStorage.getItem('lmsp_user');
+const rememberTime = localStorage.getItem('lmsp_rememberTime');
+
+if (rememberedUser && rememberTime) {
+const thirtyDaysMs = 30 * 24 * 60 * 60 * 1000;
+if (new Date().getTime() - parseInt(rememberTime) < thirtyDaysMs) {
+document.getElementById('username').value = rememberedUser;
+document.getElementById('remember').checked = true;
+}
+}
+});
+
+document.getElementById('password').addEventListener('keypress', function(e) {
+if (e.key === 'Enter') {
+loginForm.dispatchEvent(new Event('submit'));
+}
+});
+</script>
+</body>
+</html>
+```

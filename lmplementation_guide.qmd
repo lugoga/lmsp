@@ -1,0 +1,1075 @@
+---
+title: "Implementation Guide"
+subtitle: "Local Marine Spatial Planning (LMSP) Step-by-Step Framework for Tanzania"
+---
+
+```{=html}
+<style>
+.guide-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.guide-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 50px 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.guide-header h1 {
+  color: white;
+  border: none;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.guide-header p {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.95;
+  color: white;
+}
+
+.toc-box {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 5px solid #2a5298;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.toc-box h2 {
+  color: #1e3c72;
+  border: none;
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.toc-list a {
+  color: #2a5298;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.toc-list a:hover {
+  color: #1e3c72;
+  transform: translateX(5px);
+}
+
+.toc-list a:before {
+  content: "→";
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.phase-section {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  border-left: 5px solid #2a5298;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.phase-number {
+  display: inline-block;
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.phase-section h2 {
+  color: #1e3c72;
+  border: none;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+}
+
+.phase-section h2 .phase-number {
+  margin-right: 15px;
+  margin-bottom: 0;
+}
+
+.phase-timeline {
+  background: #f0f4f8;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+}
+
+.phase-timeline:before {
+  content: "⏱";
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.subsection {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.subsection:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.subsection h3 {
+  color: #2a5298;
+  border: none;
+  font-size: 16px;
+  margin: 0 0 12px 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.subsection h3:before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 16px;
+  background: #2a5298;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.content-box {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+}
+
+.content-box h4 {
+  color: #1e3c72;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.content-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #555;
+  font-size: 15px;
+}
+
+.content-box li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.key-actors {
+  background: #e3f2fd;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #1565c0;
+  margin-bottom: 15px;
+}
+
+.key-actors strong {
+  color: #1565c0;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.key-actors p {
+  margin: 0;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.success-criteria {
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #2e7d32;
+  margin-bottom: 15px;
+}
+
+.success-criteria strong {
+  color: #2e7d32;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.success-criteria ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #333;
+  font-size: 15px;
+}
+
+.success-criteria li {
+  margin-bottom: 6px;
+}
+
+.risks-challenges {
+  background: #fff3e0;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #f57c00;
+  margin-bottom: 15px;
+}
+
+.risks-challenges strong {
+  color: #f57c00;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.risks-challenges ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #333;
+  font-size: 15px;
+}
+
+.risks-challenges li {
+  margin-bottom: 6px;
+}
+
+.timeline-diagram {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border: 1px solid #e0e0e0;
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.timeline-step:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: #2a5298;
+  border-radius: 50%;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  flex: 1;
+  border-left: 2px solid #e0e0e0;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+
+.timeline-step:last-child .timeline-content {
+  border-left: none;
+}
+
+.timeline-title {
+  color: #1e3c72;
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.timeline-detail {
+  color: #666;
+  font-size: 13px;
+}
+
+.checklist {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.checklist-item:last-child {
+  margin-bottom: 0;
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checklist-item label {
+  flex: 1;
+  cursor: pointer;
+  margin: 0;
+  color: #555;
+  font-size: 13px;
+}
+
+.resource-box {
+  background: #f0f4f8;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #2a5298;
+  margin-bottom: 15px;
+}
+
+.resource-box strong {
+  color: #1e3c72;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.resource-box ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #555;
+  font-size: 12px;
+}
+
+.resource-box li {
+  margin-bottom: 5px;
+}
+
+.download-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 25px;
+  border-radius: 8px;
+  margin-top: 40px;
+  text-align: center;
+  border: 2px solid #2a5298;
+}
+
+.download-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(42, 82, 152, 0.3);
+}
+
+@media (max-width: 768px) {
+  .guide-header {
+    padding: 30px 20px;
+  }
+  
+  .phase-section {
+    padding: 20px;
+  }
+}
+</style>
+
+<div class="guide-container">
+  <div class="guide-header">
+    <h1>Local MSP Implementation Guide</h1>
+    <p>Step-by-step framework for planning and implementing Marine Spatial Planning at the district/community level in Tanzania</p>
+  </div>
+
+  <!-- Table of Contents -->
+  <div class="toc-box">
+    <h2>📋 Guide Contents</h2>
+    <ul class="toc-list">
+      <li><a href="#phase1">Phase 1: Planning & Setup (0-3 months)</a></li>
+      <li><a href="#phase2">Phase 2: Stakeholder Engagement (3-6 months)</a></li>
+      <li><a href="#phase3">Phase 3: Data Collection & Analysis (6-12 months)</a></li>
+      <li><a href="#phase4">Phase 4: Spatial Planning & Zoning (12-18 months)</a></li>
+      <li><a href="#phase5">Phase 5: Implementation & Enforcement (18+ months)</a></li>
+      <li><a href="#phase6">Phase 6: Monitoring & Adaptation (Ongoing)</a></li>
+    </ul>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="phase-section" id="phase1">
+    <h2>
+      <span class="phase-number">1</span>
+      Planning & Setup Phase
+    </h2>
+    <div class="phase-timeline">6-12 weeks | Institutional establishment and legal groundwork</div>
+
+    <div class="subsection">
+      <h3>1.1 Establish LMSP Steering Committee</h3>
+      <div class="content-box">
+        <h4>Purpose:</h4>
+        <p>Create multi-level governance structure for decision-making and coordination</p>
+      </div>
+      <div class="key-actors">
+        <strong>🏛️ Key Actors:</strong>
+        <p>District Commissioner's office, Local Government leaders, Ministry representatives, community leaders, private sector</p>
+      </div>
+      <div class="content-box">
+        <h4>Key Activities:</h4>
+        <ul>
+          <li>Establish District MSP Steering Committee with 12-15 members</li>
+          <li>Define roles, responsibilities, and decision-making protocols</li>
+          <li>Schedule regular monthly meetings</li>
+          <li>Establish subcommittees (Data, Stakeholder Engagement, Implementation)</li>
+        </ul>
+      </div>
+      <div class="success-criteria">
+        <strong>✓ Success Criteria:</strong>
+        <ul>
+          <li>Committee formally established and recognized by local government</li>
+          <li>Terms of reference documented and signed</li>
+          <li>First meeting completed with attendance >75%</li>
+          <li>Meeting schedule established for next 12 months</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>1.2 Develop LMSP Legal & Policy Framework</h3>
+      <div class="content-box">
+        <h4>Purpose:</h4>
+        <p>Establish legal authority and alignment with national and local policies</p>
+      </div>
+      <div class="content-box">
+        <h4>Key Activities:</h4>
+        <ul>
+          <li>Review existing marine and coastal policies (national and district level)</li>
+          <li>Develop LMSP Policy Brief aligned with:</li>
+          <ul style="margin-top: 8px;">
+            <li>Tanzania Fisheries Act</li>
+            <li>Land Act (1999) and Land Use Act (2004)</li>
+            <li>Environmental Management Act</li>
+            <li>District Development Plans</li>
+          </ul>
+          <li>Draft LMSP implementation decree or resolution</li>
+          <li>Get formal adoption by District Council</li>
+        </ul>
+      </div>
+      <div class="success-criteria">
+        <strong>✓ Success Criteria:</strong>
+        <ul>
+          <li>Policy document finalized and peer-reviewed</li>
+          <li>District Council resolution passed</li>
+          <li>Policy gazette published in local media</li>
+          <li>All stakeholders aware of legal authority</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>1.3 Secure Funding & Resources</h3>
+      <div class="content-box">
+        <h4>Potential Funding Sources:</h4>
+        <ul>
+          <li><strong>Government:</strong> District budget allocations (fisheries, environment departments)</li>
+          <li><strong>Development Partners:</strong> USAID, GEF, World Bank, EU, UNEP</li>
+          <li><strong>NGOs:</strong> Conservation organizations (TNC, WWF, IUCN)</li>
+          <li><strong>Private Sector:</strong> Fishing associations, tourism businesses</li>
+          <li><strong>Blue Economy Revenue:</strong> Fishing license fees, tourism permits</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4>Estimated Budget Requirements:</h4>
+        <ul>
+          <li>Planning & Setup: $15,000-25,000</li>
+          <li>Stakeholder Engagement: $20,000-35,000</li>
+          <li>Data Collection & Analysis: $30,000-50,000</li>
+          <li>Spatial Planning: $25,000-40,000</li>
+          <li>Implementation & Enforcement: $40,000-75,000/year</li>
+          <li>Monitoring & Evaluation: $15,000-25,000/year</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>1.4 Establish LMSP Secretariat</h3>
+      <div class="content-box">
+        <h4>Staffing:</h4>
+        <ul>
+          <li><strong>MSP Coordinator:</strong> Overall coordination, government liaison</li>
+          <li><strong>Data Manager:</strong> GIS, database systems, monitoring</li>
+          <li><strong>Community Engagement Officer:</strong> Stakeholder coordination, consultation</li>
+          <li><strong>Administrative Support:</strong> Records, scheduling, reporting</li>
+        </ul>
+      </div>
+      <div class="resource-box">
+        <strong>📦 Infrastructure Needs:</strong>
+        <ul>
+          <li>Office space with meeting facilities</li>
+          <li>Computers and GIS software (QGIS - free/open source)</li>
+          <li>Internet connectivity</li>
+          <li>GPS equipment for field surveys</li>
+          <li>Database systems for data management</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risks-challenges">
+      <strong>⚠️ Common Challenges & Mitigation:</strong>
+      <ul>
+        <li><strong>Political instability:</strong> Build support across political lines, document in formal resolutions</li>
+        <li><strong>Budget constraints:</strong> Phased approach, leverage existing resources, seek partnerships</li>
+        <li><strong>Competing priorities:</strong> Link LMSP to development goals, show economic benefits</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="phase-section" id="phase2">
+    <h2>
+      <span class="phase-number">2</span>
+      Stakeholder Engagement Phase
+    </h2>
+    <div class="phase-timeline">8-12 weeks | Community consultation and participation planning</div>
+
+    <div class="subsection">
+      <h3>2.1 Identify & Map Stakeholders</h3>
+      <div class="content-box">
+        <h4>Stakeholder Categories:</h4>
+        <ul>
+          <li><strong>Government:</strong> District officials, fisheries, environment, lands departments</li>
+          <li><strong>Resource Users:</strong> Fishers (artisanal, commercial), aquaculturists, tourism operators</li>
+          <li><strong>Communities:</strong> Coastal villages, women groups, youth associations</li>
+          <li><strong>Civil Society:</strong> NGOs, environmental organizations, research institutions</li>
+          <li><strong>Private Sector:</strong> Fishing companies, hotels, transport operators</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4>Analysis Framework:</h4>
+        <ul>
+          <li>Create stakeholder matrix (interest vs. influence)</li>
+          <li>Identify potential conflicts and areas of agreement</li>
+          <li>Assess capacity and engagement needs</li>
+          <li>Develop tailored engagement strategies</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>2.2 Design Consultation & Engagement Strategy</h3>
+      <div class="content-box">
+        <h4>Engagement Methods:</h4>
+        <ul>
+          <li><strong>Community Forums:</strong> Monthly gatherings in different villages</li>
+          <li><strong>Focus Group Discussions:</strong> Separate sessions for fishers, women, youth</li>
+          <li><strong>Key Informant Interviews:</strong> With leaders, elders, knowledge holders</li>
+          <li><strong>Participatory Mapping:</strong> Communities mark important areas, use zones</li>
+          <li><strong>Digital Platforms:</strong> Email updates, WhatsApp groups for broader reach</li>
+        </ul>
+      </div>
+      <div class="key-actors">
+        <strong>👥 Inclusion Priority:</strong>
+        <p><strong>Women & Youth:</strong> At least 40% female participation in all forums. Dedicated youth sessions for employment opportunity discussions. Persons with disabilities accommodated in all meetings.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>2.3 Conduct Community Consultation Rounds</h3>
+      <div class="content-box">
+        <h4>Round 1 - Awareness & Information:</h4>
+        <ul>
+          <li>Present LMSP concept and benefits</li>
+          <li>Share timeline and process overview</li>
+          <li>Listen to community concerns and aspirations</li>
+          <li>Collect initial feedback on marine resource issues</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4>Round 2 - Data & Issues:</h4>
+        <ul>
+          <li>Share preliminary data findings</li>
+          <li>Discuss marine resource distribution and use conflicts</li>
+          <li>Identify priority conservation and livelihood areas</li>
+          <li>Collect local ecological knowledge</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4>Round 3 - Draft Plans & Validation:</h4>
+        <ul>
+          <li>Present draft zoning options</li>
+          <li>Discuss potential impacts on different groups</li>
+          <li>Gather feedback on proposed zones</li>
+          <li>Identify support and resistance drivers</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-criteria">
+      <strong>✓ Success Criteria:</strong>
+      <ul>
+        <li>All identified stakeholder groups have participated (minimum 2 sessions each)</li>
+        <li>At least 200+ community members engaged in consultations</li>
+        <li>Consultation documentation compiled and verified</li>
+        <li>Community priorities documented in consultation report</li>
+      </ul>
+    </div>
+
+    <div class="risks-challenges">
+      <strong>⚠️ Common Challenges:</strong>
+      <ul>
+        <li><strong>Limited participation:</strong> Schedule meetings during off-fishing times, provide meals, transport</li>
+        <li><strong>Gender gaps:</strong> Conduct separate women's sessions, provide childcare support</li>
+        <li><strong>Conflicting interests:</strong> Use neutral facilitators, acknowledge all perspectives, seek win-win solutions</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="phase-section" id="phase3">
+    <h2>
+      <span class="phase-number">3</span>
+      Data Collection & Analysis Phase
+    </h2>
+    <div class="phase-timeline">6-12 months | Comprehensive data gathering and spatial analysis</div>
+
+    <div class="subsection">
+      <h3>3.1 Establish Data Framework</h3>
+      <div class="content-box">
+        <h4>Key Data Themes:</h4>
+        <ul>
+          <li><strong>Marine Biodiversity:</strong> Fish species, coral reefs, seagrass, mangroves</li>
+          <li><strong>Fisheries:</strong> Catch data, fishing grounds, effort, seasonality</li>
+          <li><strong>Coastal Infrastructure:</strong> Landing sites, markets, processing facilities</li>
+          <li><strong>Communities & Livelihoods:</strong> Population, income sources, employment</li>
+          <li><strong>Climate & Oceanography:</strong> Temperature, currents, sea level, upwelling</li>
+        </ul>
+      </div>
+      <div class="resource-box">
+        <strong>📦 Data Sources:</strong>
+        <ul>
+          <li>Ministry of Fisheries (catch landings, vessel registries)</li>
+          <li>Satellite imagery (free from USGS, ESA)</li>
+          <li>Oceanographic databases (GEBCO, Copernicus)</li>
+          <li>Community knowledge (participatory mapping)</li>
+          <li>Research institutions (TAFIRI, UDSM, NM-AIST)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>3.2 Conduct Field Surveys</h3>
+      <div class="content-box">
+        <h4>Survey Methods:</h4>
+        <ul>
+          <li><strong>Fisheries Surveys:</strong> Interview 100+ fishers on catches, areas, seasonality</li>
+          <li><strong>Biological Surveys:</strong> Snorkel/diving surveys of reefs, seagrass, mangroves</li>
+          <li><strong>Community Surveys:</strong> Household questionnaires (100-150 households)</li>
+          <li><strong>Coastal Mapping:</strong> GPS survey of landing sites, villages, infrastructure</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4>Data Quality Assurance:</h4>
+        <ul>
+          <li>Enumerator training (1-2 weeks)</li>
+          <li>Field supervisor oversight</li>
+          <li>Data validation and cleaning</li>
+          <li>Database integrity checks</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>3.3 GIS Analysis & Mapping</h3>
+      <div class="content-box">
+        <h4>Spatial Analysis Products:</h4>
+        <ul>
+          <li>Base maps (bathymetry, coastline, settlements, infrastructure)</li>
+          <li>Fishing ground maps (by species, season, effort)</li>
+          <li>Biodiversity hotspot maps (coral reefs, seagrass, mangroves)</li>
+          <li>Resource conflict maps (overlapping uses)</li>
+          <li>Vulnerability maps (climate exposure, livelihood dependence)</li>
+        </ul>
+      </div>
+      <div class="resource-box">
+        <strong>🗺️ Tools & Software:</strong>
+        <ul>
+          <li>QGIS (free, open-source GIS software)</li>
+          <li>Google Earth Pro (free satellite imagery)</li>
+          <li>R/Python (spatial analysis scripting)</li>
+          <li>ArcGIS Online (web-based mapping - requires license)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-criteria">
+      <strong>✓ Success Criteria:</strong>
+      <ul>
+        <li>Baseline report completed with all data themes covered</li>
+        <li>Minimum 10 thematic maps produced</li>
+        <li>Database with 500+ data records established</li>
+        <li>Data quality assurance completed</li>
+        <li>Community validation of findings conducted</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="phase-section" id="phase4">
+    <h2>
+      <span class="phase-number">4</span>
+      Spatial Planning & Zoning Phase
+    </h2>
+    <div class="phase-timeline">6-9 months | Development of marine zoning scheme</div>
+
+    <div class="subsection">
+      <h3>4.1 Identify Planning Units & Objectives</h3>
+      <div class="content-box">
+        <h4>Spatial Planning Objectives:</h4>
+        <ul>
+          <li>Ecological sustainability - protect biodiversity and ecosystem functions</li>
+          <li>Livelihood security - maintain fishing and tourism opportunities</li>
+          <li>Economic efficiency - optimize use of marine space</li>
+          <li>Social equity - fair benefit distribution, inclusive decision-making</li>
+          <li>Climate resilience - enhance ecosystem and community adaptation</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4>Zoning Framework:</h4>
+        <ul>
+          <li><strong>Fisheries Zone:</strong> Sustainable fishing areas with seasonal management</li>
+          <li><strong>Conservation Zone:</strong> No-take or strictly managed areas</li>
+          <li><strong>Tourism Zone:</strong> Recreation and sustainable tourism areas</li>
+          <li><strong>Infrastructure Zone:</strong> Landing sites, ports, shipping lanes</li>
+          <li><strong>Multi-use Zone:</strong> Mixed uses with conflict management</li>
+          <li><strong>Development Zone:</strong> Area for blue economy expansion</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>4.2 Develop Multiple Zoning Scenarios</h3>
+      <div class="content-box">
+        <h4>Scenario Development:</h4>
+        <ul>
+          <li><strong>Scenario A - Conservation-focused:</strong> 25-30% strictly protected areas</li>
+          <li><strong>Scenario B - Livelihood-focused:</strong> Maximum fishing access with seasonal closures</li>
+          <li><strong>Scenario C - Balanced:</strong> 15-20% protected, sustainable fishing, tourism development</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4>Impact Assessment for Each Scenario:</h4>
+        <ul>
+          <li>Fishing impact (access limitations, catch changes)</li>
+          <li>Conservation impact (species protection, ecosystem resilience)</li>
+          <li>Livelihood impact (income, employment, food security)</li>
+          <li>Gender impact (women fisher access, participation)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>4.3 Stakeholder Validation & Consensus Building</h3>
+      <div class="content-box">
+        <h4>Validation Workshops:</h4>
+        <ul>
+          <li>Present 3 scenarios to all stakeholder groups</li>
+          <li>Discuss pros/cons of each scenario</li>
+          <li>Get feedback on preferred option</li>
+          <li>Negotiate compromises and modifications</li>
+          <li>Seek sign-off from major stakeholder groups</li>
+        </ul>
+      </div>
+      <div class="key-actors">
+        <strong>🤝 Consensus Building:</strong>
+        <p>Work toward "consensus" not "unanimity". Aim for agreement from 80%+ of stakeholders. Document remaining disagreements and rationale for final decision.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>4.4 Finalize MSP Document</h3>
+      <div class="content-box">
+        <h4>MSP Document Contents:</h4>
+        <ul>
+          <li>Executive summary</li>
+          <li>Planning context and objectives</li>
+          <li>Stakeholder consultation results</li>
+          <li>Baseline conditions and issues</li>
+          <li>Zoning map and zone descriptions</li>
+          <li>Implementation strategy</li>
+          <li>Monitoring framework</li>
+          <li>Appendices (data, community feedback, technical reports)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-criteria">
+      <strong>✓ Success Criteria:</strong>
+      <ul>
+        <li>Final MSP document approved by Steering Committee</li>
+        <li>Zoning map accepted by 80%+ of stakeholder groups</li>
+        <li>District Council formal adoption resolution passed</li>
+        <li>MSP launched publicly with community ceremony/celebration</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="phase-section" id="phase5">
+    <h2>
+      <span class="phase-number">5</span>
+      Implementation & Enforcement Phase
+    </h2>
+    <div class="phase-timeline">Ongoing | Putting plan into action</div>
+
+    <div class="subsection">
+      <h3>5.1 Establish Enforcement Systems</h3>
+      <div class="content-box">
+        <h4>Enforcement Components:</h4>
+        <ul>
+          <li><strong>Patrol System:</strong> Boat patrols of marine zones (2-3x weekly)</li>
+          <li><strong>Community Rangers:</strong> Train 10-15 community members for monitoring</li>
+          <li><strong>Reporting System:</strong> Mobile app/radio for incident reporting</li>
+          <li><strong>Sanctions:</strong> Progressive penalties for violations (warnings, fines, gear confiscation)</li>
+        </ul>
+      </div>
+      <div class="resource-box">
+        <strong>📦 Enforcement Equipment Needs:</strong>
+        <ul>
+          <li>Patrol boat and fuel</li>
+          <li>GPS/communication equipment</li>
+          <li>Ranger uniforms and identification</li>
+          <li>Storage for confiscated gear</li>
+          <li>Case documentation system</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>5.2 Implement Livelihood Transition Programs</h3>
+      <div class="content-box">
+        <h4>Support Programs:</h4>
+        <ul>
+          <li><strong>Alternative Livelihoods:</strong> Seaweed farming, aquaculture, tourism</li>
+          <li><strong>Skills Training:</strong> Vocational courses (mechanics, hospitality, fish processing)</li>
+          <li><strong>Microfinance:</strong> Access to credit for business startup</li>
+          <li><strong>Market Access:</strong> Help linking producers to buyers</li>
+          <li><strong>Women's Programs:</strong> Targeted support for female-headed households</li>
+        </ul>
+      </div>
+      <div class="key-actors">
+        <strong>🎓 Training Priority:</strong>
+        <p>Partner with vocational training centers, NGOs, and private sector to deliver skills training. Prioritize youth (18-35) and women (40% minimum participation).</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>5.3 Community Education & Communication</h3>
+      <div class="content-box">
+        <h4>Communication Channels:</h4>
+        <ul>
+          <li>Monthly community update meetings</li>
+          <li>Radio spots on local stations</li>
+          <li>Posters in landing sites and villages</li>
+          <li>School programs (student ambassadors)</li>
+          <li>WhatsApp groups for rapid updates</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="risks-challenges">
+      <strong>⚠️ Implementation Barriers:</strong>
+      <ul>
+        <li><strong>Resistance from affected fishers:</strong> Sustained engagement, livelihood support critical</li>
+        <li><strong>Insufficient resources:</strong> Start with community-based enforcement, scale up gradually</li>
+        <li><strong>External fishing pressure:</strong> Coordinate with national fisheries, seek government support</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PHASE 6 -->
+  <div class="phase-section" id="phase6">
+    <h2>
+      <span class="phase-number">6</span>
+      Monitoring & Adaptive Management Phase
+    </h2>
+    <div class="phase-timeline">Ongoing | Tracking progress and adjusting implementation</div>
+
+    <div class="subsection">
+      <h3>6.1 Establish Monitoring Program</h3>
+      <div class="content-box">
+        <h4>Monitoring Indicators:</h4>
+        <ul>
+          <li><strong>Ecological:</strong> Fish catch/CPUE, biodiversity surveys, habitat condition</li>
+          <li><strong>Livelihood:</strong> Income levels, employment, food security</li>
+          <li><strong>Governance:</strong> Stakeholder participation, compliance rates, conflict incidents</li>
+          <li><strong>Social:</strong> Gender participation, youth engagement, equity perception</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4>Data Collection Methods:</h4>
+        <ul>
+          <li>Monthly catch monitoring at landing sites</li>
+          <li>Quarterly biological surveys (reefs, fish populations)</li>
+          <li>Semi-annual community surveys (livelihood status)</li>
+          <li>Annual enforcement data compilation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>6.2 Conduct Annual Review & Adjustment</h3>
+      <div class="content-box">
+        <h4>Annual Review Process:</h4>
+        <ul>
+          <li>Compile all monitoring data</li>
+          <li>Analyze trends and changes</li>
+          <li>Hold community feedback session</li>
+          <li>Identify necessary adjustments to zones or management</li>
+          <li>Document and implement changes</li>
+        </ul>
+      </div>
+      <div class="content-box">
+        <h4>5-Year Comprehensive Evaluation:</h4>
+        <ul>
+          <li>Assess ecological, livelihood, and governance outcomes</li>
+          <li>Compare to baseline conditions and targets</li>
+          <li>Identify lessons learned</li>
+          <li>Revise MSP if needed</li>
+          <li>Plan for next 5-year cycle</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-criteria">
+      <strong>✓ Success Indicators:</strong>
+      <ul>
+        <li>Fish catch stabilization or increase after initial decline</li>
+        <li>Coral reef recovery in protected areas</li>
+        <li>Stable or improving livelihood indicators</li>
+        <li>High (80%+) community support for MSP</li>
+        <li>Growing youth participation and employment</li>
+        <li>Gender-equitable outcomes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Key Success Factors -->
+  <div class="phase-section">
+    <h2>🎯 Critical Success Factors for LMSP</h2>
+    
+    <div class="content-box">
+      <h4>1. Strong Political Leadership</h4>
+      <ul>
+        <li>District Commissioner and Council champions the initiative</li>
+        <li>Budget allocated from local government resources</li>
+        <li>Formal adoption through official resolutions</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4>2. Meaningful Community Participation</h4>
+      <ul>
+        <li>Communities drive the planning process</li>
+        <li>Decisions reflect community priorities</li>
+        <li>Benefit-sharing arrangements clear and fair</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4>3. Livelihood Security & Alternatives</h4>
+      <ul>
+        <li>Transition programs reduce livelihood impacts</li>
+        <li>Income support during adjustment period</li>
+        <li>New opportunities created</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4>4. Sufficient Resources & Capacity</h4>
+      <ul>
+        <li>Dedicated staff and budget</li>
+        <li>Training for enforcement personnel</li>
+        <li>Equipment and infrastructure</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4>5. Science-Based Planning</h4>
+      <ul>
+        <li>Comprehensive baseline data collection</li>
+        <li>Evidence-based zoning decisions</li>
+        <li>Regular monitoring and evaluation</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4>6. Gender & Social Equity</h4>
+      <ul>
+        <li>Women and marginalized groups included</li>
+        <li>Culturally appropriate engagement methods</li>
+        <li>Equitable benefit distribution</li>
+      </ul>
+    </div>
+
+    <div class="content-box">
+      <h4>7. Adaptive Management Culture</h4>
+      <ul>
+        <li>Willingness to adjust plans based on learning</li>
+        <li>Regular feedback and review cycles</li>
+        <li>Transparent documentation of changes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Download Section -->
+  <div class="download-section">
+    <h2 style="color: #1e3c72; margin-top: 0; border: none;">📥 Download Resources</h2>
+    <p style="color: #666;">Tools, templates, and checklists to support LMSP implementation</p>
+    <a href="#" class="download-btn">📋 LMSP Planning Checklist</a>
+    <a href="#" class="download-btn">📋 Stakeholder Engagement Guide</a>
+    <a href="#" class="download-btn">📋 Zoning Decision Tool</a>
+    <a href="#" class="download-btn">📊 Monitoring Template</a>
+  </div>
+
+</div>
+```

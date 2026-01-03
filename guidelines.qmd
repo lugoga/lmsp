@@ -1,0 +1,44 @@
+---
+title: ""
+---
+
+## Marine Spatial Planning Guidelines
+
+Comprehensive guidelines for implementing Local Marine Spatial Planning in Tanzania and the WIO region.
+
+### Core Principles
+
+1. **Community-Centered** - Local communities are central to planning and decision-making
+2. **Evidence-Based** - Decisions grounded in data and scientific research
+3. **Inclusive** - All stakeholder groups have a voice
+4. **Adaptive** - Plans can evolve based on new information and changing conditions
+5. **Transparent** - Open communication and accessible information
+
+### MSP Process Steps
+
+1. **Scoping & Stakeholder Engagement** - Define planning boundaries and identify key players
+2. **Baseline Analysis** - Map existing uses, resources, and priorities
+3. **Visioning & Goal Setting** - Articulate community aspirations
+4. **Spatial Planning** - Allocate zones for different uses
+5. **Implementation** - Activate management measures
+6. **Monitoring & Review** - Track progress and adapt as needed
+
+### Key Resources
+
+- [Step-by-step MSP implementation toolkit](https://www.example.com)
+- [Community engagement templates](https://www.example.com)
+- [Data collection protocols](https://www.example.com)
+- [Monitoring frameworks](https://www.example.com)
+
+### Guidelines by Topic
+
+- Fisheries and food security
+- Marine conservation and biodiversity
+- Blue economy development
+- Climate adaptation and resilience
+- Conflict resolution in marine planning
+
+---
+
+**Need capacity building?** Contact us about training and technical support opportunities.
+

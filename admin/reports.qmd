@@ -1,0 +1,725 @@
+---
+title: "Reports & Analytics"
+---
+
+```{=html}
+<style>
+.reports-container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.reports-header { 
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.reports-header h1 { margin: 0; font-size: 28px; font-weight: 700; color: white; }
+.reports-header p { margin: 10px 0 0 0; font-size: 15px; color: white; }
+
+.report-tabs-wrapper {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.report-tabs-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  background: #f8f9fa;
+  border-bottom: 3px solid #2a5298;
+  overflow-x: auto;
+}
+
+.report-tab-btn {
+  flex: 1;
+  min-width: 200px;
+  padding: 16px 18px;
+  background: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: #444;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.report-tab-btn:hover {
+  background: #e9ecef;
+  color: #1e3c72;
+}
+
+.report-tab-btn.active {
+  background: white;
+  color: #2a5298;
+  border-bottom-color: #2a5298;
+}
+
+.report-tab-content {
+  display: none;
+  padding: 30px;
+  animation: fadeIn 0.3s ease;
+}
+
+.report-tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.report-content-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.report-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3c72;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.report-date {
+  display: inline-block;
+  background: #e3f2fd;
+  color: #1565c0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.report-description {
+  color: #555;
+  line-height: 1.7;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.report-description ul {
+  margin: 12px 0;
+  padding-left: 20px;
+}
+
+.report-description li {
+  margin-bottom: 8px;
+  color: #666;
+}
+
+.report-status {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.report-status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.report-status.completed {
+  background: #d4edda;
+  color: #155724;
+}
+
+.report-status.in-progress {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.report-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.meta-item {
+  font-size: 13px;
+}
+
+.meta-label {
+  font-weight: 600;
+  color: #1e3c72;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  color: #666;
+}
+
+.access-btn {
+  display: inline-block;
+  background: #2a5298;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  border: 2px solid #2a5298;
+  cursor: pointer;
+}
+
+.access-btn:hover {
+  background: #1e3c72;
+  border-color: #1e3c72;
+  text-decoration: none;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #2a5298;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-btn:hover {
+  background: #1e3c72;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.nav-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2a5298;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+.scroll-to-top:hover {
+  background: #1e3c72;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.scroll-to-top.show {
+  display: flex;
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+  border-left: 4px solid #2a5298;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e3c72;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #555;
+  font-weight: 600;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.no-access {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .report-tab-btn {
+    min-width: 150px;
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+  
+  .report-tabs-header {
+    gap: 0;
+  }
+  
+  .report-content-card {
+    padding: 16px;
+  }
+  
+  .reports-header {
+    padding: 20px;
+  }
+  
+  .reports-header h1 {
+    font-size: 22px;
+  }
+}
+</style>
+
+<div class="reports-container">
+  <div class="reports-header">
+    <h1>📈 Reports & Analytics Dashboard</h1>
+    <p>Project deliverables, research findings, and comprehensive analyses</p>
+  </div>
+
+  <div class="summary-stats">
+    <div class="stat-card">
+      <div class="stat-number">6</div>
+      <div class="stat-label">Total Reports</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">Jan 2026</div>
+      <div class="stat-label">Latest Deadline</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">4</div>
+      <div class="stat-label">In Progress</div>
+    </div>
+  </div>
+
+  <div class="report-tabs-wrapper">
+    <div class="navigation-buttons">
+      <button class="nav-btn" id="prevBtn" onclick="previousReport()">← Previous Report</button>
+      <button class="nav-btn" onclick="scrollToTop()">↑ Back to Top</button>
+      <button class="nav-btn" id="nextBtn" onclick="nextReport()">Next Report →</button>
+    </div>
+    
+    <div class="report-tabs-header">
+      <button class="report-tab-btn active" onclick="switchReport(event, 'report-1')">Inception Report</button>
+      <button class="report-tab-btn" onclick="switchReport(event, 'report-2')">Data Collection & Maps</button>
+      <button class="report-tab-btn" onclick="switchReport(event, 'report-3')">Field Data Collection</button>
+      <button class="report-tab-btn" onclick="switchReport(event, 'report-4')">Economic Valuation</button>
+      <button class="report-tab-btn" onclick="switchReport(event, 'report-5')">Cost-Benefit Analysis</button>
+      <button class="report-tab-btn" onclick="switchReport(event, 'report-6')">Digital Visualization</button>
+    </div>
+
+    <!-- Report 1: Inception Report -->
+    <div id="report-1" class="report-tab-content active">
+      <div class="report-content-card">
+        <h2 class="report-title">🚀 Inception Report</h2>
+        <span class="report-date">📅 Due: December 15, 2025</span>
+        <span class="report-status pending">PENDING</span>
+        
+        <p class="report-description">
+          Comprehensive project inception report establishing the foundation for the LMSP initiative, including detailed methodology, activity schedules, data requirements specifications, and stakeholder engagement strategy.
+        </p>
+
+        <div class="report-description">
+          <strong>Report Components:</strong>
+          <ul>
+            <li>Project overview and objectives alignment</li>
+            <li>Detailed methodology framework and research design</li>
+            <li>Activity schedule and timeline milestones</li>
+            <li>Data requirements and collection protocols</li>
+            <li>Stakeholder engagement plan and communication strategy</li>
+            <li>Risk assessment and mitigation strategies</li>
+            <li>Resource allocation and budget framework</li>
+          </ul>
+        </div>
+
+        <div class="report-meta">
+          <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value">Scheduled for December 15, 2025</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Scope</span>
+            <span class="meta-value">Project-wide Foundation</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Lead Team</span>
+            <span class="meta-value">Project Coordination Unit</span>
+          </div>
+        </div>
+        <a href="inception.qmd" class="access-btn">View Inception Report →</a>
+      </div>
+    </div>
+
+    <!-- Report 2: Data Collection & Maps -->
+    <div id="report-2" class="report-tab-content">
+      <div class="report-content-card">
+        <h2 class="report-title">🗺️ Data Collection & Detailed Maps Report</h2>
+        <span class="report-date">📅 Due: January 30, 2026</span>
+        <span class="report-status pending">PENDING</span>
+        
+        <p class="report-description">
+          Comprehensive assessment of biodiversity trends across Tanzania with detailed spatial mapping, ground truthing analysis, and decadal trends in biodiversity loss and gain. This report synthesizes field observations with geospatial data to provide evidence-based insights into ecosystem changes.
+        </p>
+
+        <div class="report-description">
+          <strong>Key Deliverables:</strong>
+          <ul>
+            <li>Detailed biodiversity maps and spatial analysis</li>
+            <li>Ground truthing validation results</li>
+            <li>Decadal trends in biodiversity loss (1995-2025)</li>
+            <li>Decadal trends in biodiversity gain (recovery areas)</li>
+            <li>Ecosystem hotspots and critical areas identification</li>
+            <li>Species distribution and habitat mapping</li>
+            <li>Comparative temporal analysis and change detection</li>
+          </ul>
+        </div>
+
+        <div class="report-meta">
+          <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value">Field work phase</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Geographic Focus</span>
+            <span class="meta-value">Tanzania-wide</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Data Sources</span>
+            <span class="meta-value">Field surveys & Remote sensing</span>
+          </div>
+        </div>
+        <a href="data-collection-maps.qmd" class="access-btn">View Data Collection Report →</a>
+      </div>
+    </div>
+
+    <!-- Report 3: Field Data Collection -->
+    <div id="report-3" class="report-tab-content">
+      <div class="report-content-card">
+        <h2 class="report-title">📊 Comprehensive Field Data Collection Report</h2>
+        <span class="report-date">📅 Due: February 28, 2026</span>
+        <span class="report-status in-progress">IN PROGRESS</span>
+        
+        <p class="report-description">
+          Integrated field data collection covering physical, biological, geomorphological, and socioeconomic parameters in Mkuranga and Mkoani districts. Includes development of map layers and rigorous data ground-truthing validation.
+        </p>
+
+        <div class="report-description">
+          <strong>Data Categories Collected:</strong>
+          <ul>
+            <li><strong>Physical Data:</strong> Coastal morphology, sediment dynamics, water quality parameters</li>
+            <li><strong>Biological Data:</strong> Flora and fauna surveys, species inventories, habitat assessments</li>
+            <li><strong>Geomorphological Data:</strong> Terrain analysis, coastal erosion, soil characteristics</li>
+            <li><strong>Socioeconomic Data:</strong> Community surveys, livelihood assessments, resource use patterns</li>
+            <li><strong>Marine Resource Use:</strong> Fishing practices, aquaculture activities, coastal livelihoods</li>
+            <li>Development of thematic map layers</li>
+            <li>Spatial data integration and validation</li>
+          </ul>
+        </div>
+
+        <div class="report-meta">
+          <div class="meta-item">
+            <span class="meta-label">Study Districts</span>
+            <span class="meta-value">Mkuranga & Mkoani</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Data Types</span>
+            <span class="meta-value">Multi-disciplinary</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Progress</span>
+            <span class="meta-value">Field surveys ongoing</span>
+          </div>
+        </div>
+        <a href="field-data-collection.qmd" class="access-btn">View Field Data Report →</a>
+      </div>
+    </div>
+
+    <!-- Report 4: Economic Valuation -->
+    <div id="report-4" class="report-tab-content">
+      <div class="report-content-card">
+        <h2 class="report-title">💰 Economic Valuation Report</h2>
+        <span class="report-date">📅 Due: March 30, 2026</span>
+        <span class="report-status in-progress">IN PROGRESS</span>
+        
+        <p class="report-description">
+          Comprehensive economic valuation of coastal and marine ecosystem goods and services in Mkuranga and Mkoani districts. This report provides critical economic evidence for bio-economic modeling and investment planning decisions.
+        </p>
+
+        <div class="report-description">
+          <strong>Report Scope:</strong>
+          <ul>
+            <li>Classification and spatial mapping of ecosystem assets</li>
+            <li>Valuation of key ecosystem service categories (fisheries, carbon sequestration, coastal protection, recreation, etc.)</li>
+            <li>Economic baseline assessment in USD</li>
+            <li>Comparative risk analysis of ecosystem changes</li>
+            <li>Identification of critical data gaps</li>
+            <li>Additional field data collection and validation</li>
+            <li>Stakeholder-validated recommendations</li>
+            <li>Support materials for bio-economic modeling</li>
+          </ul>
+        </div>
+
+        <div class="report-meta">
+          <div class="meta-item">
+            <span class="meta-label">Study Districts</span>
+            <span class="meta-value">Mkuranga & Mkoani</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Currency</span>
+            <span class="meta-value">USD</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Application</span>
+            <span class="meta-value">Investment planning</span>
+          </div>
+        </div>
+        <a href="economic-valuation.qmd" class="access-btn">View Valuation Report →</a>
+      </div>
+    </div>
+
+    <!-- Report 5: Cost-Benefit Analysis -->
+    <div id="report-5" class="report-tab-content">
+      <div class="report-content-card">
+        <h2 class="report-title">📈 Cost-Benefit Analysis Report</h2>
+        <span class="report-date">📅 Due: April 30, 2026</span>
+        <span class="report-status in-progress">IN PROGRESS</span>
+        
+        <p class="report-description">
+          Detailed cost-benefit analysis of proposed bioeconomic activities in Mkuranga and Mkoani, providing evidence-based guidance for sustainable blue economy development aligned with national climate action plans.
+        </p>
+
+        <div class="report-description">
+          <strong>Analysis Components:</strong>
+          <ul>
+            <li>Financial feasibility assessments of bioeconomic activities</li>
+            <li>Cost-benefit analysis for conservation scenarios</li>
+            <li>Blue/green finance instrument recommendations</li>
+            <li>Economic viability of sustainable alternatives</li>
+            <li>Policy guidance documents</li>
+            <li>Blue economy growth strategy support</li>
+            <li>Biodiversity conservation investment analysis</li>
+            <li>Ecosystem resilience enhancement options</li>
+            <li>National climate action alignment assessment</li>
+          </ul>
+        </div>
+
+        <div class="report-meta">
+          <div class="meta-item">
+            <span class="meta-label">Study Districts</span>
+            <span class="meta-value">Mkuranga & Mkoani</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Focus</span>
+            <span class="meta-value">Blue Economy</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Policy Alignment</span>
+            <span class="meta-value">National Climate Plans</span>
+          </div>
+        </div>
+        <a href="cost-benefit-analysis.qmd" class="access-btn">View CBA Report →</a>
+      </div>
+    </div>
+
+    <!-- Report 6: Digital Visualization -->
+    <div id="report-6" class="report-tab-content">
+      <div class="report-content-card">
+        <h2 class="report-title">🌐 Interactive Digital Visualization Tool</h2>
+        <span class="report-date">📅 Due: May 23, 2026</span>
+        <span class="report-status in-progress">IN PROGRESS</span>
+        
+        <p class="report-description">
+          Comprehensive interactive digital platform showcasing marine biodiversity trends across Tanzania with specialized visualizations and analytics for Mkuranga and Mkoani districts. This tool integrates geospatial mapping and ecosystem valuation data for stakeholder engagement and decision support.
+        </p>
+
+        <div class="report-description">
+          <strong>Platform Components:</strong>
+          <ul>
+            <li>Interactive dashboard with key metrics and KPIs</li>
+            <li>Web maps with layer controls and spatial navigation</li>
+            <li>Story maps illustrating biodiversity trends</li>
+            <li>Biodiversity loss and gain visualizations (Tanzania-wide)</li>
+            <li>Focused district-level analytics (Mkuranga & Mkoani)</li>
+            <li>Ecosystem status indicators and statistics</li>
+            <li>Temporal analysis and change tracking</li>
+            <li>Data integration from geospatial mapping</li>
+            <li>Economic valuation visualization layers</li>
+            <li>User-friendly interface for multiple audiences</li>
+          </ul>
+        </div>
+
+        <div class="report-meta">
+          <div class="meta-item">
+            <span class="meta-label">Coverage</span>
+            <span class="meta-value">Tanzania + Focus districts</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Data Sources</span>
+            <span class="meta-value">Mapping & Valuation reports</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Target Users</span>
+            <span class="meta-value">Multi-stakeholder</span>
+          </div>
+        </div>
+        <a href="digital-visualization-tool.qmd" class="access-btn">View Visualization Tool →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function switchReport(event, reportId) {
+  // Hide all report contents
+  const contents = document.querySelectorAll('.report-tab-content');
+  contents.forEach(content => content.classList.remove('active'));
+  
+  // Remove active class from all buttons
+  const buttons = document.querySelectorAll('.report-tab-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  
+  // Show selected report
+  document.getElementById(reportId).classList.add('active');
+  
+  // Add active class to clicked button
+  event.target.classList.add('active');
+  
+  // Update navigation buttons
+  updateNavigationButtons();
+  
+  // Scroll to top of content
+  scrollToReportTop();
+}
+
+function previousReport() {
+  const buttons = document.querySelectorAll('.report-tab-btn');
+  let currentIndex = -1;
+  
+  buttons.forEach((btn, index) => {
+    if (btn.classList.contains('active')) {
+      currentIndex = index;
+    }
+  });
+  
+  if (currentIndex > 0) {
+    buttons[currentIndex - 1].click();
+  }
+}
+
+function nextReport() {
+  const buttons = document.querySelectorAll('.report-tab-btn');
+  let currentIndex = -1;
+  
+  buttons.forEach((btn, index) => {
+    if (btn.classList.contains('active')) {
+      currentIndex = index;
+    }
+  });
+  
+  if (currentIndex < buttons.length - 1) {
+    buttons[currentIndex + 1].click();
+  }
+}
+
+function updateNavigationButtons() {
+  const buttons = document.querySelectorAll('.report-tab-btn');
+  let currentIndex = -1;
+  
+  buttons.forEach((btn, index) => {
+    if (btn.classList.contains('active')) {
+      currentIndex = index;
+    }
+  });
+  
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  
+  prevBtn.disabled = currentIndex <= 0;
+  nextBtn.disabled = currentIndex >= buttons.length - 1;
+}
+
+function scrollToTop() {
+  const wrapper = document.querySelector('.report-tabs-wrapper');
+  if (wrapper) {
+    wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function scrollToReportTop() {
+  const wrapper = document.querySelector('.report-tabs-wrapper');
+  if (wrapper) {
+    setTimeout(() => {
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+}
+
+// Show/hide scroll-to-top button
+window.addEventListener('scroll', () => {
+  const scrollBtn = document.querySelector('.scroll-to-top');
+  if (window.scrollY > 300) {
+    scrollBtn.classList.add('show');
+  } else {
+    scrollBtn.classList.remove('show');
+  }
+});
+
+// Initialize navigation buttons
+window.addEventListener('load', () => {
+  updateNavigationButtons();
+});
+</script>
+
+<button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+```

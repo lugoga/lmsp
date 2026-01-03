@@ -1,0 +1,624 @@
+---
+title: "Economic Valuation Report"
+subtitle: "Coastal and Marine Ecosystem Goods and Services"
+date: "March 30, 2026"
+---
+
+```{=html}
+<style>
+.report-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+.report-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.report-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.report-header .subtitle {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 10px;
+}
+
+.report-header .date {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  background: #2a5298;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.subsection-title {
+  color: #1e3c72;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  border-left: 4px solid #2a5298;
+  padding-left: 15px;
+}
+
+.content-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 6px;
+  border-left: 4px solid #2a5298;
+  margin-bottom: 15px;
+}
+
+.content-box p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.content-box ul {
+  margin: 10px 0;
+  padding-left: 25px;
+}
+
+.content-box li {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.content-box strong {
+  color: #1e3c72;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: white;
+}
+
+table th {
+  background: #2a5298;
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+  background: #f5f5f5;
+}
+
+.highlight {
+  background: #e3f2fd;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border-left: 4px solid #1565c0;
+}
+
+.value-box {
+  background: #d4edda;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border-left: 4px solid #28a745;
+}
+
+.value-box strong {
+  color: #155724;
+}
+
+.risk-box {
+  background: #fff3cd;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border-left: 4px solid #ffc107;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #ddd;
+  color: #999;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .report-container {
+    padding: 15px;
+  }
+  
+  .report-header {
+    padding: 25px;
+  }
+  
+  .report-header h1 {
+    font-size: 24px;
+  }
+}
+</style>
+
+<div class="report-container">
+  <div class="report-header">
+    <h1>💰 Economic Valuation Report</h1>
+    <div class="subtitle">Coastal and Marine Ecosystem Goods and Services</div>
+    <div class="date">Report Date: March 30, 2026</div>
+  </div>
+
+  <!-- Executive Summary -->
+  <div class="section">
+    <div class="section-title">📋 Executive Summary</div>
+    <div class="content-box">
+      <p>
+        This comprehensive economic valuation report assesses the monetary and non-monetary values of coastal and marine 
+        ecosystem goods and services in Mkuranga and Mkoani districts. Through integration of biophysical data and economic 
+        methodologies, the report provides evidence-based valuations essential for investment planning, policy development, 
+        and bio-economic modeling.
+      </p>
+      <p>
+        <strong>Study Area:</strong> Mkuranga and Mkoani Districts<br>
+        <strong>Valuation Basis:</strong> USD currency (2026 baseline)<br>
+        <strong>Methodologies:</strong> Market-based, revealed preference, and stated preference approaches
+      </p>
+    </div>
+  </div>
+
+  <!-- Ecosystem Asset Classification -->
+  <div class="section">
+    <div class="section-title">🌍 Ecosystem Asset Classification</div>
+    
+    <div class="subsection-title">Spatial Mapping of Classified Assets</div>
+    <div class="content-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Ecosystem Type</th>
+            <th>Area (ha)</th>
+            <th>Status</th>
+            <th>Value Significance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mangrove Forests</td>
+            <td>X,XXX</td>
+            <td>Declining</td>
+            <td>Very High</td>
+          </tr>
+          <tr>
+            <td>Coral Reefs</td>
+            <td>XX,XXX</td>
+            <td>Degraded</td>
+            <td>Very High</td>
+          </tr>
+          <tr>
+            <td>Seagrass Beds</td>
+            <td>X,XXX</td>
+            <td>Stable</td>
+            <td>High</td>
+          </tr>
+          <tr>
+            <td>Sandy Beaches</td>
+            <td>XXX</td>
+            <td>Eroding</td>
+            <td>High</td>
+          </tr>
+          <tr>
+            <td>Open Water (productive)</td>
+            <td>XX,XXX</td>
+            <td>Declining productivity</td>
+            <td>Very High</td>
+          </tr>
+          <tr>
+            <td>Mixed Wetlands</td>
+            <td>X,XXX</td>
+            <td>Threatened</td>
+            <td>High</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Ecosystem Service Valuation -->
+  <div class="section">
+    <div class="section-title">📊 Ecosystem Services Valuation</div>
+    
+    <div class="highlight">
+      <strong>Total Baseline Ecosystem Service Value:</strong> USD X.X Million (Annual)<br>
+      <strong>Valuation Period:</strong> 1-year baseline (2026 values)<br>
+      <strong>Discount Rate:</strong> 10% (for present value calculations)
+    </div>
+
+    <div class="subsection-title">Provisioning Services</div>
+    <div class="content-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Production Volume</th>
+            <th>Unit Value (USD)</th>
+            <th>Annual Value (USD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Marine Fisheries</td>
+            <td>XX,XXX tons/year</td>
+            <td>XXX/ton</td>
+            <td>X,XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Aquaculture Production</td>
+            <td>X,XXX tons/year</td>
+            <td>XXX/ton</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Seaweed/Macro-algae</td>
+            <td>XXX tons/year</td>
+            <td>XXX/ton</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Salt Production</td>
+            <td>XXX tons/year</td>
+            <td>XX/ton</td>
+            <td>XX,XXX</td>
+          </tr>
+          <tr>
+            <td>Construction Materials</td>
+            <td>XXX cubic meters/year</td>
+            <td>XXX/unit</td>
+            <td>XX,XXX</td>
+          </tr>
+          <tr>
+            <td><strong>Subtotal Provisioning</strong></td>
+            <td colspan="2"><strong>Annual Value:</strong></td>
+            <td><strong>X,XXX,XXX</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Regulating Services</div>
+    <div class="content-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Biophysical Measure</th>
+            <th>Unit Value (USD)</th>
+            <th>Annual Value (USD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Carbon Sequestration</td>
+            <td>XX,XXX tons CO₂/year</td>
+            <td>XX/ton CO₂</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Coastal Protection</td>
+            <td>Protection value (avoided damage)</td>
+            <td>Avoided loss value</td>
+            <td>X,XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Water Filtration</td>
+            <td>XX,XXX cubic meters/year</td>
+            <td>X/cubic meter</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Nutrient Cycling</td>
+            <td>N and P processing capacity</td>
+            <td>Treatment cost avoided</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Climate Regulation</td>
+            <td>Energy balance contribution</td>
+            <td>Replacement cost value</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td><strong>Subtotal Regulating</strong></td>
+            <td colspan="2"><strong>Annual Value:</strong></td>
+            <td><strong>X,XXX,XXX</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Supporting Services</div>
+    <div class="content-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Description</th>
+            <th>Valuation Method</th>
+            <th>Annual Value (USD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Habitat Provision</td>
+            <td>Nursery for fish species</td>
+            <td>Productivity linkage value</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Biodiversity Support</td>
+            <td>Species diversity maintenance</td>
+            <td>Existence value</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Primary Productivity</td>
+            <td>Foundation for food web</td>
+            <td>Food production linkage</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td><strong>Subtotal Supporting</strong></td>
+            <td colspan="2"><strong>Annual Value:</strong></td>
+            <td><strong>XXX,XXX</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="subsection-title">Cultural Services</div>
+    <div class="content-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Description</th>
+            <th>Valuation Method</th>
+            <th>Annual Value (USD)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recreation & Tourism</td>
+            <td>Beach recreation, diving, tourism</td>
+            <td>Travel cost method, willingness to pay</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Educational Value</td>
+            <td>Research and learning opportunities</td>
+            <td>Contingent valuation</td>
+            <td>XX,XXX</td>
+          </tr>
+          <tr>
+            <td>Cultural Heritage</td>
+            <td>Traditional practices and identity</td>
+            <td>Stated preference</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td>Aesthetic Value</td>
+            <td>Scenic beauty and landscape value</td>
+            <td>Hedonic pricing</td>
+            <td>XXX,XXX</td>
+          </tr>
+          <tr>
+            <td><strong>Subtotal Cultural</strong></td>
+            <td colspan="2"><strong>Annual Value:</strong></td>
+            <td><strong>XXX,XXX</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Comparative Risk Analysis -->
+  <div class="section">
+    <div class="section-title">⚠️ Comparative Risk Analysis</div>
+    
+    <div class="subsection-title">Ecosystem Change Scenarios</div>
+    <div class="content-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Description</th>
+            <th>Value Change</th>
+            <th>Timeline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Status Quo</strong></td>
+            <td>Current trends continue</td>
+            <td>-X% over 10 years</td>
+            <td>By 2036</td>
+          </tr>
+          <tr>
+            <td><strong>Degradation</strong></td>
+            <td>Accelerated ecosystem decline</td>
+            <td>-X% over 10 years</td>
+            <td>By 2036</td>
+          </tr>
+          <tr>
+            <td><strong>Conservation</strong></td>
+            <td>Protected area expansion and management</td>
+            <td>+X% over 10 years</td>
+            <td>By 2036</td>
+          </tr>
+          <tr>
+            <td><strong>Restoration</strong></td>
+            <td>Active ecosystem restoration</td>
+            <td>+X% over 10 years</td>
+            <td>By 2036</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="risk-box">
+      <strong>⚠️ Key Risk Findings:</strong>
+      <ul>
+        <li>Annual ecosystem value loss under status quo: USD XXX,XXX/year</li>
+        <li>Cumulative 10-year loss: USD X,XXX,XXX</li>
+        <li>Critical ecosystem services under threat: Fisheries, coastal protection, carbon sequestration</li>
+        <li>Irreversible changes risk: Coral reef collapse, mangrove loss leading to ecosystem regime shift</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Data Gaps & Collection -->
+  <div class="section">
+    <div class="section-title">🔍 Data Gaps & Additional Collection</div>
+    
+    <div class="subsection-title">Identified Data Gaps</div>
+    <div class="content-box">
+      <ul>
+        <li><strong>Economic Data:</strong> Limited price series for some local products, informal sector valuation challenges</li>
+        <li><strong>Biophysical Data:</strong> Incomplete historical ecosystem extent data, species population trends for some fauna</li>
+        <li><strong>Social Data:</strong> Subsistence consumption values, cultural practice valuation complexities</li>
+        <li><strong>Market Data:</strong> Informal trade value, non-market transaction documentation</li>
+        <li><strong>Climate Data:</strong> High-resolution future projection scenarios, localized climate impacts</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title">Additional Field Data Collection</div>
+    <div class="content-box">
+      <ul>
+        <li>Household willingness-to-pay surveys for ecosystem services</li>
+        <li>Market chain analysis and price tracking</li>
+        <li>Seasonal variation assessment for provisioning services</li>
+        <li>Expert elicitation for cultural and supporting service values</li>
+        <li>Climate scenario modeling and vulnerability assessment</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Baseline Valuation Summary -->
+  <div class="section">
+    <div class="section-title">💵 Baseline Valuation Summary (2026 USD)</div>
+    
+    <div class="value-box">
+      <strong>Annual Ecosystem Service Values (Baseline):</strong><br>
+      Provisioning Services: USD X,XXX,XXX<br>
+      Regulating Services: USD X,XXX,XXX<br>
+      Supporting Services: USD XXX,XXX<br>
+      Cultural Services: USD XXX,XXX<br>
+      <br>
+      <strong>TOTAL ANNUAL VALUE: USD X,XXX,XXX</strong>
+    </div>
+
+    <div class="subsection-title">Value per Hectare Analysis</div>
+    <div class="content-box">
+      <ul>
+        <li><strong>Mangroves:</strong> USD X,XXX/ha/year (highest value per area)</li>
+        <li><strong>Coral Reefs:</strong> USD X,XXX/ha/year</li>
+        <li><strong>Seagrass Beds:</strong> USD XXX/ha/year</li>
+        <li><strong>Open Water (productive):</strong> USD XXX/ha/year</li>
+        <li><strong>Mixed Wetlands:</strong> USD XXX/ha/year</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Stakeholder Validation -->
+  <div class="section">
+    <div class="section-title">👥 Stakeholder-Validated Recommendations</div>
+    
+    <div class="subsection-title">Validation Process</div>
+    <div class="content-box">
+      <ul>
+        <li>Community stakeholder workshops (March 2026)</li>
+        <li>Government agency consultations</li>
+        <li>Private sector engagement sessions</li>
+        <li>Scientific peer review</li>
+        <li>Iterative feedback and refinement</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title">Key Recommendations</div>
+    <div class="content-box">
+      <ul>
+        <li><strong>Investment in Mangrove Conservation:</strong> High value justifies significant conservation investment</li>
+        <li><strong>Fishery Management:</strong> Implement sustainable fishery practices to maintain provisioning service value</li>
+        <li><strong>Coastal Protection:</strong> Integrate natural infrastructure (mangroves, reefs) into climate adaptation planning</li>
+        <li><strong>Payment for Ecosystem Services:</strong> Design mechanisms to compensate communities for conservation</li>
+        <li><strong>Sustainable Aquaculture:</strong> Promote diversified livelihoods aligned with ecosystem capacity</li>
+        <li><strong>Monitoring & Enforcement:</strong> Establish systematic monitoring of ecosystem value changes</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Support for Bio-Economic Modeling -->
+  <div class="section">
+    <div class="section-title">🎯 Support for Bio-Economic Modeling & Investment Planning</div>
+    
+    <div class="content-box">
+      <p>
+        This valuation report provides the essential economic foundation for bio-economic modeling and investment planning:
+      </p>
+      <ul>
+        <li>Baseline values for cost-benefit analysis of conservation and development scenarios</li>
+        <li>Economic indicators for monitoring progress toward sustainability goals</li>
+        <li>Investment returns from ecosystem conservation and restoration</li>
+        <li>Trade-off analysis for competing land use options</li>
+        <li>Payment mechanisms for ecosystem service compensation</li>
+        <li>Economic case for blue economy development aligned with conservation</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Conclusion -->
+  <div class="section">
+    <div class="section-title">🎯 Conclusion</div>
+    <div class="content-box">
+      <p>
+        The economic valuation of coastal and marine ecosystem goods and services in Mkuranga and Mkoani districts reveals 
+        substantial economic values dependent on ecosystem integrity. These findings demonstrate the critical economic case 
+        for ecosystem conservation and sustainable resource management. The baseline valuation, combined with risk analysis, 
+        provides compelling evidence for investment in conservation and sustainable development pathways.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Economic Valuation Report | March 30, 2026</p>
+    <p>Local Marine Spatial Planning Initiative - Tanzania</p>
+    <p style="margin-top: 20px;"><a href="reports.qmd" style="background: #2a5298; color: white; padding: 10px 20px; border-radius: 4px; display: inline-block; text-decoration: none; font-weight: 600;">← Back to Reports</a></p>
+  </div>
+</div>
+```

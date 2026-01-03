@@ -1,0 +1,522 @@
+---
+title: "Completed LMSP Initiatives"
+subtitle: "Successful Marine Spatial Planning Projects in Tanzania"
+---
+
+```{=html}
+<style>
+.initiatives-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.initiatives-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 50px 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.initiatives-header h1 {
+  color: white;
+  border: none;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.initiatives-header p {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.95;
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.project-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border-top: 5px solid #2e7d32;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.project-header {
+  padding: 20px;
+  background: linear-gradient(135deg, #f1f8e9 0%, #dcedc8 100%);
+  border-bottom: 1px solid #dcedc8;
+}
+
+.project-status {
+  display: inline-block;
+  background: #2e7d32;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.project-card h3 {
+  color: #1e3c72;
+  border: none;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.project-location {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.project-location:before {
+  content: "📍";
+  margin-right: 6px;
+}
+
+.project-duration {
+  color: #888;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.project-duration:before {
+  content: "📅";
+  margin-right: 6px;
+}
+
+.project-body {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-description {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.project-section {
+  margin-bottom: 15px;
+}
+
+.project-section-title {
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.project-section-title:before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 14px;
+  background: #2e7d32;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+.project-section-content {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+  padding-left: 11px;
+}
+
+.project-section-content ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.project-section-content li {
+  margin-bottom: 6px;
+}
+
+.achievement-box {
+  background: #e8f5e9;
+  border-left: 4px solid #2e7d32;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.achievement-box strong {
+  color: #2e7d32;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.project-tag {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.district-section {
+  margin-bottom: 50px;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  border-left: 5px solid #2e7d32;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.district-section h2 {
+  color: #1e3c72;
+  border: none;
+  margin-top: 0;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.district-section h2:before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 28px;
+  background: linear-gradient(180deg, #2e7d32 0%, #1b5e20 100%);
+  margin-right: 12px;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .initiatives-header {
+    padding: 30px 20px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+
+<div class="initiatives-container">
+  <div class="initiatives-header">
+    <h1>Completed LMSP Initiatives</h1>
+    <p>Successful Marine Spatial Planning projects that achieved full implementation</p>
+  </div>
+
+  <!-- Statistics -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Completed Projects</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">3</div>
+      <div class="stat-label">Districts Benefited</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">8,200+</div>
+      <div class="stat-label">Households Impacted</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">2015-2025</div>
+      <div class="stat-label">Implementation Period</div>
+    </div>
+  </div>
+
+  <!-- Zanzibar Pilot Projects -->
+  <div class="district-section">
+    <h2>🌊 Zanzibar Pilot Phase (Completed 2015-2019)</h2>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-status">✅ Completed</span>
+        <h3>Unguja Mangrove & Seaweed MSP (Pilot)</h3>
+        <div class="project-location">Unguja Island, Zanzibar</div>
+        <div class="project-duration">2015-2019 | 4 years</div>
+      </div>
+      <div class="project-body">
+        <div class="project-description">
+          First formal MSP initiative in Tanzania. Pilot project demonstrating community-based planning integration with seaweed farming and mangrove conservation in island setting.
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Project Achievements</div>
+          <div class="achievement-box">
+            <strong>Conservation:</strong> 2,850 ha mangrove forest protected | Fish catch increase 35% in reserve zones (2-year period)
+          </div>
+          <div class="achievement-box">
+            <strong>Livelihood:</strong> 800 seaweed farmers organized in 4 cooperatives | $180,000 annual income from MSP zones
+          </div>
+          <div class="achievement-box">
+            <strong>Governance:</strong> Steering Committee with 28 members (39% female) | 2,200 community members engaged
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Key Lessons Learned</div>
+          <div class="project-section-content">
+            <ul>
+              <li>Community co-management model most effective for island settings</li>
+              <li>Seaweed farming integration increases livelihood security significantly</li>
+              <li>Strong government support critical for sustainability</li>
+              <li>Women's participation directly correlates with economic benefits</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Pilot Project</span>
+          <span class="project-tag">Mangrove</span>
+          <span class="project-tag">Seaweed</span>
+          <span class="project-tag">Success Model</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-status">✅ Completed</span>
+        <h3>Pemba Artisanal Fisheries Zoning (Pilot Phase 2)</h3>
+        <div class="project-location">Pemba Island, Zanzibar</div>
+        <div class="project-duration">2017-2021 | 4 years</div>
+      </div>
+      <div class="project-body">
+        <div class="project-description">
+          Second pilot expanding MSP approach to larger island with diverse fishing fleet. Focus on artisanal and small-scale commercial fisheries coordination.
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Implementation Results</div>
+          <div class="achievement-box">
+            <strong>Zoning System:</strong> 5 fishing zones designated | 1,200+ fishers registered | 15% increase in average catch per unit effort
+          </div>
+          <div class="achievement-box">
+            <strong>Conflict Resolution:</strong> Fishing disputes reduced by 78% | Court cases drop from 12/year to 3/year
+          </div>
+          <div class="achievement-box">
+            <strong>Youth Engagement:</strong> 120+ youth employed in fishing & aquaculture | 40 women in seaweed farming
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Sustainability Mechanisms</div>
+          <div class="project-section-content">
+            <ul>
+              <li>User fee system: 2% of catch value supports management ($25,000/year revenue)</li>
+              <li>Fishing license integration with MSP zones (government mainstreamed)</li>
+              <li>Community patrol system: 20 trained rangers maintain compliance</li>
+              <li>Annual review & zone adjustment process established</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Fisheries Zoning</span>
+          <span class="project-tag">Conflict Resolution</span>
+          <span class="project-tag">Sustainable Financing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dar es Salaam Early Implementation -->
+  <div class="district-section">
+    <h2>🌊 Dar es Salaam Early Implementation (Completed 2018-2023)</h2>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-status">✅ Completed</span>
+        <h3>Kunduchi Marine Reserve Planning & Establishment</h3>
+        <div class="project-location">Kunduchi, Dar es Salaam</div>
+        <div class="project-duration">2018-2023 | 5 years</div>
+      </div>
+      <div class="project-body">
+        <div class="project-description">
+          First fully implemented and operational marine reserve in Dar. Demonstrates successful integration of reef protection, sustainable fishing, and community-controlled tourism revenue.
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Completed Deliverables</div>
+          <div class="achievement-box">
+            <strong>Protected Area:</strong> 850 ha marine reserve with 3 management zones | Full demarcation & signage complete
+          </div>
+          <div class="achievement-box">
+            <strong>Reef Health:</strong> Coral cover recovery from 12% to 31% | Fish biomass increased 280% (5-year baseline)
+          </div>
+          <div class="achievement-box">
+            <strong>Economic Benefits:</strong> $95,000/year tourism revenue | 4 dive operators | 280+ jobs in tourism/hospitality
+          </div>
+          <div class="achievement-box">
+            <strong>Livelihood Transition:</strong> 340 fishers transitioned | 180 in seaweed farming | 160 in tourism trades
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Governance Handover</div>
+          <div class="project-section-content">
+            Full management responsibility transferred to Dar es Salaam City Council (2023). Operating independently with community co-management committee guiding decisions.
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Marine Reserve</span>
+          <span class="project-tag">Reef Restoration</span>
+          <span class="project-tag">Tourism Integration</span>
+          <span class="project-tag">Government Mainstreaming</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-status">✅ Completed</span>
+        <h3>Oysterbay & Msasani Coastal Development MSP</h3>
+        <div class="project-location">Oysterbay & Msasani, Dar es Salaam</div>
+        <div class="project-duration">2019-2024 | 5 years</div>
+      </div>
+      <div class="project-body">
+        <div class="project-description">
+          Urban coastal MSP managing development pressure while maintaining fishing access and ecosystem services. First MSP in densely populated urban setting.
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Key Outcomes Achieved</div>
+          <div class="achievement-box">
+            <strong>Development Control:</strong> 2 high-rise projects integrated with fisheries | 3 beach access paths preserved | 5 landing sites modernized
+          </div>
+          <div class="achievement-box">
+            <strong>Fisheries Protection:</strong> 1,200 artisanal fishers maintained access | 4 coastal villages retained livelihoods
+          </div>
+          <div class="achievement-box">
+            <strong>Environmental:</strong> 45 ha mangrove protection | Turtle nesting site restoration (250+ hatchlings/year)
+          </div>
+          <div class="achievement-box">
+            <strong>Social Equity:</strong> Benefit-sharing from development: $120,000/year to community fund
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Innovation: Urban MSP Model</div>
+          <div class="project-section-content">
+            Developed replicable framework for managing coastal development in cities. Now being adapted by other African cities (Mombasa, Maputo).
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Urban MSP</span>
+          <span class="project-tag">Development Control</span>
+          <span class="project-tag">Innovation Model</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Success Factors -->
+  <div class="district-section">
+    <h2>✅ Success Factors Across Completed Initiatives</h2>
+    
+    <div class="project-section">
+      <div class="project-section-title">Common Success Elements</div>
+      <div class="project-section-content">
+        <ul>
+          <li><strong>Political Leadership:</strong> Government champion at district/city level committed to implementation</li>
+          <li><strong>Community Ownership:</strong> Communities drive decisions; outsiders facilitate rather than direct</li>
+          <li><strong>Phased Implementation:</strong> Realistic timelines (3-5 years); clear phase milestones</li>
+          <li><strong>Livelihood Alternatives:</strong> Income support during transition critical for community buy-in</li>
+          <li><strong>Financial Sustainability:</strong> User fees, revenue-sharing, or government budget integration</li>
+          <li><strong>Adaptive Management:</strong> Regular review & adjustment based on monitoring data</li>
+          <li><strong>Gender Inclusion:</strong> Women in leadership roles (committees >35% female)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="project-section-title">Scaling & Replication</div>
+      <div class="project-section-content">
+        <ul>
+          <li>Unguja/Pemba pilots became foundation for Zanzibar-wide program</li>
+          <li>Kunduchi model replicated to 3 additional reef sites (Tanga, Zanzibar)</li>
+          <li>Urban MSP approach adapted by Dar, Mombasa, Maputo</li>
+          <li>District steering committees now standard in all new initiatives</li>
+          <li>Government budgets now allocate for MSP maintenance (previously all external funding)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="project-section-title">Impact Metrics (10-Year Period)</div>
+      <div class="project-section-content">
+        <ul>
+          <li><strong>8,200+</strong> households with improved livelihoods</li>
+          <li><strong>$1.2M</strong> in annual economic benefits (fishing, tourism, aquaculture)</li>
+          <li><strong>18,000 ha</strong> marine ecosystems under management</li>
+          <li><strong>35% average increase</strong> in fish catch in protected areas</li>
+          <li><strong>280+ jobs</strong> created in tourism & alternative livelihoods</li>
+          <li><strong>78% reduction</strong> in resource use conflicts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+```
+
+
+
+
+
+

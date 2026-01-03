@@ -1,0 +1,550 @@
+---
+title: "Planned LMSP Initiatives"
+subtitle: "Marine Spatial Planning Projects in Development Pipeline"
+---
+
+```{=html}
+<style>
+.initiatives-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.initiatives-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 50px 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.initiatives-header h1 {
+  color: white;
+  border: none;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.initiatives-header p {
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.95;
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.project-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border-top: 5px solid #ff9800;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.project-header {
+  padding: 20px;
+  background: linear-gradient(135deg, #fff8f3 0%, #ffe0cc 100%);
+  border-bottom: 1px solid #ffe0cc;
+}
+
+.project-status {
+  display: inline-block;
+  background: #ff9800;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.project-card h3 {
+  color: #1e3c72;
+  border: none;
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.project-location {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.project-location:before {
+  content: "📍";
+  margin-right: 6px;
+}
+
+.project-timeline {
+  color: #888;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.project-timeline:before {
+  content: "🎯";
+  margin-right: 6px;
+}
+
+.project-body {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-description {
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.project-section {
+  margin-bottom: 15px;
+}
+
+.project-section-title {
+  color: #ff9800;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.project-section-title:before {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 14px;
+  background: #ff9800;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+.project-section-content {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.7;
+  padding-left: 11px;
+}
+
+.project-section-content ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.project-section-content li {
+  margin-bottom: 6px;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.project-tag {
+  background: #fff3e0;
+  color: #f57c00;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.district-section {
+  margin-bottom: 50px;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  border-left: 5px solid #ff9800;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.district-section h2 {
+  color: #1e3c72;
+  border: none;
+  margin-top: 0;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+
+.district-section h2:before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 28px;
+  background: linear-gradient(180deg, #ff9800 0%, #f57c00 100%);
+  margin-right: 12px;
+  border-radius: 2px;
+}
+
+.timeline-phase {
+  background: #fff9f3;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  border-left: 4px solid #ff9800;
+}
+
+.timeline-phase strong {
+  color: #ff9800;
+}
+
+@media (max-width: 768px) {
+  .initiatives-header {
+    padding: 30px 20px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+
+<div class="initiatives-container">
+  <div class="initiatives-header">
+    <h1>Planned LMSP Initiatives</h1>
+    <p>Marine Spatial Planning projects in development pipeline (2026-2028)</p>
+  </div>
+
+  <!-- Statistics -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">6</div>
+      <div class="stat-label">Pipeline Projects</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5</div>
+      <div class="stat-label">New Districts</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">$4.2M</div>
+      <div class="stat-label">Planned Investment</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">2026-2028</div>
+      <div class="stat-label">Implementation Timeline</div>
+    </div>
+  </div>
+
+  <!-- Coastal Region Projects -->
+  <div class="district-section">
+    <h2>🌊 Coast Region (Bagamoyo & Chalinze)</h2>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-status">🟡 Planned</span>
+        <h3>Bagamoyo Sustainable Fisheries & Tourism MSP</h3>
+        <div class="project-location">Bagamoyo District, Coast Region</div>
+        <div class="project-timeline">Launch: Q3 2026 | Duration: 3 years</div>
+      </div>
+      <div class="project-body">
+        <div class="project-description">
+          Community-based MSP integrating artisanal fisheries, seaweed farming, and cultural tourism. Will build on Kinondoni experience to expand sustainable livelihoods across the coast.
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Expected Outcomes</div>
+          <div class="project-section-content">
+            <ul>
+              <li>2,000 ha fishing zones designated with 200+ fishers participating</li>
+              <li>500 ha seaweed farming areas established (300+ farmers)</li>
+              <li>Cultural tourism corridor developed (5-8 community sites)</li>
+              <li>$120,000/year livelihood support during transition</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Funding & Partners</div>
+          <div class="project-section-content">
+            GEF-7 MSP Program, IUCN, Bagamoyo District Council. Estimated budget: $850,000
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Artisanal Fisheries</span>
+          <span class="project-tag">Seaweed Farming</span>
+          <span class="project-tag">Cultural Tourism</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-status">🟡 Planned</span>
+        <h3>Rufiji Delta & Mangrove Protection MSP</h3>
+        <div class="project-location">Chalinze District, Coast Region</div>
+        <div class="project-timeline">Launch: Q4 2026 | Duration: 4 years</div>
+      </div>
+      <div class="project-body">
+        <div class="project-description">
+          Comprehensive ecosystem-based MSP for major river delta ecosystem. Focus on mangrove restoration, fisheries management, and livelihood adaptation to climate change.
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Key Components</div>
+          <div class="project-section-content">
+            <ul>
+              <li>15,000 ha mangrove protection zone with community patrols</li>
+              <li>3 seasonal fishing closure areas to protect breeding grounds</li>
+              <li>500+ fisher transition program (aquaculture, mangrove restoration)</li>
+              <li>Climate adaptation: flood-resilient infrastructure for 5 villages</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Implementation Timeline</div>
+          <div class="timeline-phase">
+            <strong>2026:</strong> Stakeholder engagement & data collection
+          </div>
+          <div class="timeline-phase">
+            <strong>2027:</strong> Zoning finalization & livelihood programs
+          </div>
+          <div class="timeline-phase">
+            <strong>2028:</strong> Full implementation & monitoring systems
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Mangrove Restoration</span>
+          <span class="project-tag">Ecosystem-based</span>
+          <span class="project-tag">Climate Adaptation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Southern Region Projects -->
+  <div class="district-section">
+    <h2>🌊 Southern Tanzania (Kilwa & Songea)</h2>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-status">🟡 Planned</span>
+        <h3>Kilwa Artisanal Fisheries & Islands MSP</h3>
+        <div class="project-location">Kilwa District, Lindi Region</div>
+        <div class="project-timeline">Launch: Q2 2026 | Duration: 3 years</div>
+      </div>
+      <div class="project-body">
+        <div class="project-description">
+          Unique island-based MSP managing artisanal fisheries in archipelago setting with historical and cultural significance. Will integrate heritage conservation with sustainable fisheries.
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Distinguishing Features</div>
+          <div class="project-section-content">
+            <ul>
+              <li>7 major islands with unique ecosystems & fishing traditions</li>
+              <li>UNESCO World Heritage site integration (Kilwa Kisiwani)</li>
+              <li>Traditional fishing methods preservation with sustainability</li>
+              <li>Marine archaeology protection in designated conservation zones</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Expected Outputs</div>
+          <div class="project-section-content">
+            <ul>
+              <li>3,500 ha fishing zones mapped by ecosystem</li>
+              <li>1,200+ fishers in sustainable practice agreements</li>
+              <li>Heritage tourism: 2 archaeological sites with visitor facilities</li>
+              <li>Baseline: 280+ fishery-dependent households</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Heritage Conservation</span>
+          <span class="project-tag">Island-based MSP</span>
+          <span class="project-tag">Archaeological Protection</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Northern Region Expansion -->
+  <div class="district-section">
+    <h2>🌊 Northern Tanzania (Expansion)</h2>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-status">🟡 Planned</span>
+        <h3>Tanga Region-Wide MSP Coordination</h3>
+        <div class="project-location">All coastal districts in Tanga Region</div>
+        <div class="project-timeline">Launch: Q1 2027 | Duration: 5 years</div>
+      </div>
+      <div class="project-body">
+        <div class="project-description">
+          Regional-level coordination framework integrating existing district MSPs into coherent region strategy. Will address transboundary fisheries management and regional economies of scale.
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Regional Integration Goals</div>
+          <div class="project-section-content">
+            <ul>
+              <li>Standardized zoning framework across 4 coastal districts</li>
+              <li>Joint monitoring system & surveillance network</li>
+              <li>Regional fisheries data hub & information system</li>
+              <li>Transboundary agreements with Kenya for shared stocks</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Phasing Approach</div>
+          <div class="timeline-phase">
+            <strong>Phase 1 (2027):</strong> Regional coordination framework & harmonization
+          </div>
+          <div class="timeline-phase">
+            <strong>Phase 2 (2027-2028):</strong> Joint systems implementation
+          </div>
+          <div class="timeline-phase">
+            <strong>Phase 3 (2028+):</strong> Scaling to other regions
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Regional Coordination</span>
+          <span class="project-tag">Transboundary</span>
+          <span class="project-tag">Integration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blue Economy Focus -->
+  <div class="district-section">
+    <h2>🌊 Blue Economy Integration</h2>
+
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-status">🟡 Planned</span>
+        <h3>Tanzanian Blue Economy MSP Integration</h3>
+        <div class="project-location">Multi-district (Dar, Tanga, Zanzibar, Mtwara)</div>
+        <div class="project-timeline">Launch: Q3 2027 | Duration: Ongoing framework</div>
+      </div>
+      <div class="project-body">
+        <div class="project-description">
+          Cross-cutting initiative integrating blue economy sectors (aquaculture, shipping, renewable energy, oil/gas) with MSP. Will create framework for sustainable ocean economy while protecting ecosystems.
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Blue Economy Sectors</div>
+          <div class="project-section-content">
+            <ul>
+              <li>Aquaculture: 2,000+ ha designated for sustainable farming (fish & seaweed)</li>
+              <li>Shipping: Port development integrated with fisheries protection</li>
+              <li>Renewable Energy: Wave/tidal energy zones away from sensitive habitats</li>
+              <li>Oil & Gas: Production zones with strict environmental compliance</li>
+              <li>Tourism: 50+ sustainable ecotourism enterprises by 2028</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="project-section">
+          <div class="project-section-title">Expected Economic Impact</div>
+          <div class="project-section-content">
+            $500M+ annual blue economy value with 15,000+ jobs created while maintaining ecological integrity
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span class="project-tag">Blue Economy</span>
+          <span class="project-tag">Multi-sector</span>
+          <span class="project-tag">Economic Development</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Planning Priorities -->
+  <div class="district-section">
+    <h2>📋 Planning Priorities & Dependencies</h2>
+    
+    <div class="project-section">
+      <div class="project-section-title">Critical Success Factors</div>
+      <div class="project-section-content">
+        <ul>
+          <li><strong>Funding Mobilization:</strong> $4.2M target from GEF-7, bilateral donors (Norway, Germany, Japan)</li>
+          <li><strong>Government Commitment:</strong> District council endorsements and resource allocation</li>
+          <li><strong>Community Readiness:</strong> Build on momentum from ongoing initiatives</li>
+          <li><strong>Capacity Development:</strong> 200+ additional staff trained in MSP planning & implementation</li>
+          <li><strong>Data Infrastructure:</strong> Complete national marine data system by Q4 2026</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="project-section">
+      <div class="project-section-title">Key Dependencies</div>
+      <div class="project-section-content">
+        <ul>
+          <li>National MSP Policy finalization (expected Q4 2025)</li>
+          <li>Completion of marine spatial data atlas (Q2 2026)</li>
+          <li>Government funding allocations in district budgets</li>
+          <li>Successful ongoing initiative performance & learning documentation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+```
+
+
+
+
+
+

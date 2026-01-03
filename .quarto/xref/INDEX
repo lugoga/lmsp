@@ -1,0 +1,128 @@
+{
+  "about.qmd": {
+    "about.html": "fef54724"
+  },
+  "index.qmd": {
+    "index.html": "6269a315"
+  },
+  "faq.qmd": {
+    "faq.html": "af74095b"
+  },
+  "polls.qmd": {
+    "polls.html": "6fb81fb8"
+  },
+  "news.qmd": {
+    "news.html": "78ddd053"
+  },
+  "contact.qmd": {
+    "contact.html": "78649489"
+  },
+  "guidelines.qmd": {
+    "guidelines.html": "8463ff46"
+  },
+  "partners.qmd": {
+    "partners.html": "86952035"
+  },
+  "resources.qmd": {
+    "resources.html": "76573dda"
+  },
+  "admin/data.qmd": {
+    "data.html": "d97b4e61"
+  },
+  "admin/deliverables.qmd": {
+    "deliverables.html": "641f4246"
+  },
+  "admin/timeline.qmd": {
+    "timeline.html": "dc5d99f4"
+  },
+  "admin.qmd": {
+    "admin.html": "12b7bbbe"
+  },
+  "login.qmd": {
+    "login.html": "12428fca"
+  },
+  "lmsp-data.qmd": {
+    "lmsp-data.html": "154950b2"
+  },
+  "lmsp-initiatives.qmd": {
+    "lmsp-initiatives.html": "ed4f5771"
+  },
+  "lmsp-link.qmd": {
+    "lmsp-link.html": "b9dd2cab"
+  },
+  "admin/lmsp-data.qmd": {
+    "lmsp-data.html": "adc2a944"
+  },
+  "team.qmd": {
+    "team.html": "dea686ac"
+  },
+  "contacts.qmd": {
+    "contacts.html": "45b0db85"
+  },
+  "weather.qmd": {
+    "weather.html": "5b880ffc"
+  },
+  "admin/schedule.qmd": {
+    "schedule.html": "797f5bcf"
+  },
+  "admin/scope.qmd": {
+    "scope.html": "8fa6afd6"
+  },
+  "admin/team.qmd": {
+    "team.html": "22095e4d"
+  },
+  "admin/reports.qmd": {
+    "reports.html": "d7f30585"
+  },
+  "admin/inception.qmd": {
+    "inception.html": "792d61a4"
+  },
+  "admin/cost-benefit-analysis.qmd": {
+    "cost-benefit-analysis.html": "8698b1ec"
+  },
+  "admin/data-collection-maps.qmd": {
+    "data-collection-maps.html": "7302b23e"
+  },
+  "admin/digital-visualization-tool.qmd": {
+    "digital-visualization-tool.html": "33f5cfc3"
+  },
+  "admin/economic-valuation.qmd": {
+    "economic-valuation.html": "a9d391a2"
+  },
+  "admin/field-data-collection.qmd": {
+    "field-data-collection.html": "b25c7e9d"
+  },
+  "blog.qmd": {
+    "blog.html": "4f6b6398"
+  },
+  "posts/finding_unique_land_cover_patterns/index.qmd": {
+    "index.html": "548a6813"
+  },
+  "posts/lulc_change/index.qmd": {
+    "index.html": "1048e698"
+  },
+  "posts/lulc_pattern/index.qmd": {
+    "index.html": "42675413"
+  },
+  "lmsp_completed.qmd": {
+    "lmsp_completed.html": "c06c57df"
+  },
+  "lmsp_ongoing.qmd": {
+    "lmsp_ongoing.html": "488a7931"
+  },
+  "lmsp_planned.qmd": {
+    "lmsp_planned.html": "151a566d"
+  },
+  "case_studies.qmd": {
+    "case_studies.html": "d42ddd37"
+  },
+  "lmplementation_guide.qmd": {
+    "lmplementation_guide.html": "1c8e8d2a"
+  },
+  "pubs.qmd": {
+    "pubs.html": "42f2e519"
+  },
+  "lmsp-why.qmd": {
+    "lmsp-why.html": "3938cde4"
+  }
+}
