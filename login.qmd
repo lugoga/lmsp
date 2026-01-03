@@ -1,5 +1,6 @@
 ---
 title: "Admin Login"
+comments: false
 ---
 
 ```{=html}
@@ -14,10 +15,10 @@ title: "Admin Login"
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7aa8d8 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
 .login-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); max-width: 900px; width: 100%; }
 .login-info { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); padding: 60px 40px; color: white; display: flex; flex-direction: column; justify-content: center; }
-.login-info h2 { font-size: 32px; margin-bottom: 20px; font-weight: 700; }
-.login-info p { font-size: 16px; line-height: 1.8; margin-bottom: 15px; opacity: 0.95; }
+.login-info h2 { font-size: 32px; margin-bottom: 20px; font-weight: 700; color: white; }
+.login-info p { font-size: 16px; line-height: 1.8; margin-bottom: 15px; opacity: 0.95; color: white; }
 .login-info ul { margin-top: 20px; padding-left: 0; list-style: none; }
-.login-info li { margin-bottom: 12px; font-size: 14px; display: flex; align-items: center; }
+.login-info li { margin-bottom: 12px; font-size: 14px; display: flex; align-items: center; color: white; }
 .login-info li:before { content: "✓"; margin-right: 12px; font-weight: bold; font-size: 16px; }
 .login-container { background: white; padding: 50px 40px; display: flex; flex-direction: column; justify-content: center; }
 .login-header { margin-bottom: 35px; }
@@ -85,13 +86,13 @@ button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42, 82, 
 <button type="submit">Sign In</button>
 </form>
 
-<div class="demo-credentials">
+<!-- <div class="demo-credentials">
 <strong>Demo Credentials:</strong>
 <div><strong>Super Admin (Full Access):</strong> admin / lmsp2026</div>
 <div><strong>Limited Access:</strong> director / lmsp2026</div>
 <div><strong>Limited Access:</strong> coordinator / team2026</div>
 <div><strong>Limited Access:</strong> user / password123</div>
-</div>
+</div> -->
 
 <div class="back-link">
 <a href="index.qmd">← Back to Home</a>

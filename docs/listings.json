@@ -2,6 +2,13 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/posts/data_monitoring_research/index.html",
+      "/posts/community_governance_management/index.html",
+      "/posts/climate_resilience_adaptation/index.html",
+      "/posts/women_empowerment_gender/index.html",
+      "/posts/blue_economy_opportunities/index.html",
+      "/posts/sustainable_fishing_practices/index.html",
+      "/posts/local_marine_spatial_planning/index.html",
       "/posts/lulc_change/index.html",
       "/posts/lulc_pattern/index.html",
       "/posts/finding_unique_land_cover_patterns/index.html"

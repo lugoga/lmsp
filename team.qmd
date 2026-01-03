@@ -1,8 +1,6 @@
 ---
-title: ""
+title: "Meet Our Team"
 ---
-
-## Meet Our Team
 
 The LMSP-Tanzania team brings together diverse expertise in marine spatial planning, data management, policy development, and coastal governance.
 

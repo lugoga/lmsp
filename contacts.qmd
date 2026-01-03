@@ -278,6 +278,7 @@ subtitle: "Get in Touch with LMSP-Tanzania"
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .social-link:hover {

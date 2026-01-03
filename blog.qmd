@@ -8,6 +8,7 @@ listing:
   categories: true
   sort-ui: true
   filter-ui: true
+  max-items: 20
 page-layout: full
 ---
 
@@ -86,11 +87,32 @@ page-layout: full
     <p>Welcome to the LMSP Blog! Here you'll find compelling stories, practical insights, and the latest news from our Local Marine Spatial Planning initiatives in Tanzania and across the Western Indian Ocean Region. Explore success stories from communities, learn about lessons from the field, discover research findings, and stay updated on upcoming events and opportunities.</p>
   </div>
 
+  <div class="category-filter-ui">
+    <h4>Filter by Category:</h4>
+    <div id="categoryTags" class="category-tags">
+      <!-- Categories will be populated by JavaScript -->
+    </div>
+  </div>
+
   <div class="post-list">
 ```
 
   </div>
 </div>
+
+<!-- Hidden post links for archive discovery -->
+```{=html}
+<div style="display: none;" id="post-links-container">
+```
+
+  - [Finding Unique Land Cover Patterns](/posts/finding_unique_land_cover_patterns/)
+  - [LULC Pattern Analysis](/posts/lulc_pattern/)
+  - [LULC Change Detection](/posts/lulc_change/)
+  - [Continuous Raster Comparison](/posts/continuous_raster_comparison/)
+  - [Ecosystem Health Indicators](/posts/ecosystem_health_indicators/)
+  - [Monitoring Ecosystem Change](/posts/monitoring_ecosystem_change/)
+  - [Spatial Ecosystem Motifs](/posts/spatial_ecosystem_motifs/)
+
 ```{=html}
 </div>
 ```

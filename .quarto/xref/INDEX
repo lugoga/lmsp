@@ -124,5 +124,29 @@
   },
   "lmsp-why.qmd": {
     "lmsp-why.html": "3938cde4"
+  },
+  "archive.qmd": {
+    "archive.html": "759c1bda"
+  },
+  "posts/local_marine_spatial_planning/index.qmd": {
+    "index.html": "8e4141af"
+  },
+  "posts/blue_economy_opportunities/index.qmd": {
+    "index.html": "23f355b6"
+  },
+  "posts/sustainable_fishing_practices/index.qmd": {
+    "index.html": "9bcc63a1"
+  },
+  "posts/climate_resilience_adaptation/index.qmd": {
+    "index.html": "092503d5"
+  },
+  "posts/community_governance_management/index.qmd": {
+    "index.html": "5778eb6a"
+  },
+  "posts/women_empowerment_gender/index.qmd": {
+    "index.html": "b55ba2a4"
+  },
+  "posts/data_monitoring_research/index.qmd": {
+    "index.html": "e9eea074"
   }
 }

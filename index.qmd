@@ -1,8 +1,7 @@
 ---
-title: ""
+title: "Local Marine Spatial Planning "
 ---
 
-## Local Marine Spatial Planning (LMSP) - Tanzania
 
 **Local Marine Spatial Planning (LMSP): Enhancing community stewardship in spatial planning**
 
@@ -44,12 +43,48 @@ Be the key source for data, information, and best practices on MSP in Tanzania a
 
 ---
 
+## Project Impact
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-3}
+::: {.stats-card}
+### 25+
+Active Initiatives
+:::
+:::
+
+::: {.g-col-12 .g-col-md-3}
+::: {.stats-card}
+### 12
+Team Members
+:::
+:::
+
+::: {.g-col-12 .g-col-md-3}
+::: {.stats-card}
+### 500+
+Community Partners
+:::
+:::
+
+::: {.g-col-12 .g-col-md-3}
+::: {.stats-card}
+### 7
+Marine Zones
+:::
+:::
+
+:::
+
+---
+
 ## Key Resources
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-### 📖 [Why LMSP Matters](lmsp-link.qmd)
+### 📖 [Why LMSP Matters](lmsp-why.qmd)
 Understand the importance of Local Marine Spatial Planning and how it connects to national MSP frameworks and Western Indian Ocean initiatives.
 :::
 
