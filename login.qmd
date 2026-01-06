@@ -1,6 +1,7 @@
 ---
-title: "Admin Login"
-comments: false
+title: ""
+toc: false
+sidebar: false
 ---
 
 ```{=html}
@@ -47,7 +48,7 @@ button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(42, 82, 
 <body>
 <div class="login-wrapper">
 <div class="login-info">
-<h2>Welcome to LMSP-Tanzania</h2>
+<h2 style="color: white;">Welcome to LMSP-Tanzania</h2>
 <p>Access the Admin Portal for the Ad Hoc Group of Experts on Local Marine Spatial Planning</p>
 <ul>
 <li>Manage project timeline and milestones</li>

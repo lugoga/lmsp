@@ -2,6 +2,7 @@ project:
   type: website
   resources:
     - data_shared/*.csv
+    - images/gallery/
   output-dir: docs
   render:
     - "*.qmd"
