@@ -148,5 +148,14 @@
   },
   "posts/data_monitoring_research/index.qmd": {
     "index.html": "e9eea074"
+  },
+  "admin/admin.qmd": {
+    "admin.html": "c0f1b2ee"
+  },
+  "posts/fisheries_mkuranga/index.qmd": {
+    "index.html": "0c7d113f"
+  },
+  "data-explorer.qmd": {
+    "data-explorer.html": "47bd0c5c"
   }
 }

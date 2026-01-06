@@ -15,7 +15,8 @@ let dataItems = [
     progress: 65,
     createdDate: "2026-01-10",
     member: "John Mwase",
-    description: "Annual fisheries production data including species catch volumes and economic value"
+    description: "Annual fisheries production data including species catch volumes and economic value",
+    file: null
   },
   {
     id: 2,
@@ -26,7 +27,8 @@ let dataItems = [
     progress: 100,
     createdDate: "2025-12-15",
     member: "Sarah Banda",
-    description: "Spatial boundaries and regulations for protected marine zones"
+    description: "Spatial boundaries and regulations for protected marine zones",
+    file: null
   },
   {
     id: 3,
@@ -37,9 +39,13 @@ let dataItems = [
     progress: 0,
     createdDate: "2026-01-08",
     member: "Peter Chimwanda",
-    description: "Community perception and socioeconomic survey responses"
+    description: "Community perception and socioeconomic survey responses",
+    file: null
   }
 ];
+
+// Global file storage
+window.uploadedFiles = {};
 
 // Check authentication
 function checkAuth() {
@@ -57,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   renderDataList();
   loadDataFromStorage();
+  setupFileUploadHandlers();
 });
 
 // Load data from localStorage
@@ -84,6 +91,10 @@ function renderDataList() {
     const statusText = item.status === 'completed' ? 'Completed' : 
                       item.status === 'in-progress' ? 'In Progress' : 'Not Started';
     
+    const fileBadge = item.file && window.uploadedFiles[item.file] 
+      ? `<span style="background: #2a5298; color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600; margin-left: 10px;">📎 ${window.uploadedFiles[item.file].name}</span>`
+      : '';
+    
     const card = document.createElement('div');
     card.className = 'data-card';
     card.innerHTML = `
@@ -102,6 +113,15 @@ function renderDataList() {
         <div class="description-info">
           <strong>Description:</strong> <span>${item.description || 'No description'}</span>
         </div>
+        ${item.file && window.uploadedFiles[item.file] ? `
+        <div style="margin-top: 12px; padding: 10px; background: #e3f2fd; border-radius: 6px;">
+          <strong style="color: #1976d2;">📎 Attached File:</strong>
+          <div style="margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap;">
+            <span style="color: #1e3c72; font-weight: 600;">${window.uploadedFiles[item.file].name}</span>
+            <button type="button" class="btn-view-file" onclick="viewAttachedFile('${item.file}')">View Data</button>
+          </div>
+        </div>
+        ` : ''}
       </div>
       
       <div class="progress-section">
@@ -121,6 +141,17 @@ function renderDataList() {
     `;
     container.appendChild(card);
   });
+}
+
+// View attached file from data card
+function viewAttachedFile(fileId) {
+  if (!window.uploadedFiles[fileId]) {
+    alert('File not found');
+    return;
+  }
+  
+  window.currentFileData = window.uploadedFiles[fileId];
+  viewFileContent();
 }
 
 // Open edit modal
@@ -145,9 +176,11 @@ function openEditModal(id) {
 // Open new data form
 function openNewDataForm() {
   window.currentEditItem = null;
+  window.currentFileData = null;
   document.getElementById('modalTitle').textContent = 'Add New Data';
   document.getElementById('editForm').reset();
   document.getElementById('progressValue').textContent = '0%';
+  removeFileUpload();
   document.getElementById('editModal').style.display = 'block';
 }
 
@@ -180,11 +213,27 @@ function saveDataItem() {
     window.currentEditItem.progress = progress;
     window.currentEditItem.member = member;
     window.currentEditItem.description = description;
+    
+    // Add file if uploaded
+    if (window.currentFileData) {
+      const fileId = 'file_' + window.currentEditItem.id + '_' + Date.now();
+      window.uploadedFiles[fileId] = window.currentFileData;
+      window.currentEditItem.file = fileId;
+    }
+    
     showMessage('Data updated successfully!', 'success');
   } else {
     // Create new
     const newId = Math.max(...dataItems.map(d => d.id), 0) + 1;
     const today = new Date().toISOString().split('T')[0];
+    
+    let fileRef = null;
+    if (window.currentFileData) {
+      const fileId = 'file_' + newId + '_' + Date.now();
+      window.uploadedFiles[fileId] = window.currentFileData;
+      fileRef = fileId;
+    }
+    
     dataItems.push({
       id: newId,
       name,
@@ -194,7 +243,8 @@ function saveDataItem() {
       progress,
       member,
       description,
-      createdDate: today
+      createdDate: today,
+      file: fileRef
     });
     showMessage('Data added successfully!', 'success');
   }
@@ -218,6 +268,8 @@ function deleteDataItem(id) {
 function closeModal() {
   document.getElementById('editModal').style.display = 'none';
   window.currentEditItem = null;
+  window.currentFileData = null;
+  removeFileUpload();
 }
 
 function showMessage(msg, type) {
@@ -232,6 +284,277 @@ function showMessage(msg, type) {
 window.onclick = function(e) {
   const modal = document.getElementById('editModal');
   if (e.target === modal) closeModal();
+}
+
+// File Upload Handlers
+function setupFileUploadHandlers() {
+  const fileUploadArea = document.getElementById('fileUploadArea');
+  const fileInput = document.getElementById('fileUpload');
+  
+  if (!fileUploadArea || !fileInput) return;
+  
+  // Click to upload
+  fileUploadArea.addEventListener('click', () => fileInput.click());
+  
+  // Drag and drop
+  fileUploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    fileUploadArea.classList.add('drag-over');
+  });
+  
+  fileUploadArea.addEventListener('dragleave', () => {
+    fileUploadArea.classList.remove('drag-over');
+  });
+  
+  fileUploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    fileUploadArea.classList.remove('drag-over');
+    
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      handleFileUpload(files[0]);
+    }
+  });
+  
+  // File input change
+  fileInput.addEventListener('change', (e) => {
+    if (e.target.files.length > 0) {
+      handleFileUpload(e.target.files[0]);
+    }
+  });
+}
+
+function handleFileUpload(file) {
+  const validTypes = ['text/csv', 'application/json', 'application/octet-stream', 'image/tiff'];
+  const validExtensions = ['.csv', '.json', '.geojson', '.gpkg', '.tif', '.tiff'];
+  
+  const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+  
+  if (!validExtensions.includes(fileExtension)) {
+    alert('Invalid file type. Please upload CSV, GeoJSON, Geopackage (GPKG), or TIFF files.');
+    return;
+  }
+  
+  const reader = new FileReader();
+  
+  reader.onload = (e) => {
+    try {
+      const isBinary = fileExtension === '.gpkg' || fileExtension === '.tif' || fileExtension === '.tiff';
+      const fileData = {
+        name: file.name,
+        size: file.size,
+        type: file.type,
+        extension: fileExtension,
+        content: isBinary ? null : e.target.result,
+        uploadDate: new Date().toLocaleString(),
+        isBinary: isBinary,
+        file: file
+      };
+      
+      // Store file data
+      window.currentFileData = fileData;
+      
+      // Display preview
+      displayFilePreview(fileData);
+    } catch (error) {
+      alert('Error reading file: ' + error.message);
+    }
+  };
+  
+  reader.onerror = () => {
+    alert('Error reading file');
+  };
+  
+  // Read as text for text-based files, as binary for raster/database files
+  if (fileExtension === '.gpkg' || fileExtension === '.tif' || fileExtension === '.tiff') {
+    reader.readAsArrayBuffer(file);
+  } else {
+    reader.readAsText(file);
+  }
+}
+
+function displayFilePreview(fileData) {
+  const previewContainer = document.getElementById('filePreviewContainer');
+  const fileSize = fileData.size > 1048576 ? (fileData.size / 1048576).toFixed(2) + ' MB' : (fileData.size / 1024).toFixed(2) + ' KB'; // KB or MB
+  
+  let statsHtml = '';
+  if (fileData.extension === '.csv') {
+    const lines = fileData.content.split('\n');
+    const rowCount = lines.filter(line => line.trim()).length - 1; // Subtract header
+    statsHtml = `
+      <div class="file-preview-stat">
+        <strong>Rows:</strong>
+        <span>${rowCount}</span>
+      </div>
+      <div class="file-preview-stat">
+        <strong>Size:</strong>
+        <span>${fileSize}</span>
+      </div>
+    `;
+  } else if (fileData.extension === '.json' || fileData.extension === '.geojson') {
+    const json = JSON.parse(fileData.content);
+    const itemCount = Array.isArray(json) ? json.length : (json.features ? json.features.length : 1);
+    statsHtml = `
+      <div class="file-preview-stat">
+        <strong>Features:</strong>
+        <span>${itemCount}</span>
+      </div>
+      <div class="file-preview-stat">
+        <strong>Size:</strong>
+        <span>${fileSize}</span>
+      </div>
+    `;
+  } else if (fileData.extension === '.gpkg') {
+    statsHtml = `
+      <div class="file-preview-stat">
+        <strong>Type:</strong>
+        <span>Geopackage Database</span>
+      </div>
+      <div class="file-preview-stat">
+        <strong>Size:</strong>
+        <span>${fileSize}</span>
+      </div>
+    `;
+  } else if (fileData.extension === '.tif' || fileData.extension === '.tiff') {
+    statsHtml = `
+      <div class="file-preview-stat">
+        <strong>Type:</strong>
+        <span>Raster Image (GeoTIFF)</span>
+      </div>
+      <div class="file-preview-stat">
+        <strong>Size:</strong>
+        <span>${fileSize}</span>
+      </div>
+    `;
+  }
+  
+  previewContainer.innerHTML = `
+    <div class="file-preview">
+      <div class="file-preview-info">
+        <div class="file-preview-name">📄 ${escapeHtml(fileData.name)}</div>
+        <div class="file-preview-stats">
+          ${statsHtml}
+        </div>
+      </div>
+      <div class="file-preview-actions">
+        <button type="button" class="btn-view-file" onclick="viewFileContent()">👁️ View</button>
+        <button type="button" class="btn-remove-file" onclick="removeFileUpload()">🗑️ Remove</button>
+      </div>
+    </div>
+  `;
+  
+  previewContainer.style.display = 'block';
+}
+
+function viewFileContent() {
+  if (!window.currentFileData) return;
+  
+  const fileData = window.currentFileData;
+  
+  // Handle binary files
+  if (fileData.isBinary) {
+    if (fileData.extension === '.gpkg') {
+      alert('🗂️ Geopackage Database\n\nFile: ' + fileData.name + '\n\nSize: ' + (fileData.size / 1024).toFixed(2) + ' KB\n\nNote: Geopackage files contain vector and/or raster data stored in a SQLite database. To view the contents, use specialized GIS software like QGIS, ArcGIS, or similar tools.');
+    } else if (fileData.extension === '.tif' || fileData.extension === '.tiff') {
+      alert('🖼️ GeoTIFF Raster Image\n\nFile: ' + fileData.name + '\n\nSize: ' + (fileData.size / 1024).toFixed(2) + ' KB\n\nNote: This is a geospatial raster image. To visualize it, use GIS software like QGIS, ArcGIS, GDAL, or web-based viewers that support GeoTIFF format.');
+    }
+    return;
+  }
+  
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.top = '0';
+  overlay.style.left = '0';
+  overlay.style.width = '100%';
+  overlay.style.height = '100%';
+  overlay.style.background = 'rgba(0,0,0,0.6)';
+  overlay.style.zIndex = '2999';
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+  overlay.style.backdropFilter = 'blur(2px)';
+  overlay.id = 'fileViewerOverlay';
+  
+  let contentHtml = '';
+  
+  if (fileData.extension === '.csv') {
+    const lines = fileData.content.split('\n');
+    const headers = lines[0].split(',').map(h => h.trim());
+    
+    contentHtml = `
+      <div class="file-viewer-modal">
+        <button class="close-btn" onclick="closeFileViewer()">&times;</button>
+        <h3>📄 ${escapeHtml(fileData.name)}</h3>
+        <div class="file-table-container">
+          <table>
+            <thead>
+              <tr>
+                ${headers.map(h => `<th>${escapeHtml(h)}</th>`).join('')}
+              </tr>
+            </thead>
+            <tbody>
+              ${lines.slice(1, 20).map(line => {
+                if (!line.trim()) return '';
+                const cells = line.split(',').map(c => c.trim());
+                return `<tr>${cells.map(c => `<td>${escapeHtml(c)}</td>`).join('')}</tr>`;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+        ${lines.length > 21 ? `<p style="text-align: center; color: #999; margin-top: 15px;">Showing first 19 rows of ${lines.length - 1} total rows</p>` : ''}
+      </div>
+    `;
+  } else if (fileData.extension === '.json' || fileData.extension === '.geojson') {
+    try {
+      const json = JSON.parse(fileData.content);
+      const prettyJson = JSON.stringify(json, null, 2).substring(0, 3000);
+      
+      contentHtml = `
+        <div class="file-viewer-modal">
+          <button class="close-btn" onclick="closeFileViewer()">&times;</button>
+          <h3>📋 ${escapeHtml(fileData.name)}</h3>
+          <div class="json-viewer">${escapeHtml(prettyJson)}</div>
+          ${JSON.stringify(json).length > 3000 ? '<p style="color: #999; margin-top: 10px;">... (truncated)</p>' : ''}
+        </div>
+      `;
+    } catch {
+      contentHtml = `
+        <div class="file-viewer-modal">
+          <button class="close-btn" onclick="closeFileViewer()">&times;</button>
+          <h3>📋 ${escapeHtml(fileData.name)}</h3>
+          <p>Error parsing JSON file</p>
+        </div>
+      `;
+    }
+  }
+  
+  overlay.innerHTML = contentHtml;
+  document.body.appendChild(overlay);
+  
+  // Close on overlay click
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeFileViewer();
+  });
+}
+
+function closeFileViewer() {
+  const overlay = document.getElementById('fileViewerOverlay');
+  if (overlay) overlay.remove();
+}
+
+function removeFileUpload() {
+  window.currentFileData = null;
+  document.getElementById('fileUpload').value = '';
+  document.getElementById('filePreviewContainer').style.display = 'none';
+  document.getElementById('filePreviewContainer').innerHTML = '';
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
 }
 </script>
 
@@ -737,6 +1060,249 @@ window.onclick = function(e) {
   }
 }
 
+/* File Upload Styles */
+.file-upload-area {
+  border: 3px dashed #2a5298;
+  border-radius: 10px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4f8 100%);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.file-upload-area:hover {
+  border-color: #4caf50;
+  background: linear-gradient(135deg, #f0f8f5 0%, #e8f5f1 100%);
+  transform: scale(1.02);
+}
+
+.file-upload-area.drag-over {
+  border-color: #4caf50;
+  background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.file-upload-placeholder {
+  pointer-events: none;
+}
+
+.upload-icon {
+  font-size: 2.5em;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.file-upload-placeholder p {
+  margin: 10px 0;
+  color: #2a5298;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.file-upload-placeholder small {
+  display: block;
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+.file-preview {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.file-preview-info {
+  flex: 1;
+  text-align: left;
+}
+
+.file-preview-name {
+  font-weight: 700;
+  color: #1e3c72;
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+
+.file-preview-stats {
+  font-size: 0.9em;
+  color: #666;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.file-preview-stat {
+  display: flex;
+  justify-content: space-between;
+}
+
+.file-preview-stat strong {
+  color: #2a5298;
+  margin-right: 5px;
+}
+
+.file-preview-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-view-file {
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9em;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.btn-view-file:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(42, 82, 152, 0.3);
+}
+
+.btn-remove-file {
+  background: #f44336;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.btn-remove-file:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+
+/* File Viewer Modal */
+.file-viewer-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 12px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow: auto;
+  z-index: 3000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+
+.file-viewer-modal h3 {
+  margin-top: 0;
+  color: #1e3c72;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.file-viewer-modal .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.file-table-container {
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.file-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+.file-table-container th {
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.file-table-container td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.file-table-container tr:hover {
+  background: #f9f9f9;
+}
+
+.json-viewer {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  font-family: monospace;
+  font-size: 0.9em;
+  overflow-x: auto;
+  max-height: 500px;
+}
+
+.json-key {
+  color: #2a5298;
+  font-weight: 600;
+}
+
+.json-string {
+  color: #4caf50;
+}
+
+.json-number {
+  color: #f44336;
+}
+
+@media (max-width: 768px) {
+  .file-upload-area {
+    padding: 20px;
+  }
+  
+  .file-preview {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .file-preview-actions {
+    width: 100%;
+  }
+  
+  .btn-view-file,
+  .btn-remove-file {
+    flex: 1;
+  }
+  
+  .file-viewer-modal {
+    max-width: 95vw;
+    max-height: 85vh;
+    padding: 20px;
+  }
+}
+
 @media (max-width: 1024px) {
   .data-container {
     padding: 24px;
@@ -876,6 +1442,19 @@ window.onclick = function(e) {
                  onchange="updateProgressDisplay(this.value)" 
                  oninput="updateProgressDisplay(this.value)">
           <span id="progressValue">0%</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="fileUpload">Upload File (CSV, GeoJSON, GPKG, TIFF): <span style="color: red;">*</span></label>
+        <div class="file-upload-area" id="fileUploadArea">
+          <input type="file" id="fileUpload" accept=".csv,.json,.geojson,.gpkg,.tif,.tiff" style="display: none;">
+          <div class="file-upload-placeholder">
+            <span class="upload-icon">📁</span>
+            <p>Drag & drop your file here or click to browse</p>
+            <small>Supported: CSV, GeoJSON, Geopackage (GPKG), TIFF</small>
+          </div>
+          <div id="filePreviewContainer" style="display: none; margin-top: 15px;"></div>
         </div>
       </div>
       

@@ -1,11 +1,40 @@
 ---
-title: "Local Marine Spatial Planning "
+title: "Local Marine Spatial Planning in Tanzania"
+toc: false
 ---
 
+```{=html}
+<!-- <div id="animated-hero" class="hero-section">
+  <div class="hero-background"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Local Marine Spatial Planning</h1>
+    <p class="hero-subtitle">Enhancing community stewardship in spatial planning</p>
+    <div class="hero-buttons">
+      <a href="#content" class="btn btn-secondary btn-lg">Learn More</a>
+      <a href="#objective" class="btn btn-secondary btn-lg">Our Objectives</a>
+      <a href="#content" class="btn btn-secondary btn-lg">abc</a>
+      <a href="#objective" class="btn btn-secondary btn-lg">cbd</a>
+    </div>
+  </div>
+</div> -->
 
-**Local Marine Spatial Planning (LMSP): Enhancing community stewardship in spatial planning**
 
-This website is the hub for Local Marine Spatial Planning (LMSP) initiatives in Tanzania and the Western Indian Ocean. We are an Ad Hoc Group of Experts dedicated to promoting evidence-based, community-centered marine spatial planning across the country.
+
+
+
+```
+
+::: {#content}
+
+Our ocean is more than water—it's a source of life, sustenance, and opportunity for millions of coastal communities. Yet without thoughtful planning, we risk losing its treasures to competing interests and unsustainable practices. That's where **Local Marine Spatial Planning (LMSP)** comes in.
+
+We are a collective of passionate experts, researchers, and community leaders working across Tanzania and the Western Indian Ocean to transform how we manage our marine resources. Through evidence-based planning, genuine community engagement, and collaborative governance, we're proving that thriving ecosystems and thriving communities can—and must—go hand in hand.
+
+This isn't just another planning initiative. It's a movement toward **ocean stewardship rooted in local knowledge, scientific rigor, and equitable decision-making**. Every initiative we support, every dataset we share, and every partnership we build is a step toward a sustainable future for our seas and the people who depend on them.
+
+
+:::
 
 :::{.callout-important}
 **Mission:** To be the leading source and advocate for Local Marine Spatial Planning in Tanzania, strengthening community stewardship and sustainable ocean governance across the WIO region.
@@ -13,9 +42,12 @@ This website is the hub for Local Marine Spatial Planning (LMSP) initiatives in 
 
 ---
 
+::: {#objective}
 ## Our Objectives
 
 The LMSP-Tanzania website serves four core objectives:
+
+:::
 
 ::: {.grid}
 

@@ -19,86 +19,47 @@ project:
     - "!mapping.qmd"
 
 website:
+  open-graph: true
+  cookie-consent: true
+  page-navigation: true
+  back-to-top-navigation: true
+  reader-mode: true
   title: ""
   navbar:
     logo: images/msp_logo.png
-    logo-alt: "LMSP-Tanzania Logo"
+    logo-alt: "LMSP Tanzania Logo"
     background: primary
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-        text: About
-      - href: lmsp-why.qmd
-        text: Why LMSP
-      # - href: lmsp-initiatives.qmd
-      #   text: Initiatives0
-      - text: LMSP Initiatives
+      - text: Why LMSP
+        menu:
+          - href: about.qmd
+            text: About LMSP
+          - href: lmsp-why.qmd
+            text: Why LMSP
+      - text: Initiatives
         menu:
           - text: Ongoing
             href: lmsp_ongoing.qmd
-            target: "_blank"
           - text: Planned
             href: lmsp_planned.qmd
-            target: "_blank"
           - text: Completed
             href: lmsp_completed.qmd
-            target: "_blank"
-      - href: blog.qmd
-        text: Blog
-      - text: Resource
+      - text: Community
         menu:
-          - text: Implementation Guide
-            href: lmplementation_guide.qmd
-            target: "_blank"
-          - text: Book and Articles
-            href: pubs.qmd
-            target: "_blank"
-          - text: Case Studies
-            href: case_studies.qmd
-            target: "_blank"
-      # - href: resources.qmd
-      #   text: Resources1
-      # - text: Resources2
-      #   menu:
-      #     - text: "WIO Region MSP Resources"
-      #       href: https://www.wiomsa.org/
-      #       target: "_blank"
-      #     - text: "UNEP-CEP Caribbean MSP Guide"
-      #       href: https://www.unep.org/
-      #       target: "_blank"
-      #     - text: "Tanga Coastal Zone Conservation Project"
-      #       href: https://www.tczcp.go.tz/
-      #       target: "_blank"
-      #     - text: "---"
-      #     - text: "Global MSP Resources"
-      #       href: https://www.mspglobal2030.org/
-      #       target: "_blank"
-      #     - text: "UN MSP Learning Portal"
-      #       href: https://www.un.org/regularprocess/
-      #       target: "_blank"
-      #     - text: "IOC-UNESCO MSP Resources"
-      #       href: https://www.iocunesco.org/
-      #       target: "_blank"
-      #     - text: "---"
-      #     - text: "Data & Tools"
-      #       href: https://www.gebco.net/
-      #       target: "_blank"
-      #     - text: "Global Fishing Watch"
-      #       href: https://www.globalfishingwatch.org/
-      #       target: "_blank"
-      #     - text: "Marine Regions Gazetteer"
-      #       href: https://www.marineregions.org/
-      #       target: "_blank"
-      - href: team.qmd
-        text: Team
-      - href: contacts.qmd
-        text: Contacts
+          - text: Team
+            href: team.qmd
+          - text: Partners
+            href: partners.qmd
+          - text: Contact Us
+            href: contacts.qmd
       - href: admin.qmd
         text: Admin
     right:
-      - href: archive.qmd
-        text: Archive
+      - href: https://semba.shinyapps.io/vizingaApp/
+        text: WebAPP
+        target: "_blank"
       - icon: github
         href: https://github.com/lugoga/lmsp
         target: "_blank"
@@ -106,43 +67,86 @@ website:
         href: https://www.linkedin.com/in/masumbuko-semba-20936a4b/
         target: "_blank"
       - icon: youtube
-        # text: YouTube
         href: https://www.youtube.com/channel/UC9uZ1KPyo7zIzI4BnUtHPfA
         target: "_blank"
-      # - icon: eye
-      #   # text: BES
-      #   href: https://semba.shinyapps.io/besa/
-      #   target: "_blank"
-      # - icon: binoculars
-      #   # text: Cages
-      #   href: https://semba.shinyapps.io/vizingaApp/
-      #   target: "_blank"
-      # - icon: sun
-      #   # text: KWALA
-      #   href: https://semba.shinyapps.io/digital/
-      #   target: "_blank"
-      # - icon: email
-      #   href: mailto:lugosemba@gmail.com
-      #   target: "_blank"
   sidebar:
-    - title: "Navigation"
+      style: "floating"
+      collapse-level: 1
       contents:
         - href: index.qmd
           text: Home
-        # - href: about.qmd
-        #   text: LMSP
-        # - href: news.qmd
-        #   text: Latest Updates
-        - href: faq.qmd
-          text: "FAQs"
-        - href: polls.qmd
-          text: "Polls"
-        # - href: resources.qmd
-        #   text: "Data"
-        # - href: guidelines.qmd
-        #   text: "Guidelines"
-        - href: partners.qmd
-          text: "Network"
+        - href: about.qmd
+          text: About LMSP
+        - section: "Learning"
+          contents:
+            - href: blog.qmd
+              text: Blog
+            - href: case_studies.qmd
+              text: Case Studies
+            - href: pubs.qmd
+              text: Publications
+            - text: Books & Articles
+              href: pubs.qmd
+        - section: "Engage"
+          contents:
+            - href: team.qmd
+              text: Our Team
+            - href: partners.qmd
+              text: Network
+            - href: contacts.qmd
+              text: Contact Us
+        - section: "Resources"
+          contents:
+            - href: faq.qmd
+              text: "FAQs"
+            - href: guidelines.qmd
+              text: "Guidelines"
+            - href: polls.qmd
+              text: "Polls"
+            - href: archive.qmd
+              text: "Archive"
+        - section: "Tools"
+          contents:
+            - href: https://semba.shinyapps.io/besa/
+              text: BESA
+              target: "_blank"
+            - href: https://semba.shinyapps.io/digital/
+              text: KWALA
+              target: "_blank"
+            - href: https://semba.shinyapps.io/vizingaApp/
+              text: MARINE
+              target: "_blank"
+        - section: "MSP Links"
+          contents:
+            - text: "WIO Region MSP Resources"
+              href: https://www.wiomsa.org/
+              target: "_blank"
+            - text: "UNEP-CEP Caribbean MSP Guide"
+              href: https://www.unep.org/
+              target: "_blank"
+            - text: "Tanga Coastal Zone Conservation Project"
+              href: https://www.tczcp.go.tz/
+              target: "_blank"
+            - text: "---"
+            - text: "Global MSP Resources"
+              href: https://www.mspglobal2030.org/
+              target: "_blank"
+            - text: "UN MSP Learning Portal"
+              href: https://www.un.org/regularprocess/
+              target: "_blank"
+            - text: "IOC-UNESCO MSP Resources"
+              href: https://www.iocunesco.org/
+              target: "_blank"
+            - text: "---"
+            - text: "Data & Tools"
+              href: https://www.gebco.net/
+              target: "_blank"
+            - text: "Global Fishing Watch"
+              href: https://www.globalfishingwatch.org/
+              target: "_blank"
+            - text: "Marine Regions Gazetteer"
+              href: https://www.marineregions.org/
+              target: "_blank"
     
       
       footer: |
@@ -154,9 +158,11 @@ website:
           ![](images/udsm.png){width=50px style="margin: 10px 5px;"}           
           ![](images/nmaist.jpg){width=40px style="margin: 10px 5px;"} 
           ![](images/tnc.svg){width=150px style="margin: 10px 5px;"}
+          ![](images/wiomsa.png){width=150px style="margin: 10px 5px;"}
         </div> 
 
   page-footer:
+    background: light
     left: |
       **QUICK LINKS**
       
@@ -214,6 +220,7 @@ format:
     toc: true
     toc-depth: 2
     toc-location: right
+    toc-title: "On this page"
     code-fold: true
     code-tools: false
     highlight-style: atom-one
@@ -225,143 +232,6 @@ format:
         <button class="scroll-to-top" id="scrollToTopBtn" onclick="scrollToTop()">↑</button>
         <script>
           const scrollBtn = document.getElementById('scrollToTopBtn');
-          
-          // Translation dictionary
-          const translations = {
-            en: {
-              'nav.home': 'Home',
-              'nav.about': 'About',
-              'nav.why_lmsp': 'Why LMSP',
-              'nav.initiatives': 'LMSP Initiatives',
-              'nav.ongoing': 'Ongoing',
-              'nav.planned': 'Planned',
-              'nav.completed': 'Completed',
-              'nav.blog': 'Blog',
-              'nav.resources': 'Resource',
-              'nav.implementation_guide': 'Implementation Guide',
-              'nav.books_articles': 'Book and Articles',
-              'nav.case_studies': 'Case Studies',
-              'nav.team': 'Team',
-              'nav.contacts': 'Contacts',
-              'nav.admin': 'Admin',
-              'nav.archive': 'Archive',
-              'ui.comments_title': 'Comments & Discussion',
-              'ui.comments_info': 'Join the conversation! Share your thoughts and feedback below.',
-              'ui.name': 'Name',
-              'ui.email': 'Email',
-              'ui.comment': 'Comment',
-              'ui.post_comment': 'Post Comment',
-              'ui.no_comments': 'No comments yet. Be the first to share your thoughts!',
-              'footer.quick_links': 'QUICK LINKS',
-              'footer.contact_us': 'Contact Us',
-              'footer.tools': 'Tools',
-              'lang.name': 'English'
-            },
-            sw: {
-              'nav.home': 'Nyumbani',
-              'nav.about': 'Kuhusu',
-              'nav.why_lmsp': 'Kwa Nini LMSP',
-              'nav.initiatives': 'Mpango wa LMSP',
-              'nav.ongoing': 'Inaendelea',
-              'nav.planned': 'Iliyopangwa',
-              'nav.completed': 'Imekamilika',
-              'nav.blog': 'Blogi',
-              'nav.resources': 'Rasilimali',
-              'nav.implementation_guide': 'Mwongozo wa Utekelezaji',
-              'nav.books_articles': 'Vitabu na Makala',
-              'nav.case_studies': 'Masomo ya Kesi',
-              'nav.team': 'Timu',
-              'nav.contacts': 'Wasiliani',
-              'nav.admin': 'Msimamizi',
-              'nav.archive': 'Hifadhi',
-              'ui.comments_title': 'Maoni & Mijadala',
-              'ui.comments_info': 'Jiunge na mazungumzo! Shiriki mawazo yako na maoni hapa chini.',
-              'ui.name': 'Jina',
-              'ui.email': 'Barua pepe',
-              'ui.comment': 'Maoni',
-              'ui.post_comment': 'Chapisha Maoni',
-              'ui.no_comments': 'Hakuna maoni bado. Kuwa wa kwanza kugawana mawazo yako!',
-              'footer.quick_links': 'VIUNGO VYA HARAKA',
-              'footer.contact_us': 'Wasiliana Nasi',
-              'footer.tools': 'Zana',
-              'lang.name': 'Kiswahili'
-            }
-          };
-          
-          // Simple language switcher
-          function initLanguageSwitcher() {
-            const currentLang = localStorage.getItem('lmsp_language') || 'en';
-            
-            // Create switcher HTML
-            const switcherHTML = `
-              <div id="lang-switcher" style="display: inline-block; margin-left: 10px;">
-                <button id="lang-btn" style="background: none; border: none; color: white; cursor: pointer; font-size: 16px; padding: 5px 10px;">
-                  🌐 <span id="lang-text">${translations[currentLang]['lang.name']}</span>
-                </button>
-                <div id="lang-menu" style="position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ddd; border-radius: 4px; min-width: 150px; display: none; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                  <button class="lang-opt" data-lang="en" style="width: 100%; padding: 10px; border: none; background: none; text-align: left; cursor: pointer; font-size: 14px;">🇬🇧 English</button>
-                  <button class="lang-opt" data-lang="sw" style="width: 100%; padding: 10px; border: none; background: none; text-align: left; cursor: pointer; font-size: 14px;">🇹🇿 Kiswahili</button>
-                </div>
-              </div>
-            `;
-            
-            // Find navbar and insert switcher
-            setTimeout(() => {
-              const navbar = document.querySelector('.navbar') || document.querySelector('nav');
-              if (navbar) {
-                const navRight = navbar.querySelector('.navbar-nav') || navbar;
-                if (navRight) {
-                  navRight.insertAdjacentHTML('beforeend', switcherHTML);
-                  setupLanguageSwitcherEvents();
-                }
-              }
-            }, 500);
-          }
-          
-          function setupLanguageSwitcherEvents() {
-            const btn = document.getElementById('lang-btn');
-            const menu = document.getElementById('lang-menu');
-            const options = document.querySelectorAll('.lang-opt');
-            
-            if (!btn || !menu) return;
-            
-            btn.addEventListener('click', (e) => {
-              e.stopPropagation();
-              menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-            });
-            
-            options.forEach(opt => {
-              opt.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const lang = opt.getAttribute('data-lang');
-                changeLanguage(lang);
-                menu.style.display = 'none';
-              });
-            });
-            
-            document.addEventListener('click', () => {
-              menu.style.display = 'none';
-            });
-          }
-          
-          function changeLanguage(lang) {
-            localStorage.setItem('lmsp_language', lang);
-            document.documentElement.lang = lang;
-            
-            // Update all elements with data-i18n
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-              const key = el.getAttribute('data-i18n');
-              if (translations[lang] && translations[lang][key]) {
-                el.textContent = translations[lang][key];
-              }
-            });
-            
-            // Update language indicator
-            const langText = document.getElementById('lang-text');
-            if (langText) {
-              langText.textContent = translations[lang]['lang.name'];
-            }
-          }
           
           // Show/hide scroll button based on scroll position
           window.addEventListener('scroll', () => {
@@ -380,7 +250,7 @@ format:
             });
           }
           
-          // Alternative: keyboard shortcut (Press Home key to go to top)
+          // Keyboard shortcut (Home key to go to top)
           document.addEventListener('keydown', (e) => {
             if (e.key === 'Home') {
               e.preventDefault();
@@ -388,319 +258,51 @@ format:
             }
           });
           
-          // TOC Collapse Feature
+          // Collapsible Sidebar Sections
           document.addEventListener('DOMContentLoaded', function() {
-            const tocTitle = document.getElementById('toc-title');
-            const tocContainer = document.querySelector('nav#TOC');
-            const tocList = document.querySelector('nav#TOC > ul');
-            
-            if (tocTitle && tocList && tocContainer) {
-              // Create toggle button
-              const toggleBtn = document.createElement('button');
-              toggleBtn.className = 'toc-toggle-btn';
-              toggleBtn.innerHTML = '📖';
-              toggleBtn.setAttribute('aria-label', 'Toggle table of contents');
-              toggleBtn.setAttribute('title', 'Collapse table of contents');
+            setTimeout(function() {
+              const sidebar = document.querySelector('.sidebar');
+              if (!sidebar) return;
               
-              // Insert button next to title
-              tocTitle.parentNode.insertBefore(toggleBtn, tocTitle.nextSibling);
+              const sectionHeaders = sidebar.querySelectorAll('strong');
               
-              // Load saved state from localStorage
-              const savedState = localStorage.getItem('toc-collapsed');
-              if (savedState === 'true') {
-                tocList.classList.add('toc-collapsed');
-                toggleBtn.innerHTML = '📕';
-                toggleBtn.setAttribute('title', 'Expand table of contents');
-              }
-              
-              // Toggle functionality
-              toggleBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                tocList.classList.toggle('toc-collapsed');
-                const isCollapsed = tocList.classList.contains('toc-collapsed');
-                toggleBtn.innerHTML = isCollapsed ? '📕' : '📖';
-                toggleBtn.setAttribute('title', isCollapsed ? 'Expand table of contents' : 'Collapse table of contents');
-                localStorage.setItem('toc-collapsed', isCollapsed);
-              });
-            }
-          });
-          
-          // Blog Category Filter
-          document.addEventListener('DOMContentLoaded', function() {
-            const categoryContainer = document.getElementById('categoryTags');
-            if (!categoryContainer) return;
-            
-            // Collect all categories from post metadata
-            const categories = new Set();
-            const postItems = document.querySelectorAll('.quarto-grid-item');
-            
-            postItems.forEach(item => {
-              const categoryElements = item.querySelectorAll('.listing-category');
-              categoryElements.forEach(cat => {
-                if (cat.textContent.trim()) {
-                  categories.add(cat.textContent.trim());
-                }
-              });
-            });
-            
-            // Create filter tags
-            const categoriesArray = Array.from(categories).sort();
-            
-            // Add "All" button
-            const allTag = document.createElement('button');
-            allTag.className = 'category-tag active';
-            allTag.textContent = 'All Posts';
-            allTag.setAttribute('data-category', 'all');
-            categoryContainer.appendChild(allTag);
-            
-            // Add category tags
-            categoriesArray.forEach(cat => {
-              const tag = document.createElement('button');
-              tag.className = 'category-tag';
-              tag.textContent = cat;
-              tag.setAttribute('data-category', cat);
-              categoryContainer.appendChild(tag);
-            });
-            
-            // Filter functionality
-            categoryContainer.addEventListener('click', function(e) {
-              if (!e.target.classList.contains('category-tag')) return;
-              
-              const selectedCategory = e.target.getAttribute('data-category');
-              
-              // Update active state
-              document.querySelectorAll('.category-tag').forEach(tag => {
-                tag.classList.remove('active');
-              });
-              e.target.classList.add('active');
-              
-              // Filter posts
-              postItems.forEach(item => {
-                if (selectedCategory === 'all') {
-                  item.style.display = '';
-                } else {
-                  const itemCategories = Array.from(item.querySelectorAll('.listing-category'))
-                    .map(cat => cat.textContent.trim());
-                  
-                  if (itemCategories.includes(selectedCategory)) {
-                    item.style.display = '';
-                  } else {
-                    item.style.display = 'none';
-                  }
-                }
-              });
-            });
-          });
-          
-          // Comments Section - Custom Form
-          document.addEventListener('DOMContentLoaded', function() {
-            // Check if comments are disabled on this page
-            const isCommentsDisabled = document.querySelector('meta[name="comments"]')?.getAttribute('content') === 'false' ||
-                                       document.body.classList.contains('no-comments');
-            
-            if (isCommentsDisabled) return; // Skip adding comments if disabled
-            
-            const mainContent = document.querySelector('main') || document.querySelector('.quarto-page-body');
-            
-            if (mainContent) {
-              // Create comments container
-              const commentsSection = document.createElement('section');
-              commentsSection.className = 'comments-section';
-              commentsSection.innerHTML = `
-                <div class="comments-wrapper">
-                  <h2>Comments & Discussion</h2>
-                  <p class="comments-info">Join the conversation! Share your thoughts and feedback below.</p>
-                  
-                  <div class="comment-form">
-                    <form id="commentForm">
-                      <div class="form-group">
-                        <label for="commentName">Name *</label>
-                        <input type="text" id="commentName" name="name" required>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label for="commentEmail">Email *</label>
-                        <input type="email" id="commentEmail" name="email" required>
-                      </div>
-                      
-                      <div class="form-group">
-                        <label for="commentText">Comment *</label>
-                        <textarea id="commentText" name="comment" rows="5" required></textarea>
-                      </div>
-                      
-                      <button type="submit" class="btn btn-primary">Post Comment</button>
-                    </form>
-                  </div>
-                  
-                  <div id="commentsDisplay" class="comments-display">
-                    <p class="no-comments">No comments yet. Be the first to share your thoughts!</p>
-                  </div>
-                </div>
-              `;
-              
-              // Append to end of main content
-              mainContent.appendChild(commentsSection);
-              
-              // Load comments from localStorage
-              loadComments();
-              
-              // Handle form submission
-              document.getElementById('commentForm').addEventListener('submit', function(e) {
-                e.preventDefault();
+              sectionHeaders.forEach((header, index) => {
+                if (index === 0) return; // Skip main title
                 
-                const name = document.getElementById('commentName').value;
-                const email = document.getElementById('commentEmail').value;
-                const text = document.getElementById('commentText').value;
+                const headerText = header.textContent.trim();
+                const clickableHeader = document.createElement('div');
+                clickableHeader.className = 'sidebar-section-header';
+                clickableHeader.style.cursor = 'pointer';
+                clickableHeader.innerHTML = headerText + ' <span class="sidebar-toggle">▼</span>';
                 
-                if (name && email && text) {
-                  const comment = {
-                    name: name,
-                    email: email,
-                    text: text,
-                    date: new Date().toLocaleString(),
-                    id: Date.now()
-                  };
-                  
-                  // Save comment to localStorage
-                  let comments = JSON.parse(localStorage.getItem('pageComments') || '[]');
-                  comments.push(comment);
-                  localStorage.setItem('pageComments', JSON.stringify(comments));
-                  
-                  // Clear form
-                  this.reset();
-                  
-                  // Reload comments display
-                  loadComments();
+                const contentContainer = document.createElement('div');
+                contentContainer.className = 'sidebar-section-content collapsed';
+                
+                let element = header.nextElementSibling;
+                while (element && element.tagName !== 'STRONG') {
+                  const next = element.nextElementSibling;
+                  contentContainer.appendChild(element);
+                  element = next;
                 }
+                
+                const sectionKey = 'sidebar-section-' + headerText.replace(/\s+/g, '-').toLowerCase();
+                contentContainer.classList.add('collapsed');
+                clickableHeader.classList.add('collapsed');
+                
+                header.replaceWith(clickableHeader);
+                clickableHeader.parentNode.insertBefore(contentContainer, clickableHeader.nextSibling);
+                
+                clickableHeader.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  contentContainer.classList.toggle('collapsed');
+                  clickableHeader.classList.toggle('collapsed');
+                  localStorage.setItem(sectionKey, contentContainer.classList.contains('collapsed'));
+                });
               });
-              
-              function loadComments() {
-                const comments = JSON.parse(localStorage.getItem('pageComments') || '[]');
-                const display = document.getElementById('commentsDisplay');
-                
-                if (comments.length === 0) {
-                  display.innerHTML = '<p class="no-comments">No comments yet. Be the first to share your thoughts!</p>';
-                } else {
-                  display.innerHTML = comments.map(c => `
-                    <div class="comment-item">
-                      <div class="comment-header">
-                        <strong>${escapeHtml(c.name)}</strong>
-                        <span class="comment-date">${c.date}</span>
-                      </div>
-                      <p class="comment-text">${escapeHtml(c.text).replace(/\n/g, '<br>')}</p>
-                    </div>
-                  `).join('');
-                }
-              }
-              
-              function escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-              }
-            }
+            }, 500);
           });
-          
-          // Statistics Cards - Count Up Animation
-          document.addEventListener('DOMContentLoaded', function() {
-            const statCards = document.querySelectorAll('.stats-card h3');
-            const animationDuration = 10000; // 10 seconds in milliseconds
-            const updateInterval = 33; // Update every 33ms for smooth animation
-            const totalFrames = Math.floor(animationDuration / updateInterval);
-            
-            statCards.forEach(card => {
-              const finalValue = parseInt(card.textContent);
-              if (!isNaN(finalValue)) {
-                let currentFrame = 0;
-                
-                const counter = setInterval(() => {
-                  currentFrame++;
-                  // Easing: linear progress from 0 to finalValue over 10 seconds
-                  const currentValue = Math.floor((currentFrame / totalFrames) * finalValue);
-                  
-                  if (currentFrame >= totalFrames) {
-                    card.textContent = finalValue + '+';
-                    clearInterval(counter);
-                  } else {
-                    card.textContent = currentValue + '+';
-                  }
-                }, updateInterval);
-              }
-            });
-          });
-          
-          // Reading Time Estimate
-          document.addEventListener('DOMContentLoaded', function() {
-            const article = document.querySelector('main') || document.querySelector('.quarto-page-body');
-            
-            if (article) {
-              // Get text content from article
-              const text = article.innerText;
-              
-              // Calculate word count
-              const wordCount = text.trim().split(/\s+/).length;
-              
-              // Average reading speed: 200 words per minute
-              const readingSpeed = 200;
-              const readingTime = Math.ceil(wordCount / readingSpeed);
-              
-              // Only show if there's substantial content (>100 words)
-              if (wordCount > 100) {
-                // Create reading time badge
-                const readingTimeBadge = document.createElement('div');
-                readingTimeBadge.className = 'reading-time-badge';
-                readingTimeBadge.innerHTML = `
-                  <span class="reading-time-icon">⏱️</span>
-                  <span class="reading-time-text">${readingTime} min read</span>
-                `;
-                
-                // Insert after page title
-                const pageTitle = document.querySelector('h1');
-                if (pageTitle && pageTitle.parentNode) {
-                  pageTitle.parentNode.insertBefore(readingTimeBadge, pageTitle.nextSibling);
-                }
-              }
-              
-              // Create share buttons
-              const pageTitle = document.querySelector('h1');
-              const pageUrl = window.location.href;
-              const pageText = pageTitle ? pageTitle.textContent : document.title;
-              
-              const shareButtons = document.createElement('div');
-              shareButtons.className = 'share-buttons';
-              shareButtons.innerHTML = `
-                <span class="share-label">Share:</span>
-                <a href="https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(pageText)}" 
-                   class="share-btn share-twitter" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   title="Share on Twitter">
-                  𝕏
-                </a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}" 
-                   class="share-btn share-linkedin" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   title="Share on LinkedIn">
-                  in
-                </a>
-                <a href="mailto:?subject=${encodeURIComponent(pageText)}&body=${encodeURIComponent(pageUrl)}" 
-                   class="share-btn share-email" 
-                   title="Share via Email">
-                  ✉️
-                </a>
-              `;
-              
-              if (pageTitle && pageTitle.parentNode) {
-                pageTitle.parentNode.insertBefore(shareButtons, pageTitle.nextSibling.nextSibling);
-              }
-            }
-          });
-        </script>
-
-
-
-
+        
 # bibliography: references.bib
 execute: 
   freeze: auto

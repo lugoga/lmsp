@@ -1,0 +1,89 @@
+<script>
+// Post Navigation System
+(function() {
+  'use strict';
+  
+  // Only run on blog post pages
+  const pathname = window.location.pathname;
+  if (!pathname.includes('/posts/')) return;
+  
+  // Wait for page to load
+  function initPostNav() {
+    const mainContent = document.querySelector('main') || document.querySelector('article');
+    if (!mainContent) {
+      setTimeout(initPostNav, 100);
+      return;
+    }
+
+    // List of all posts - update this list manually or fetch from search.json
+    const allPosts = [
+      { title: "Blue Economy Opportunities: Beyond Traditional Fishing in Mkuranga and Mkoani", href: "/posts/blue_economy_opportunities/" },
+      { title: "Climate Resilience and Adaptation Strategies", href: "/posts/climate_resilience_adaptation/" },
+      { title: "Community Governance and Management", href: "/posts/community_governance_management/" },
+      { title: "Data Monitoring and Research", href: "/posts/data_monitoring_research/" },
+      { title: "Ecosystem Health Indicators", href: "/posts/ecosystem_health_indicators/" },
+      { title: "Finding Unique Land Cover Patterns", href: "/posts/finding_unique_land_cover_patterns/" },
+      { title: "Local Marine Spatial Planning", href: "/posts/local_marine_spatial_planning/" },
+      { title: "LULC Change Detection", href: "/posts/lulc_change/" },
+      { title: "LULC Pattern Analysis", href: "/posts/lulc_pattern/" },
+      { title: "Monitoring Ecosystem Change", href: "/posts/monitoring_ecosystem_change/" },
+      { title: "Sustainable Fishing Practices", href: "/posts/sustainable_fishing_practices/" },
+      { title: "Women's Empowerment and Gender Justice in Marine Resource Management", href: "/posts/women_empowerment_gender/" }
+    ];
+
+    // Find current post
+    let currentIndex = -1;
+    for (let i = 0; i < allPosts.length; i++) {
+      if (pathname.includes(allPosts[i].href.replace(/\/$/, ''))) {
+        currentIndex = i;
+        break;
+      }
+    }
+
+    if (currentIndex === -1) return;
+
+    const previousPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+    const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+
+    // Create navigation
+    const navHTML = `
+      <div class="post-navigation">
+        <div class="nav-header">More Posts</div>
+        <div class="nav-container">
+          ${previousPost ? `
+            <a href="${previousPost.href}" class="nav-post nav-previous">
+              <span class="nav-label">← Previous Post</span>
+              <span class="nav-title">${previousPost.title}</span>
+            </a>
+          ` : '<div class="nav-post nav-empty"></div>'}
+          
+          ${nextPost ? `
+            <a href="${nextPost.href}" class="nav-post nav-next">
+              <span class="nav-label">Next Post →</span>
+              <span class="nav-title">${nextPost.title}</span>
+            </a>
+          ` : '<div class="nav-post nav-empty"></div>'}
+        </div>
+      </div>
+    `;
+
+    // Insert before comments or at end
+    const commentsSection = document.querySelector('.comments-section');
+    const navElement = document.createElement('div');
+    navElement.innerHTML = navHTML;
+
+    if (commentsSection) {
+      commentsSection.parentNode.insertBefore(navElement, commentsSection);
+    } else {
+      mainContent.appendChild(navElement);
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPostNav);
+  } else {
+    initPostNav();
+  }
+})();
+</script>

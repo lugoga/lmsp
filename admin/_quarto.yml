@@ -1,0 +1,13 @@
+project:
+  type: website
+
+website:
+  sidebar: false
+
+format:
+  html:
+    theme: cosmo
+    css: ../styles.css
+    toc: true
+    toc-depth: 2
+    toc-location: right

@@ -1,6 +1,7 @@
 ---
 title: "About LMSP-Tanzania"
 subtitle: "Local Marine Spatial Planning - Ad Hoc Group of Experts"
+toc: true
 ---
 
 ```{=html}
